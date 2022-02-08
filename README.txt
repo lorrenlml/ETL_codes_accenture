@@ -1,6 +1,6 @@
 ## Códigos para procesos ETL del proyecto Zerebro 2022
-
-# QUERIES
+Prueba commit
+# QUERIES 
 
 Los scripts 1 y 2 son procesos Python ad-hoc para transformar scripts sql
 a un formato adaptado al DWH de destino Hive. Los scripts se modifican una vez se

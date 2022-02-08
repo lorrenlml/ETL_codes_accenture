@@ -55,7 +55,7 @@ df_nombres = ['nombre_interfaz', 'operacion', 'error']
 #Creacion lista/registro 
 df_resultado = []
 #Registro extendido
-df_resultado_2 = []
+#df_resultado_2 = []
 error = 'NO'
 #, "20191" HA SIDO QUITADA DE LA LISTA POR OUT OF MEMORY
 interfases_list = ["10002", "10003", "10026", "10029", "10030", "10031", "10308", "20265", "20275", "20277", 
@@ -171,10 +171,10 @@ for interfase in interfases_list:
                 #En caso de no existir el CREATE, guardar el log del error
                 except Exception as e:
                     error = str(e)
-                    resultado = (interfase, "*", "No hay CREATE EXTERNAL para esta interfase", "KO", error)
-                    resultado_2 = (interfase, "*", "No hay CREATE EXTERNAL para esta interfase", "KO", error) 
+                    resultado = (interfase, "*", "No hay CREATE EXTERNAL para esta interface", "KO", error)
+                    #resultado_2 = (interfase, "*", "No hay CREATE EXTERNAL para esta interfase", "KO", error) 
                     df_resultado.append(resultado)
-                    df_resultado_2.append(resultado_2)
+                    #df_resultado_2.append(resultado_2)
                     break
 
             else:
@@ -210,17 +210,17 @@ for interfase in interfases_list:
                 #Error por defecto en caso de que no haya problemas en la ejecución
                 error = "OK"
                 resultado = (interfase, "*","CREATE EXTERNAL", error, "No hay error") 
-                resultado_2 = (interfase, "*","CREATE EXTERNAL", error, "No hay error")
+                #resultado_2 = (interfase, "*","CREATE EXTERNAL", error, "No hay error")
                 df_resultado.append(resultado)
-                df_resultado_2.append(resultado_2)
+                #df_resultado_2.append(resultado_2)
                 
                 
             except Exception as e:
                 error = str(e)
                 resultado = (interfase, "*","CREATE EXTERNAL", "KO", error) 
-                resultado_2 = (interfase, "*","CREATE EXTERNAL", "KO", error)
+                #resultado_2 = (interfase, "*","CREATE EXTERNAL", "KO", error)
                 df_resultado.append(resultado)
-                df_resultado_2.append(resultado_2)
+                #df_resultado_2.append(resultado_2)
                 pass
             
             #Ejecucion del alter table 
@@ -253,17 +253,17 @@ LOCATION 's3a://bucket-wz-aw-dev-euc-external-l0/DM/{num_interfase}/dat_exec_yea
                         error = 'OK'
                         print("ALTER EXITOSO")
                         resultado = (interfase, date_part, "ALTER TABLE", error, "No hay error")
-                        resultado_2 = (interfase, date_part, "ALTER TABLE", error, "Comprobacion con SELECT satisfactoria")
+                        #resultado_2 = (interfase, date_part, "ALTER TABLE", error, "Comprobacion con SELECT satisfactoria")
                         df_resultado.append(resultado)
-                        df_resultado_2.append(resultado_2)
+                        #df_resultado_2.append(resultado_2)
                     else:
                         print("ALTER FAILED")
                         #error = "Coge mal exec_date porque coge letras/signos en vez de numeros debido a que el nombre del fichero origen tiene formato no deseado"
                         error = "Datos no cargados en tabla, fichero vacio"
                         resultado = (interfase, date_part, "ALTER TABLE", "KO", error)
-                        resultado_2 = (interfase, date_part, "ALTER TABLE", "KO", error)
+                        #resultado_2 = (interfase, date_part, "ALTER TABLE", "KO", error)
                         df_resultado.append(resultado)
-                        df_resultado_2.append(resultado_2)
+                        #df_resultado_2.append(resultado_2)
                     
                     #error = "OK"
                     #resultado = (interfase, "ALTER TABLE", error, "No hay error")
@@ -275,18 +275,18 @@ LOCATION 's3a://bucket-wz-aw-dev-euc-external-l0/DM/{num_interfase}/dat_exec_yea
                     #resultado_2 = (interfase, "ALTER TABLE {}".format(date_part), "KO", e)
 ############################################################################################################## HACER SEGUNDO REPORT CON ERROR EXTENDIDO
                     resultado = (interfase, date_part, "ALTER TABLE", "KO", error)
-                    resultado_2 = (interfase, date_part, "ALTER TABLE", "KO", error_2)
+                    #resultado_2 = (interfase, date_part, "ALTER TABLE", "KO", error_2)
                     df_resultado.append(resultado)
-                    df_resultado_2.append(resultado_2)
+                    #df_resultado_2.append(resultado_2)
                     pass
     
     except Exception as e:
         error_2 = str(e)
         error = "Lista de fechas vacia"
         resultado = (interfase, "*", "No hay ficheros de datos en origen para esta interface", "KO", error) 
-        resultado_2 = (interfase, "*", "No hay ficheros de datos en origen para esta interface", "KO", error_2)
+        #resultado_2 = (interfase, "*", "No hay ficheros de datos en origen para esta interface", "KO", error_2)
         df_resultado.append(resultado)
-        df_resultado_2.append(resultado_2)
+        #df_resultado_2.append(resultado_2)
         pass
 
     print(interfase + " EJECUTADA CON EXITO")
@@ -312,23 +312,23 @@ rdd = spark.sparkContext.parallelize(df_resultado)
 df = spark.createDataFrame(rdd,schema)
 
 
-df.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_EXTERNAL_3")
+df.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_EXTERNAL")
 
 #ERROR EXTENDIDO 
 # Create a schema for the dataframe
-schema_2 = StructType([
-    StructField('nombre_interfaz', StringType(), True),
-    StructField('partition', StringType(), True),
-    StructField('operacion', StringType(), True),
-    StructField('OK/KO', StringType(), True),
-    StructField('error', StringType(), True)
-])
+#schema_2 = StructType([
+#    StructField('nombre_interfaz', StringType(), True),
+#    StructField('partition', StringType(), True),
+#    StructField('operacion', StringType(), True),
+#    StructField('OK/KO', StringType(), True),
+#    StructField('error', StringType(), True)
+#])
 
 # Convert list to RDD
-rdd_2 = spark.sparkContext.parallelize(df_resultado_2)
+#rdd_2 = spark.sparkContext.parallelize(df_resultado_2)
 
 # Create data frame
-df_2 = spark.createDataFrame(rdd_2,schema_2)
+#df_2 = spark.createDataFrame(rdd_2,schema_2)
 
 
-df_2.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_EXTERNAL_4")
+#df_2.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_EXTERNAL_4")
