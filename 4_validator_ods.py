@@ -47,7 +47,7 @@ passed_gbr_ext = ["10002", "10003", "20386", "20387", "20388", "21059", "21351",
 
 schema_prueba = "zerebro_gbr_ods"
 schema_prueba_ext = "zerebro_gbr"
-spark.sql("drop database {} cascade".format(schema_prueba))
+#spark.sql("drop database {} cascade".format(schema_prueba))
 #SOLO PARA PRUEBAS ESTOS ESQUEMAS
 spark.sql("create database if not exists {}".format(schema_prueba))
 
