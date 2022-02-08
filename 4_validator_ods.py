@@ -241,26 +241,29 @@ for interfase in passed_gbr_ext:
 
                             year = date_part[:4]
                             month = date_part[4:6]
-                            day = date_part[6:8]   
+                            day = date_part[6:8]  
+                            #Variable provisional con el insert para luego poder volver a introducir los datos buscados en el insert original, 
+                            #ya que si no tendrian siempre las variables de la primera fecha/particion 
+                            insert_prov = inserts[k]
 
                             #Insercion de los campos que nos interesan, ya que en el insert vienen por defecto como variables a introducir
-                            inserts[k] = inserts[k].replace("'${Vinsert_DATE}'", "'{}' as insert_date".format(insert_date))
+                            insert_prov = insert_prov.replace("'${Vinsert_DATE}'", "'{}' as insert_date".format(insert_date))
                             if latest == 1:
-                                inserts[k] = inserts[k].replace("'${VSNAPSHOT}'", "'LATEST'")
+                                insert_prov = insert_prov.replace("'${VSNAPSHOT}'", "'LATEST'")
                             else:
-                                inserts[k] = inserts[k].replace("'${VSNAPSHOT}'", "'HISTORIC'")
-                            inserts[k] = inserts[k].replace("'${VODATE}'", "{}".format(date_part))
-                            inserts[k] = inserts[k].replace("'${VCOUNTRY}'", "'{}'".format(country))
+                                insert_prov = insert_prov.replace("'${VSNAPSHOT}'", "'HISTORIC'")
+                            insert_prov = insert_prov.replace("'${VODATE}'", "{}".format(date_part))
+                            insert_prov = insert_prov.replace("'${VCOUNTRY}'", "'{}'".format(country))
 
-                            if "${VODATE_YYYY}" in inserts[k]: 
-                                inserts[k] = inserts[k].replace('${VODATE_YYYY}', year)
-                                inserts[k] = inserts[k].replace('${VODATE_MM}', month)
-                                inserts[k] = inserts[k].replace('${VODATE_DD}', day)
+                            if "${VODATE_YYYY}" in insert_prov: 
+                                insert_prov = insert_prov.replace('${VODATE_YYYY}', year)
+                                insert_prov = insert_prov.replace('${VODATE_MM}', month)
+                                insert_prov = insert_prov.replace('${VODATE_DD}', day)
 
                             #Ejecucion de la querie desde hive, ya que con spark daba problemas el insert
                             #El problema era debido al cast que hay que hacer a la hora de hacer el insert y que no tenemos
                             #Este cast lo hace hive por defecto y por eso recurrimos a lanzar la querie desde aqui
-                            os.system('hive -e "{}" -hiveconf hive.execution.engine=tez hive.exec.dynamic.partition=false'.format(inserts[k]))
+                            os.system('hive -e "{}" -hiveconf hive.execution.engine=tez hive.exec.dynamic.partition=false'.format(insert_prov))
                             
                             select = spark.sql("SELECT insert_date from {}.ods_{} where exec_date = {} limit 1".format(schema_prueba, interfase, date_part)).take(1)
                             #print("Este es el output", select)
