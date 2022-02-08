@@ -72,12 +72,13 @@ interfases_list = ["10002", "10003", "10026", "10029", "10030", "10031", "10308"
 "50368", "50369", "50370", "50371", "50372", "50373", "50374", "50377", "50379", "50380", "50381", "50382", "50383", 
 "50384", "50390", "50440", "50603"]
 
-passed_gbr_ext = ["10002", "10003", "20386", "20387", "20388", "21059", "21351", "21356", "21710", "21711", "30223", 
+passed_gbr_ext = ["20386", "20387", "20388", "21059", "21351", "21356", "21710", "21711", "30223", 
 "30721", "30722", "30723", "30726", "30727", "30728", "30765", "30767", "30777", "30779", "30781", "30784", "31096", "40049", "40050", 
 "40380", "40382", "40383", "40385", "40387", "41059", "50358", "50359", "50360", "50363", "50364", "50365", "50440"]
 
 #passed_gbr_ext = ["10003"] 
 # Tener en cuenta que se ha quitado esta "20191",
+# Se han quitado estas "10002", "10003", porque ya se habian corrido antes
 schema_prueba = "zerebro_gbr_ods"
 schema_prueba_ext = "zerebro_gbr"
 #spark.sql("drop database {} cascade".format(schema_prueba))
@@ -85,12 +86,13 @@ schema_prueba_ext = "zerebro_gbr"
 spark.sql("create database if not exists {}".format(schema_prueba))
 
 schema_n = StructType([
-    StructField('nombre_interfaz', StringType(), True),
+    StructField('interface', StringType(), True),
     StructField('partition', StringType(), True),
-    StructField('operacion', StringType(), True),
-    StructField('OK/KO', StringType(), True),
+    StructField('operation', StringType(), True),
+    StructField('status', StringType(), True),
     StructField('action_realized', StringType(), True),
-    StructField('error_explication', StringType(), True)
+    StructField('error_explanation', StringType(), True),
+    StructField('date_gbr', StringType(), True)
 ])
 
 
@@ -145,7 +147,7 @@ for interfase in passed_gbr_ext:
                 #df_resultado.append(resultado)
                 #resultado_2 = (interfase, "*","No hay CREATE ODS para esta interface", "KO")
                 #df_resultado_2.append(resultado_2)
-                resultado_n = (interfase, "*","No hay CREATE ODS para esta interface", "KO", "*","*")
+                resultado_n = (interfase, "*","No hay CREATE ODS para esta interface", "KO", "*","*", insert_date)
                 df_resultado_n.append(resultado_n)
                 break
             else: #Si se esta intentando coger otro create y no hay, no pasa nada
@@ -164,7 +166,7 @@ for interfase in passed_gbr_ext:
                     #df_resultado.append(resultado)
                     #resultado_2 = (interfase, "*","CREATE ODS {}".format(k + 1), error)
                     #df_resultado_2.append(resultado_2)
-                    resultado_n = (interfase, "*","CREATE ODS {}".format(k + 1), error, "*","*")
+                    resultado_n = (interfase, "*","CREATE ODS {}".format(k + 1), error, "*","*", insert_date)
                     df_resultado_n.append(resultado_n)
 
 
@@ -174,7 +176,7 @@ for interfase in passed_gbr_ext:
                 #df_resultado.append(resultado)
                 #resultado_2 = (interfase, "*","CREATE ODS", "KO")
                 #df_resultado_2.append(resultado_2)
-                resultado_n = (interfase, "*","CREATE ODS", "KO", error, "*")
+                resultado_n = (interfase, "*","CREATE ODS", "KO", error, "*",insert_date)
                 df_resultado_n.append(resultado_n)
                 pass
 
@@ -256,7 +258,7 @@ for interfase in passed_gbr_ext:
                 if r == 1: #Si se esta cogiendo el primer create habra que generar un reporte de error
                     error = str(e)
 
-                    resultado_n = (interfase, "*","No hay INSERT para esta interface", "KO", "*","*")
+                    resultado_n = (interfase, "*","No hay INSERT para esta interface", "KO", "*","*", insert_date)
                     df_resultado_n.append(resultado_n)
                     break
                 else: #Si se esta intentando coger otro create y no hay, no pasa nada
@@ -313,14 +315,21 @@ for interfase in passed_gbr_ext:
                             if select:
                                 error = 'OK'
                                 print("INSERT {} {}".format(k + 1, date_part) + " EXITOSO")
-                                resultado_n = (interfase, date_part, "INSERT {}".format(k + 1), error, "INSERT EJECUTADO", "SELECT DEVUELVE PARTICION")
+                                resultado_n = (interfase, date_part, "INSERT {}".format(k + 1), "OK", "INSERT EJECUTADO", "SELECT DEVUELVE PARTICION", insert_date)
                                 df_resultado_n.append(resultado_n)
                                 latest += 1
                             else:
                                 error = 'KO'
                                 print("INSERT {} {}".format(k + 1, date_part) + " FALLIDO")
-                                resultado_n = (interfase, date_part, "INSERT {}".format(k + 1), error, "INSERT EJECUTADO", "SELECT NO DEVUELVE NADA INSERT ERRONEO")
+                                resultado_n = (interfase, date_part, "INSERT {}".format(k + 1), "KO", "INSERT EJECUTADO", "SELECT NO DEVUELVE NADA INSERT ERRONEO", insert_date)
                                 df_resultado_n.append(resultado_n)
+                                # Convert list to RDD
+                                rdd_n = spark.sparkContext.parallelize(df_resultado_n)
+
+                                # Create data frame
+                                df_n = spark.createDataFrame(rdd_n,schema_n)
+
+                                df_n.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_ODS/report_ODS_{}".format(interfase))
                                 break
 
                             # Convert list to RDD
@@ -335,7 +344,7 @@ for interfase in passed_gbr_ext:
                 except Exception as e:
                     error = str(e)
                     print(error)
-                    resultado_n = (interfase, date_part,"INSERT", "KO", "INSERT NO EJECUTADO EN HIVE", error)
+                    resultado_n = (interfase, date_part,"INSERT", "KO", "INSERT NO EJECUTADO EN HIVE", error, insert_date)
                     df_resultado_n.append(resultado_n)
                     
                     pass
