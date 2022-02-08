@@ -31,4 +31,5 @@ Para reaprovechar las queries y no tener que modificarlas a SPARK con tipado est
 de los campos, se llama a HIVE. 
 
 # comando python
-# spark-submit validator.py interfase
+# spark-submit validator.py <interfase>
+# nohup spark-submit validator.py <interfase> & //ejecutar en segundo plano
