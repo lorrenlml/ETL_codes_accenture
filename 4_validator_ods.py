@@ -20,47 +20,13 @@ spark = SparkSession.builder \
     .enableHiveSupport() \
     .getOrCreate()
 
-##FORMA MANUAL PASANDO LOS NUMEROS DE INTERFAZ QUE SE QUIEREN VALIDAR 
-## total arguments
-#n = len(sys.argv) - 1
-#print("Total arguments passed:", n)
- 
-# Arguments passed
- 
-#print("\nArguments passed:")
-#for i in range(n):
-#    print(sys.argv[i + 1])
-    
-#interfases_list = []
-#for i in range(n):
-#    interfases_list.append(sys.argv[i + 1])
-
-#print("La lista de interfases a utilizar es la siguiente:")
-#print(interfases_list)
-
 bucket = 'bucket-wz-aw-dev-euc-data-ingestion'
 queries_path = 'validator/queries/'
 
-#FORMA AUTOMATICA
-#result = client.list_objects(Bucket=bucket, Prefix=queries_path, Delimiter='/')
-
-#Creacion lista de interfases/directorios
-#interfases_list = []
-#for o in result.get('CommonPrefixes'):
-#    interfases_list.append(o.get('Prefix').replace(queries_path,"")[:-1])
-
-print("La lista de interfases a utilizar es la siguiente:")
-#print(interfases_list)
-
-#Estructura de la lista/registro de logs
-df_nombres = ['nombre_interfaz', 'operacion', 'error']
 
 #Creacion lista/registro 
-
-#df_resultado = [] #registro más extendido que se genera al final del script
-#df_resultado_2 = [] #registro más breve que se genera al final del script
 df_resultado_n = [] #registro extendido que se genera con cada una de las particiones de las interfaces. Se genera un report para cada interfaz
-error = 'NO'
+
 #TODAS LAS INTERFACES
 interfases_list = ["10002", "10003", "10026", "10029", "10030", "10031", "10308", "20191", "20265", "20275", "20277", 
 "20285", "20386", "20387", "20388", "21059", "21351", "21356", "21710", "21711", "30223", "30307", "30721", "30722", 
@@ -72,17 +38,17 @@ interfases_list = ["10002", "10003", "10026", "10029", "10030", "10031", "10308"
 "50368", "50369", "50370", "50371", "50372", "50373", "50374", "50377", "50379", "50380", "50381", "50382", "50383", 
 "50384", "50390", "50440", "50603"]
 
-passed_gbr_ext = ["20386", "20387", "20388", "21059", "21351", "21356", "21710", "21711", "30223", 
+#INTERFACES QUE HAN PASADO EL VALIDATOR EXTERNAL
+passed_gbr_ext = ["10002", "10003", "20386", "20387", "20388", "21059", "21351", "21356", "21710", "21711", "30223", 
 "30721", "30722", "30723", "30726", "30727", "30728", "30765", "30767", "30777", "30779", "30781", "30784", "31096", "40049", "40050", 
 "40380", "40382", "40383", "40385", "40387", "41059", "50358", "50359", "50360", "50363", "50364", "50365", "50440"]
 
-#passed_gbr_ext = ["10003"] 
 # Tener en cuenta que se ha quitado esta "20191",
-# Se han quitado estas "10002", "10003", porque ya se habian corrido antes
+
 schema_prueba = "zerebro_gbr_ods"
 schema_prueba_ext = "zerebro_gbr"
-#spark.sql("drop database {} cascade".format(schema_prueba))
-#SOLO PARA PRUEBAS#####################################################
+spark.sql("drop database {} cascade".format(schema_prueba))
+#SOLO PARA PRUEBAS ESTOS ESQUEMAS
 spark.sql("create database if not exists {}".format(schema_prueba))
 
 schema_n = StructType([
@@ -96,13 +62,14 @@ schema_n = StructType([
 ])
 
 
-#Para cada interfase, ejecutar las queries create external y alter table 
+#Para cada interface, ejecutar las queries create ods e insert
 for interfase in passed_gbr_ext:
     print(interfase)
 
     
     #EJECUCION CREATES ODS
     i = 1
+    #Bucle para coger varios archivos de creacion de ods en caso de que los haya
     while i != 20:
         
         if i == 1:
@@ -117,19 +84,18 @@ for interfase in passed_gbr_ext:
         try: #Por si no existe el CREATE, que no pare de ejecutar
             
             
-            #Acceso archivo queries_external
+            #Acceso archivo queries_ods
             obj = s3.Object(bucket, queries_ods)
 
             #Lectura y conversion a string
             initial_query = (obj.get()['Body'].read().decode('utf-8'))
 
-
-            #SOLO PARA PRUEBAS###############################################################
             initial_query = initial_query.replace("zerebro_ods", "if not exists " + schema_prueba)
 
+            #Dividir las queries por si hay varias en el mismo fichero
             queries = initial_query.split(";")
             
-
+            #Coger solo las queries que nos interesan, con CREATE
             for j in range(len(queries)):
                 if "CREATE" in queries[j]:
                     creates_ods.append(queries[j])
@@ -141,12 +107,8 @@ for interfase in passed_gbr_ext:
 
         #En caso de no existir el CREATE, guardar el log del error
         except Exception as e:
-            if i == 1: #Si se esta cogiendo el primer create habra que generar un reporte de error
+            if i == 1: #Si se esta cogiendo el primer create y falla, habra que generar un reporte de error
                 error = str(e)
-                #resultado = (interfase, "*", "No hay CREATE ODS para esta interface", "KO", error) 
-                #df_resultado.append(resultado)
-                #resultado_2 = (interfase, "*","No hay CREATE ODS para esta interface", "KO")
-                #df_resultado_2.append(resultado_2)
                 resultado_n = (interfase, "*","No hay CREATE ODS para esta interface", "KO", "*","*", insert_date)
                 df_resultado_n.append(resultado_n)
                 break
@@ -160,22 +122,13 @@ for interfase in passed_gbr_ext:
 
                     spark.sql("""{}""".format(creates_ods[k]))
                     print("CREATE ODS {}".format(k + 1) + " hecho")
-                    #Error por defecto en caso de que no haya problemas en la ejecución
                     error = "OK"
-                    #resultado = (interfase, "*","CREATE ODS {}".format(k + 1), error, "No hay error") 
-                    #df_resultado.append(resultado)
-                    #resultado_2 = (interfase, "*","CREATE ODS {}".format(k + 1), error)
-                    #df_resultado_2.append(resultado_2)
-                    resultado_n = (interfase, "*","CREATE ODS {}".format(k + 1), error, "*","*", insert_date)
+                    resultado_n = (interfase, "*","CREATE ODS {}".format(k + 1), "OK", "*","*", insert_date)
                     df_resultado_n.append(resultado_n)
 
 
             except Exception as e:
                 error = str(e)
-                #resultado = (interfase, "*","CREATE ODS", "KO", error) 
-                #df_resultado.append(resultado)
-                #resultado_2 = (interfase, "*","CREATE ODS", "KO")
-                #df_resultado_2.append(resultado_2)
                 resultado_n = (interfase, "*","CREATE ODS", "KO", error, "*",insert_date)
                 df_resultado_n.append(resultado_n)
                 pass
@@ -196,7 +149,7 @@ for interfase in passed_gbr_ext:
         file = file.replace("dat_exec_year=", "")
         file = file.replace("dat_exec_month=", "")
         file = file.replace("dat_exec_day=", "")
-        #print(file)
+
         if "ODATE" in file: #TENER CUIDADO CON ESTO PORQUE PUEDE SER POR FDATE, ODATE
             try:
                 country = file.split('_')[2][1:3] #Son las posiciones en las que se encuentra el country si es fichero .IN
@@ -217,8 +170,7 @@ for interfase in passed_gbr_ext:
     r = 1
     while r != 20:
         if country == "NOT_VALID":
-            #resultado = (interfase, "*", "Pais no encontrado para esta interfase", "KO", "No hay fichero de origen") 
-            #df_resultado.append(resultado)
+
             break
         else:
         
@@ -240,8 +192,6 @@ for interfase in passed_gbr_ext:
                 #Lectura y conversion a string
                 initial_query = (obj.get()['Body'].read().decode('utf-8'))
 
-
-                #SOLO PARA PRUEBAS###############################################################
                 initial_query = initial_query.replace("zerebro_ods",schema_prueba)
                 initial_query = initial_query.replace("zerebro_external",schema_prueba_ext)
 
@@ -255,13 +205,13 @@ for interfase in passed_gbr_ext:
 
             #En caso de no existir el INSERT, guardar el log del error
             except Exception as e:
-                if r == 1: #Si se esta cogiendo el primer create habra que generar un reporte de error
+                if r == 1: #Si se esta cogiendo el primer insert habra que generar un reporte de error
                     error = str(e)
 
                     resultado_n = (interfase, "*","No hay INSERT para esta interface", "KO", "*","*", insert_date)
                     df_resultado_n.append(resultado_n)
                     break
-                else: #Si se esta intentando coger otro create y no hay, no pasa nada
+                else: #Si se esta intentando coger otro insert y no hay, no pasa nada
                     break
 
             if len(inserts) > 0:
@@ -274,9 +224,9 @@ for interfase in passed_gbr_ext:
                         new_dates = spark.sql('select (dat_exec_year || dat_exec_month || dat_exec_day) as exec_date from zerebro_gbr.et_{}'.format(interfase)). \
                         distinct().rdd.flatMap(lambda x: x).collect()
                         #Se hara el proceso del insert tantas veces como fechas haya en los ficheros de origen, ya que habra que añadir dichas particiones
-                        #Definimos una lista con las fechas existentes sin que esten repetidas
+                        #Definimos una lista con las fechas existentes sin que esten repetidas, cogiendolas de la tabla external
                         #Ordenamos la lista de menor a mayor para coger la fecha mas reciente primero
-                        #Eliminamos la fecha que hemos cogido para no volverla a coger en la siguiente iteracion
+                        
                         new_dates.sort()
                         print("LA LISTA ORDENADA ES: ", new_dates)
                         times = len(new_dates)
@@ -284,6 +234,7 @@ for interfase in passed_gbr_ext:
                         latest = 1
                         for time in range(times):
                             date_part = new_dates[-1]
+                            #Eliminamos la fecha que hemos cogido para no volverla a coger en la siguiente iteracion
                             del new_dates[-1]
 
                             print('La fecha maxima en el directorio es: ', date_part)
@@ -292,7 +243,7 @@ for interfase in passed_gbr_ext:
                             month = date_part[4:6]
                             day = date_part[6:8]   
 
-
+                            #Insercion de los campos que nos interesan, ya que en el insert vienen por defecto como variables a introducir
                             inserts[k] = inserts[k].replace("'${Vinsert_DATE}'", "'{}' as insert_date".format(insert_date))
                             if latest == 1:
                                 inserts[k] = inserts[k].replace("'${VSNAPSHOT}'", "'LATEST'")
@@ -306,19 +257,21 @@ for interfase in passed_gbr_ext:
                                 inserts[k] = inserts[k].replace('${VODATE_MM}', month)
                                 inserts[k] = inserts[k].replace('${VODATE_DD}', day)
 
-                            print(inserts[k])
-
+                            #Ejecucion de la querie desde hive, ya que con spark daba problemas el insert
+                            #El problema era debido al cast que hay que hacer a la hora de hacer el insert y que no tenemos
+                            #Este cast lo hace hive por defecto y por eso recurrimos a lanzar la querie desde aqui
                             os.system('hive -e "{}" -hiveconf hive.execution.engine=tez hive.exec.dynamic.partition=false'.format(inserts[k]))
                             
                             select = spark.sql("SELECT insert_date from {}.ods_{} where exec_date = {} limit 1".format(schema_prueba, interfase, date_part)).take(1)
-                            print("este es el output", select)
+                            #print("Este es el output", select)
+                            #En caso de que encontremos datos en la particion en cuestion de la tabla ods
                             if select:
                                 error = 'OK'
                                 print("INSERT {} {}".format(k + 1, date_part) + " EXITOSO")
                                 resultado_n = (interfase, date_part, "INSERT {}".format(k + 1), "OK", "INSERT EJECUTADO", "SELECT DEVUELVE PARTICION", insert_date)
                                 df_resultado_n.append(resultado_n)
                                 latest += 1
-                            else:
+                            else: #En caso de que no encontremos datos en la particion en cuestion de la tabla ods
                                 error = 'KO'
                                 print("INSERT {} {}".format(k + 1, date_part) + " FALLIDO")
                                 resultado_n = (interfase, date_part, "INSERT {}".format(k + 1), "KO", "INSERT EJECUTADO", "SELECT NO DEVUELVE NADA INSERT ERRONEO", insert_date)
@@ -329,7 +282,7 @@ for interfase in passed_gbr_ext:
                                 # Create data frame
                                 df_n = spark.createDataFrame(rdd_n,schema_n)
 
-                                df_n.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_ODS/report_ODS_{}".format(interfase))
+                                df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_ODS/report_ODS_{}".format(interfase))
                                 break
 
                             # Convert list to RDD
@@ -339,7 +292,7 @@ for interfase in passed_gbr_ext:
                             df_n = spark.createDataFrame(rdd_n,schema_n)
 
 
-                            df_n.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_ODS/report_ODS_{}".format(interfase))
+                            df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_ODS/report_ODS_{}".format(interfase))
 
                 except Exception as e:
                     error = str(e)
