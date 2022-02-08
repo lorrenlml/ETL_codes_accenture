@@ -323,6 +323,15 @@ for interfase in passed_gbr_ext:
                                 df_resultado_n.append(resultado_n)
                                 break
 
+                            # Convert list to RDD
+                            rdd_n = spark.sparkContext.parallelize(df_resultado_n)
+
+                            # Create data frame
+                            df_n = spark.createDataFrame(rdd_n,schema_n)
+
+
+                            df_n.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_ODS/report_ODS_{}".format(interfase))
+
                 except Exception as e:
                     error = str(e)
                     print(error)
@@ -333,19 +342,6 @@ for interfase in passed_gbr_ext:
 
 
             r += 1 
-                    
 
-    # Convert list to RDD
-    rdd_n = spark.sparkContext.parallelize(df_resultado_n)
-
-    # Create data frame
-    df_n = spark.createDataFrame(rdd_n,schema_n)
-
-
-    df_n.coalesce(1).write.mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_ODS/report_ODS_{}".format(interfase))
-
-
-        
-    
         
 print("VALIDATOR_ODS EJECUTADO CON EXITO")
