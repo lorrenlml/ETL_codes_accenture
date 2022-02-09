@@ -3,47 +3,78 @@ from pyspark.sql.types import StructField, StructType, StringType, IntegerType
 import boto3
 import sys
 from datetime import date
+import csv
+
+BUCKET_NAME_DEV = 'bucket-wz-aw-dev-euc-external-l0'
+BUCKET_NAME_PROD = 'bucket-wz-aw-prod-euc-external-l0'
+BUCKET_QUERIES_DEV = 'bucket-wz-aw-dev-euc-data-ingestion'
+BUCKET_QUERIES_PROD = 'bucket-wz-aw-prod-euc-data-ingestion'
+PATH_QUERIES = 'validator/queries/'
+
+# REPORT OUTPUT 
+df_resultado = []
+
+schema_prueba = "zerebro_gbr"
+
+
+
+# S3 CONFIGURATION
 client = boto3.client('s3')
 s3 = boto3.resource('s3')
 date_gbr = str(date.today())
-bucket_obj = s3.Bucket('bucket-wz-aw-dev-euc-external-l0')
 
+if sys.argv[1][2:] == "prod":
+    bucket_name = BUCKET_NAME_PROD
+    bucket_queries = BUCKET_QUERIES_PROD
+elif sys.argv[1][2:] == "dev":
+    bucket_name = BUCKET_NAME_DEV
+    bucket_queries = BUCKET_QUERIES_DEV
+else:
+    sys.exit("INTRODUCE MODE --dev OR --prod AS SECOND ARGUMENT")
+bucket_obj = s3.Bucket(bucket_name)
+
+
+# CONFIGURATION INTERFACES TO VALIDATE
+if sys.argv[2][2:] == "interfaces.csv":
+    print("INTERFACES TO VALIDATE")
+    filename = sys.argv[2][2:]
+    file = open(filename, "r")
+    reader = csv.reader(file)
+    interfaces = []
+    for line in reader:
+        t=line[0]
+        interfaces.append(t)
+    print(interfaces)
+else:
+    print("VALIDATE ALL INTERFACES WITH QUERIES IN {}/{}".format(bucket_queries, PATH_QUERIES))
+    result = client.list_objects(Bucket=bucket_queries, Prefix=PATH_QUERIES, Delimiter='/')
+    interfaces = []
+    for o in result.get('CommonPrefixes'):
+        interfaces.append(o.get('Prefix').replace(PATH_QUERIES,"")[:-1])
+
+# CONFIGURATION PARTITIONS TO VALIDATE
+if sys.argv[3][2:] == "all":
+    latest = "NO"
+else:
+    latest = "YES"
+
+# CONFIGURATION SPARK APPLICATION
 appName = "Validator_external"
 master = "local"
-
-# Create Spark session
 spark = SparkSession.builder \
     .appName(appName) \
     .master(master) \
     .enableHiveSupport() \
     .getOrCreate()
 
-bucket = 'bucket-wz-aw-dev-euc-data-ingestion'
-queries_path = 'validator/queries/'
 
-#Creacion lista/registro 
-df_resultado = []
-
-#, "20191" HA SIDO QUITADA DE LA LISTA POR OUT OF MEMORY
-interfases_list = ["10002", "10003", "10026", "10029", "10030", "10031", "10308", "20265", "20275", "20277", 
-"20285", "20386", "20387", "20388", "21059", "21351", "21356", "21710", "21711", "30223", "30307", "30721", "30722", 
-"30723", "30726", "30727", "30728", "30729", "30747", "30751", "30755", "30757", "30758", "30759", "30760", "30761", 
-"30762", "30763", "30765", "30766", "30767", "30768", "30773", "30774", "30775", "30776", "30777", "30778", "30779", 
-"30780", "30781", "30782", "30783", "30784", "30785", "30786", "30789", "30791", "30792", "30798", "30802", "30806", 
-"30817", "30818", "31060", "31061", "31062", "31065", "31094", "31095", "31096", "40049", "40050", "40380", "40382", 
-"40383", "40385", "40386", "40387", "41059", "50351", "50358", "50359", "50360", "50363", "50364", "50365", "50366", 
-"50368", "50369", "50370", "50371", "50372", "50373", "50374", "50377", "50379", "50380", "50381", "50382", "50383", 
-"50384", "50390", "50440", "50603"]
-#SOLO PARA PRUEBAS ESTOS ESQUEMAS
-
-schema_prueba = "zerebro_gbr"
-
+# VALIDATOR EXTERNAL
 spark.sql("create database if not exists zerebro_gbr")
-#Para cada interfase, ejecutar las queries create external y alter table 
-for interfase in interfases_list:
+#Para cada interface, ejecutar las queries create external y alter table 
+for interface in interfaces:
 
     dates = []
-    prefix='DM/{}/'.format(interfase)
+    prefix='DM/{}/'.format(interface)
 
     for obj in bucket_obj.objects.filter(Prefix=prefix):
         file = '{0}'.format(obj.key)
@@ -100,12 +131,19 @@ for interfase in interfases_list:
     
     try: 
         #Habra que coger la fecha correspondiente a la particion correcta
-        date_max = max(dates) #Aunque luego no se use, ayuda a recoger el error mas adelante
+        date_max = max(dates)
+        # latest == "NO"
         #Se hara el proceso del alter tantas veces como fechas haya en los ficheros de origen, ya que habra que añadir dichas particiones
         #Definimos una lista con las fechas existentes sin que esten repetidas
         #Ordenamos la lista de menor a mayor para coger la fecha mas reciente primero (se coge cuando vamos a ejecutar el ALTER)
-        new_dates = list(set(dates))
-        new_dates.sort()
+        # latest == "YES"
+        #Se hara el proceso tan solo con la ultima particion 
+        if latest == "YES":
+            new_dates = [date_max]
+        else: #latest == "NO"
+            new_dates = list(set(dates))
+            new_dates.sort()
+
         times = len(new_dates)
         
         #Puede que haya varios create_external.sql, por lo tanto habra que recoger todos
@@ -114,14 +152,14 @@ for interfase in interfases_list:
             
             if i == 1:
                 #Ruta archivos queries
-                queries_external = '{queries_path}{interfase}/create_external_{interfase}.sql'.format(queries_path = queries_path, interfase = interfase)
-                table_name = "et_{}".format(interfase)
+                queries_external = '{queries_path}{interface}/create_external_{interface}.sql'.format(queries_path = PATH_QUERIES, interface = interface)
+                table_name = "et_{}".format(interface)
 
                 try: #Por si no existe el CREATE, que no pare de ejecutar
                     
                     
                     #Acceso archivo queries_external
-                    obj = s3.Object(bucket, queries_external)
+                    obj = s3.Object(bucket_queries, queries_external)
 
                     #Lectura y conversión a string
                     initial_query = (obj.get()['Body'].read().decode('utf-8'))  
@@ -133,13 +171,13 @@ for interfase in interfases_list:
                 #En caso de no existir el CREATE, guardar el log del error
                 except Exception as e:
                     error = str(e)
-                    resultado = (interfase, "*", "No hay CREATE EXTERNAL para esta interface", "KO", error, date_gbr) 
+                    resultado = (interface, "*", "No hay CREATE EXTERNAL para esta interface", "KO", error, date_gbr) 
                     df_resultado.append(resultado)
                     break
 
             else:
-                queries_external = '{queries_path}{interfase}/create_external_{interfase}_{n}.sql'.format(queries_path = queries_path, interfase = interfase, n = i)
-                table_name = "et_{}_{}".format(interfase, i)
+                queries_external = '{queries_path}{interface}/create_external_{interface}_{n}.sql'.format(queries_path = PATH_QUERIES, interface = interface, n = i)
+                table_name = "et_{}_{}".format(interface, i)
             
                 #Lectura QUERY CREATE EXTERNAL
             
@@ -147,7 +185,7 @@ for interfase in interfases_list:
                     
                     
                     #Acceso archivo queries_external
-                    obj = s3.Object(bucket, queries_external)
+                    obj = s3.Object(bucket_queries, queries_external)
 
                     #Lectura y conversión a string
                     initial_query = (obj.get()['Body'].read().decode('utf-8'))  
@@ -163,19 +201,19 @@ for interfase in interfases_list:
 
 
 
-            #Ejecucion querie create_external de esta interfase
+            #Ejecucion querie create_external de esta interface
 
             try:
                 spark.sql("""{}""".format(initial_query))
                 #status por defecto en caso de que no haya problemas en la ejecución
                 error = "OK"
-                resultado = (interfase, "*","CREATE EXTERNAL", "OK", "No hay error", date_gbr) 
+                resultado = (interface, "*","CREATE EXTERNAL", "OK", "No hay error", date_gbr) 
                 df_resultado.append(resultado)
                 
                 
             except Exception as e:
                 error = str(e)
-                resultado = (interfase, "*","CREATE EXTERNAL", "KO", error, date_gbr) 
+                resultado = (interface, "*","CREATE EXTERNAL", "KO", error, date_gbr) 
                 df_resultado.append(resultado)
                 pass
             
@@ -191,42 +229,43 @@ for interfase in interfases_list:
                 try:
                     spark.sql("""ALTER TABLE {schema_prueba}.{table} 
 ADD PARTITION (dat_exec_year={ano},dat_exec_month={mes},dat_exec_day={dia}) 
-LOCATION 's3a://bucket-wz-aw-dev-euc-external-l0/DM/{num_interfase}/dat_exec_year={ano}/dat_exec_month={mes}/dat_exec_day={dia}/';""".format(schema_prueba=schema_prueba,table=table_name, 
-                                                                                                                        num_interfase = interfase,
+LOCATION 's3a://{bucket}/DM/{num_interface}/dat_exec_year={ano}/dat_exec_month={mes}/dat_exec_day={dia}/';""".format(bucket = bucket_name, schema_prueba=schema_prueba,
+                                                                                                                        table=table_name, 
+                                                                                                                        num_interface = interface,
                                                                                                                         ano=year,
                                                                                                                         mes=month,dia=day))
 
                     
                     
-                    select = spark.sql("SELECT dat_exec_year from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={} limit 1".format(schema_prueba,interfase,year,month,day)).take(1)
+                    select = spark.sql("SELECT dat_exec_year from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={} limit 1".format(schema_prueba,interface,year,month,day)).take(1)
                     #En caso de que encontremos datos en la particion en cuestion de la tabla external
                     if select:
                         error = 'OK'
                         print("ALTER EXITOSO")
-                        resultado = (interfase, date_part, "ALTER TABLE", 'OK', "No hay error", date_gbr)
+                        resultado = (interface, date_part, "ALTER TABLE", 'OK', "No hay error", date_gbr)
                         df_resultado.append(resultado)
                        
                     else: #En caso de que no encontremos datos en la particion en cuestion de la tabla external
                         print("ALTER FAILED")
                         error = "Datos no cargados en tabla, fichero vacio"
-                        resultado = (interfase, date_part, "ALTER TABLE", "KO", error, date_gbr)
+                        resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr)
                         df_resultado.append(resultado)
                     
                 except Exception as e:
                     error = "ALTER mal implementado"
                     error_2 = str(e)
-                    resultado = (interfase, date_part, "ALTER TABLE", "KO", error, date_gbr)
+                    resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr)
                     df_resultado.append(resultado)
                     pass
     
     except Exception as e:
         error_2 = str(e)
         error = "Lista de fechas vacia"
-        resultado = (interfase, "*", "No hay ficheros de datos en origen para esta interface", "KO", error, date_gbr) 
+        resultado = (interface, "*", "No hay ficheros de datos en origen para esta interface", "KO", error, date_gbr) 
         df_resultado.append(resultado)
         pass
 
-    print(interfase + " EJECUTADA CON EXITO")
+    print(interface + " EJECUTADA CON EXITO")
 
         
     
@@ -250,4 +289,4 @@ rdd = spark.sparkContext.parallelize(df_resultado)
 df = spark.createDataFrame(rdd,schema)
 
 
-df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://bucket-wz-aw-dev-euc-data-ingestion/validator/report_EXTERNAL")
+df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}".format(bucket_queries, date_gbr))
