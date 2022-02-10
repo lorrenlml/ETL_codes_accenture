@@ -30,6 +30,16 @@ external a la ods para cada partición de la tabla external.
 Para reaprovechar las queries y no tener que modificarlas a SPARK con tipado estricto 
 de los campos, se llama a HIVE. 
 
-# comando python
-# spark-submit validator.py <interfase>
+# comando python 
+
+# spark-submit 3_validator_external_v4.py --environment --interfaces --partitions
+
+# Arguments
+
+|   Parameter   |   Type   | Description |
+| ------------- | -------- | ----------- |
+| --environment | Required | Informs the name of the environment to be worked in (dev or prod) | 
+| --interfaces  | Optional | Informs the name of the interfaces file that will be processed by the next script |
+| --partitions  | Required | Informs about the amount of partitions to use (all or latest) |
+
 # nohup spark-submit validator.py <interfase> & //ejecutar en segundo plano
