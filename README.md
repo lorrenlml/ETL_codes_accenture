@@ -1,6 +1,6 @@
-## Códigos para procesos ETL del proyecto Zerebro 2022
+# Códigos para procesos ETL del proyecto Zerebro 2022
 Prueba commit
-# QUERIES 
+## QUERIES 
 
 Los scripts 1 y 2 son procesos Python ad-hoc para transformar scripts sql
 a un formato adaptado al DWH de destino Hive. Los scripts se modifican una vez se
@@ -10,7 +10,7 @@ interfaz de ingesta que representan.
 Las librerías que se usan son boto3 y pandas.
 
 
-# VALIDATOR 
+## VALIDATOR 
 
 Los scripts 3 y 4 son procesos PySpark que validan que los queries ubicadas en los directorios tienen efecto
 sobre los ficheros ubicados en los directorios homónimos en otro bucket.
@@ -30,11 +30,11 @@ external a la ods para cada partición de la tabla external.
 Para reaprovechar las queries y no tener que modificarlas a SPARK con tipado estricto 
 de los campos, se llama a HIVE. 
 
-# comando python 
-
-# spark-submit 3_validator_external_v4.py --<environment> --<interfaces> --<partitions>
-
-# Arguments
+## comando python 
+```
+spark-submit 3_validator_external_v4.py --environment --interfaces --partitions
+```
+## Arguments
 
 |   Parameter   |   Type   | Description |
 | ------------- | -------- | ----------- |
@@ -42,4 +42,4 @@ de los campos, se llama a HIVE.
 | --interfaces  | Optional | Informs the name of the interfaces file that will be processed by the next script |
 | --partitions  | Required | Informs about the amount of partitions to use (all or latest) |
 
-# nohup spark-submit validator.py <interfase> & //ejecutar en segundo plano
+## nohup spark-submit validator.py <interfase> & //ejecutar en segundo plano
