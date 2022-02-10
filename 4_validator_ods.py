@@ -44,7 +44,7 @@ elif sys.argv[1][2:] == "dev":
     bucket_name = BUCKET_NAME_DEV
     bucket_queries = BUCKET_QUERIES_DEV
 else:
-    sys.exit("INTRODUCE MODE --dev OR --prod AS SECOND ARGUMENT")
+    sys.exit("INTRODUCE MODE --dev OR --prod AS FIRST ARGUMENT")
 bucket_obj = s3.Bucket(bucket_name)
 
 
@@ -59,18 +59,26 @@ if sys.argv[2][2:] == "interfaces.csv":
         t=line[0]
         interfaces.append(t)
     print(interfaces)
+    # CONFIGURATION PARTITIONS TO VALIDATE
+    if sys.argv[3][2:] == "all":
+        all = "YES"
+    else:
+        all = "NO"
 else:
     print("VALIDATE ALL INTERFACES WITH QUERIES IN {}/{}".format(bucket_queries, PATH_QUERIES))
     result = client.list_objects(Bucket=bucket_queries, Prefix=PATH_QUERIES, Delimiter='/')
     interfaces = []
     for o in result.get('CommonPrefixes'):
         interfaces.append(o.get('Prefix').replace(PATH_QUERIES,"")[:-1])
+    # CONFIGURATION PARTITIONS TO VALIDATE
+    if sys.argv[2][2:] == "all":
+        all = "YES"
+    elif sys.argv[2][2:] == "latest":
+        all = "NO"
+    else:
+        sys.exit("INTRODUCE FILE --interfaces.csv AS SECOND ARGUMENT OR INTRODUCE --all OR --latest AS SECOND ARGUMENT IF YOU NEED TO WORK WITH ALL INTERFACES")
 
-# CONFIGURATION PARTITIONS TO VALIDATE
-if sys.argv[3][2:] == "all":
-    all = "YES"
-else:
-    all = "NO"
+
 
 # CONFIGURATION SPARK APPLICATION
 appName = "Validator_ods"
@@ -314,18 +322,20 @@ for interface in interfaces:
                                 # Create data frame
                                 df_n = spark.createDataFrame(rdd_n,schema_n)
 
-                                df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_all".format(bucket_queries, interface, insert_date))
-                                break
-
+                                if all == "YES":
+                                    df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_all".format(bucket_queries, interface, insert_date))
+                                else:
+                                    df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_latest".format(bucket_queries, interface, insert_date))
                             # Convert list to RDD
                             rdd_n = spark.sparkContext.parallelize(df_resultado_n)
 
                             # Create data frame
                             df_n = spark.createDataFrame(rdd_n,schema_n)
 
-
-                            df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_all".format(bucket_queries, interface, insert_date))
-
+                            if all == "YES":
+                                df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_all".format(bucket_queries, interface, insert_date))
+                            else:
+                                df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_latest".format(bucket_queries, interface, insert_date))
                 except Exception as e:
                     error = str(e)
                     print(error)

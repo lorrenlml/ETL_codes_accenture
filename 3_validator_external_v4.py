@@ -45,18 +45,25 @@ if sys.argv[2][2:] == "interfaces.csv":
         t=line[0]
         interfaces.append(t)
     print(interfaces)
+    # CONFIGURATION PARTITIONS TO VALIDATE
+    if sys.argv[3][2:] == "all":
+        latest = "NO"
+    else:
+        latest = "YES"
 else:
     print("VALIDATE ALL INTERFACES WITH QUERIES IN {}/{}".format(bucket_queries, PATH_QUERIES))
     result = client.list_objects(Bucket=bucket_queries, Prefix=PATH_QUERIES, Delimiter='/')
     interfaces = []
     for o in result.get('CommonPrefixes'):
         interfaces.append(o.get('Prefix').replace(PATH_QUERIES,"")[:-1])
+    # CONFIGURATION PARTITIONS TO VALIDATE
+    if sys.argv[2][2:] == "all":
+        latest = "NO"
+    elif sys.argv[2][2:] == "latest":
+        latest = "YES"
+    else:
+        sys.exit("INTRODUCE FILE --interfaces.csv AS SECOND ARGUMENT OR INTRODUCE --all OR --latest AS SECOND ARGUMENT IF YOU NEED TO WORK WITH ALL INTERFACES")
 
-# CONFIGURATION PARTITIONS TO VALIDATE
-if sys.argv[3][2:] == "all":
-    latest = "NO"
-else:
-    latest = "YES"
 
 # CONFIGURATION SPARK APPLICATION
 appName = "Validator_external"
@@ -288,5 +295,7 @@ rdd = spark.sparkContext.parallelize(df_resultado)
 # Create data frame
 df = spark.createDataFrame(rdd,schema)
 
-
-df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}".format(bucket_queries, date_gbr))
+if latest == "NO":
+    df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_all".format(bucket_queries, date_gbr))
+else:
+    df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_latest".format(bucket_queries, date_gbr))
