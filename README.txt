@@ -32,7 +32,7 @@ de los campos, se llama a HIVE.
 
 # comando python 
 
-# spark-submit 3_validator_external_v4.py --environment --interfaces --partitions
+# spark-submit 3_validator_external_v4.py --<environment> --<interfaces> --<partitions>
 
 # Arguments
 
