@@ -323,9 +323,9 @@ for interface in interfaces:
                                 df_n = spark.createDataFrame(rdd_n,schema_n)
 
                                 if all == "YES":
-                                    df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_all".format(bucket_queries, interface, insert_date))
+                                    df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_all".format(bucket_queries, insert_date))
                                 else:
-                                    df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_latest".format(bucket_queries, interface, insert_date))
+                                    df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_latest".format(bucket_queries, insert_date))
                             # Convert list to RDD
                             rdd_n = spark.sparkContext.parallelize(df_resultado_n)
 
@@ -333,9 +333,9 @@ for interface in interfaces:
                             df_n = spark.createDataFrame(rdd_n,schema_n)
 
                             if all == "YES":
-                                df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_all".format(bucket_queries, interface, insert_date))
+                                df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_all".format(bucket_queries, insert_date))
                             else:
-                                df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_{}_latest".format(bucket_queries, interface, insert_date))
+                                df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_latest".format(bucket_queries, insert_date))
                 except Exception as e:
                     error = str(e)
                     print(error)
