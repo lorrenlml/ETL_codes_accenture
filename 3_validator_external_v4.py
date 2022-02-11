@@ -13,6 +13,15 @@ PATH_QUERIES = 'validator/queries/'
 
 # REPORT OUTPUT 
 df_resultado = []
+# Create a schema for the dataframe
+schema = StructType([
+    StructField('interface', StringType(), True),
+    StructField('partition', StringType(), True),
+    StructField('operation', StringType(), True),
+    StructField('status', StringType(), True),
+    StructField('error', StringType(), True),
+    StructField('date_gbr', StringType(), True)
+])
 
 schema_prueba = "zerebro_gbr"
 
@@ -170,6 +179,7 @@ for interface in interfaces:
 
                     #Lectura y conversión a string
                     initial_query = (obj.get()['Body'].read().decode('utf-8'))  
+                    
 
                     
                     initial_query = initial_query.replace("zerebro_external", "if not exists " + schema_prueba)
@@ -257,14 +267,26 @@ LOCATION 's3a://{bucket}/DM/{num_interface}/dat_exec_year={ano}/dat_exec_month={
                         error = "Datos no cargados en tabla, fichero vacio"
                         resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr)
                         df_resultado.append(resultado)
-                    
+
+
                 except Exception as e:
                     error = "ALTER mal implementado"
                     error_2 = str(e)
                     resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr)
                     df_resultado.append(resultado)
                     pass
-    
+            
+            # Convert list to RDD
+            rdd = spark.sparkContext.parallelize(df_resultado)
+
+            # Create data frame
+            df = spark.createDataFrame(rdd,schema)
+
+            if latest == "NO":
+                df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_all".format(bucket_queries, date_gbr))
+            else:
+                df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_latest".format(bucket_queries, date_gbr))
+
     except Exception as e:
         error_2 = str(e)
         error = "Lista de fechas vacia"
@@ -278,24 +300,3 @@ LOCATION 's3a://{bucket}/DM/{num_interface}/dat_exec_year={ano}/dat_exec_month={
     
         
 print("VALIDATOR_EXTERNAL EJECUTADO CON EXITO")
-
-# Create a schema for the dataframe
-schema = StructType([
-    StructField('interface', StringType(), True),
-    StructField('partition', StringType(), True),
-    StructField('operation', StringType(), True),
-    StructField('status', StringType(), True),
-    StructField('error', StringType(), True),
-    StructField('date_gbr', StringType(), True)
-])
-
-# Convert list to RDD
-rdd = spark.sparkContext.parallelize(df_resultado)
-
-# Create data frame
-df = spark.createDataFrame(rdd,schema)
-
-if latest == "NO":
-    df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_all".format(bucket_queries, date_gbr))
-else:
-    df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_latest".format(bucket_queries, date_gbr))
