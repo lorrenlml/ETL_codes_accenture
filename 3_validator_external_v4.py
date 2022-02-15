@@ -2,6 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import StructField, StructType, StringType, IntegerType
 import boto3
 import sys
+import datetime
 from datetime import date
 import csv
 
@@ -20,7 +21,8 @@ schema = StructType([
     StructField('operation', StringType(), True),
     StructField('status', StringType(), True),
     StructField('error', StringType(), True),
-    StructField('date_gbr', StringType(), True)
+    StructField('date_gbr', StringType(), True),
+    StructField('count', StringType(), True)
 ])
 
 schema_prueba = "zerebro_gbr"
@@ -30,7 +32,7 @@ schema_prueba = "zerebro_gbr"
 # S3 CONFIGURATION
 client = boto3.client('s3')
 s3 = boto3.resource('s3')
-date_gbr = str(date.today())
+date_gbr_run = str(date.today())
 
 if sys.argv[1][2:] == "prod":
     bucket_name = BUCKET_NAME_PROD
@@ -164,7 +166,7 @@ for interface in interfaces:
         
         #Puede que haya varios create_external.sql, por lo tanto habra que recoger todos
         i = 1
-        while i != 20:
+        while i != -2: 
             
             if i == 1:
                 #Ruta archivos queries
@@ -188,7 +190,8 @@ for interface in interfaces:
                 #En caso de no existir el CREATE, guardar el log del error
                 except Exception as e:
                     error = str(e)
-                    resultado = (interface, "*", "No hay CREATE EXTERNAL para esta interface", "KO", error, date_gbr) 
+                    date_gbr = datetime.datetime.now()
+                    resultado = (interface, "*", "No hay CREATE EXTERNAL para esta interface", "KO", error, date_gbr, "*") 
                     df_resultado.append(resultado)
                     break
 
@@ -224,20 +227,23 @@ for interface in interfaces:
                 spark.sql("""{}""".format(initial_query))
                 #status por defecto en caso de que no haya problemas en la ejecución
                 error = "OK"
-                resultado = (interface, "*","CREATE EXTERNAL", "OK", "No hay error", date_gbr) 
+                date_gbr = datetime.datetime.now()
+                resultado = (interface, "*","CREATE EXTERNAL", "OK", "No hay error", date_gbr, "*") 
                 df_resultado.append(resultado)
                 
                 
             except Exception as e:
                 error = str(e)
-                resultado = (interface, "*","CREATE EXTERNAL", "KO", error, date_gbr) 
+                date_gbr = datetime.datetime.now()
+                resultado = (interface, "*","CREATE EXTERNAL", "KO", error, date_gbr, "*") 
                 df_resultado.append(resultado)
-                pass
+                break
             
             #Ejecucion del alter table para cada una de las particiones
+            provisional_dates = new_dates.copy() #Por si hay varios create external, no borrar la lista de fechas
             for time in range(times):
-                date_part = new_dates[-1]
-                del new_dates[-1]
+                date_part = provisional_dates[-1]
+                del provisional_dates[-1]
                 print('La fecha de la particion es: ', date_part)
 
                 year = date_part[:4]
@@ -255,24 +261,28 @@ LOCATION 's3a://{bucket}/DM/{num_interface}/dat_exec_year={ano}/dat_exec_month={
                     
                     
                     select = spark.sql("SELECT dat_exec_year from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={} limit 1".format(schema_prueba,interface,year,month,day)).take(1)
+                    count_records = spark.sql("SELECT count(*) from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={}".format(schema_prueba,interface,year,month,day)).take(1)
                     #En caso de que encontremos datos en la particion en cuestion de la tabla external
                     if select:
                         error = 'OK'
                         print("ALTER EXITOSO")
-                        resultado = (interface, date_part, "ALTER TABLE", 'OK', "No hay error", date_gbr)
+                        date_gbr = datetime.datetime.now()
+                        resultado = (interface, date_part, "ALTER TABLE", 'OK', "No hay error", date_gbr, count_records[0])
                         df_resultado.append(resultado)
                        
                     else: #En caso de que no encontremos datos en la particion en cuestion de la tabla external
                         print("ALTER FAILED")
                         error = "Datos no cargados en tabla, fichero vacio"
-                        resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr)
+                        date_gbr = datetime.datetime.now()
+                        resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr, "*")
                         df_resultado.append(resultado)
 
 
                 except Exception as e:
                     error = "ALTER mal implementado"
                     error_2 = str(e)
-                    resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr)
+                    date_gbr = datetime.datetime.now()
+                    resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr, "*")
                     df_resultado.append(resultado)
                     pass
             
@@ -283,18 +293,30 @@ LOCATION 's3a://{bucket}/DM/{num_interface}/dat_exec_year={ano}/dat_exec_month={
                 df = spark.createDataFrame(rdd,schema)
 
                 if latest == "NO":
-                    df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_all".format(bucket_queries, date_gbr))
+                    df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_all".format(bucket_queries, date_gbr_run))
                 else:
-                    df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_latest".format(bucket_queries, date_gbr))
+                    df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_latest".format(bucket_queries, date_gbr_run))
 
     except Exception as e:
         error_2 = str(e)
         error = "Lista de fechas vacia"
-        resultado = (interface, "*", "No hay ficheros de datos en origen para esta interface", "KO", error, date_gbr) 
+        date_gbr = datetime.datetime.now()
+        resultado = (interface, "*", "No hay ficheros de datos en origen para esta interface", "KO", error, date_gbr, "*") 
         df_resultado.append(resultado)
         pass
 
+    # Convert list to RDD
+    rdd = spark.sparkContext.parallelize(df_resultado)
+
+    # Create data frame
+    df = spark.createDataFrame(rdd,schema)
+
+    if latest == "NO":
+        df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_all".format(bucket_queries, date_gbr_run))
+    else:
+        df.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_EXTERNAL_{}_latest".format(bucket_queries, date_gbr_run))
     print(interface + " EJECUTADA CON EXITO")
+
 
         
     
