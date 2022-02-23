@@ -26,6 +26,7 @@ def main(**kwargs):
     df_resultado_n = []
     # REPORT SCHEMA
     schema_n = StructType([
+        StructField('type', StringType(), True),
         StructField('interface', StringType(), True),
         StructField('partition', StringType(), True),
         StructField('operation', StringType(), True),
@@ -49,7 +50,7 @@ def main(**kwargs):
         bucket_name = BUCKET_NAME_DEV
         bucket_queries = BUCKET_QUERIES_DEV
     else:
-        sys.exit("INTRODUCE MODE --dev OR --prod AS FIRST ARGUMENT")
+        sys.exit("INTRODUCE MODE --dev OR --prod AS ARGUMENT")
     bucket_obj = s3.Bucket(bucket_name)
 
 
@@ -71,18 +72,23 @@ def main(**kwargs):
         elif partitions == "latest":
             all = "NO"
         else:
-            sys.exit("INTRODUCE PATITIONS TO VALIDATE --all OR --latest AS THIRD ARGUMENT")
+            sys.exit("INTRODUCE PATITIONS TO VALIDATE --all OR --latest AS ARGUMENT")
     else:
-        sys.exit("INTRODUCE FILE --interfaces.csv AS SECOND ARGUMENT")
+        sys.exit("INTRODUCE FILE --interfaces.csv AS ARGUMENT")
 
-    #CONFIGURATION ASSOCIATED COUNTRIES
+    # CONFIGURATION ASSOCIATED COUNTRIES
     try:
         es_interfaces = kwargs["es_interfaces"].split(',')
         pt_interfaces = kwargs["pt_interfaces"].split(',')
-        xx_interfaces = kwargs["xx_interfaces"].split(',')
+        #xx_interfaces = kwargs["xx_interfaces"].split(',')
     except:
-        sys.exit("INTRODUCE es_interfaces, pt_interfaces, xx_interfaces AS FOURTH, FIFTH AND SIXTH ARGUMENT")
+        sys.exit("INTRODUCE es_interfaces, pt_interfaces, xx_interfaces AS ARGUMENTS")
 
+    # CONFIGURATION INTERFACES WITHOUT SOURCE FILES
+    try:
+        no_copy = kwargs["no_copy"].split(',')
+    except:
+        sys.exit("INTRODUCE no_copy AS ARGUMENT")
 
     # CONFIGURATION SPARK APPLICATION
     appName = "Validator_ods"
@@ -146,7 +152,7 @@ def main(**kwargs):
                 if i == 1: #Si se esta cogiendo el primer create y falla, habra que generar un reporte de error
                     error = str(e)
                     date_gbr = str(datetime.now())
-                    resultado_n = (interface, "*","No hay CREATE ODS para esta interface", "KO", "*","*", date_gbr, "*")
+                    resultado_n = ("ODS", interface, "*","No hay CREATE ODS para esta interface", "KO", "*","*", date_gbr, "*")
                     df_resultado_n.append(resultado_n)
                     break
                 else: #Si se esta intentando coger otro create y no hay, no pasa nada
@@ -161,18 +167,18 @@ def main(**kwargs):
                         print("CREATE ODS {}".format(cont1) + " hecho")
                         error = "OK"
                         date_gbr = str(datetime.now())
-                        resultado_n = (interface, "*","CREATE ODS {}".format(cont1), "OK", "*","*", date_gbr, "*")
+                        resultado_n = ("ODS", interface, "*","CREATE ODS {}".format(cont1), "OK", "*","*", date_gbr, "*")
                         df_resultado_n.append(resultado_n)
 
                     except Exception as e:
-                        error = str(e)[:24]
+                        error = str(e)[:50]
                         date_gbr = str(datetime.now())
-                        resultado_n = (interface, "*","CREATE ODS {}".format(cont1), "KO", error, "*",date_gbr, "*")
+                        resultado_n = ("ODS", interface, "*","CREATE ODS {}".format(cont1), "KO", "CREATE FALLIDO", error, date_gbr, "*")
                         df_resultado_n.append(resultado_n)
                         creates_failed.append(k)
                         pass
                     cont1 += 1
-                    os.system('''for x in $(yarn application -list -appStates RUNNING | awk 'NR > 2 { print $1 }'); do yarn application -kill $x; done''')
+                    os.system('''for i in `yarn application -list | grep -w root | grep -E -o application_[0-9,_]*`; do yarn application -kill $i; done''')
 
 
             i += 1 
@@ -194,7 +200,12 @@ def main(**kwargs):
         latest = 1
         cont2 = 1
         while r != -1:
-        
+            if interface in no_copy:
+                date_gbr = str(datetime.now())
+                resultado_n = ("ODS", interface, "*", "INSERT {}".format(cont2), "OK", "INSERT NO EJECUTADO", "NO HAY FICHEROS ORIGEN", date_gbr, "*")
+                df_resultado_n.append(resultado_n)
+                break
+
             if r == 1:
                 #Ruta archivos inserts en caso de que sea el primer insert que se coge
                 queries_inserts = '{queries_path}{interface}/insert_{interface}.sql'.format(queries_path = PATH_QUERIES, interface = interface)
@@ -229,7 +240,7 @@ def main(**kwargs):
                 if r == 1: #Si se esta cogiendo el primer insert habra que generar un reporte de error
                     error = str(e)
                     date_gbr = str(datetime.now())
-                    resultado_n = (interface, "*","No hay INSERT para esta interface", "KO", "*","*", date_gbr, "*")
+                    resultado_n = ("ODS", interface, "*","No hay INSERT para esta interface", "KO", "*","*", date_gbr, "*")
                     df_resultado_n.append(resultado_n)
                     break
                 else: #Si se esta intentando coger otro insert y no hay, no pasa nada
@@ -245,6 +256,9 @@ def main(**kwargs):
 
                             new_dates = spark.sql('select (dat_exec_year || dat_exec_month || dat_exec_day) as exec_date from {}.et_{}'.format(SCHEMA_PRUEBA_EXT, interface)). \
                             distinct().rdd.flatMap(lambda x: x).collect()
+                            #Esta variable vendra tambien con las particiones que solo tienen metida la cabecera
+                            #En una query del dbeaver normal estas particiones no aparecerían en el Dataframe
+
                             # Caso all == "YES"
                             #Se hara el proceso del insert tantas veces como fechas haya en los ficheros de origen, ya que habra que añadir dichas particiones
                             #Definimos una lista con las fechas existentes sin que esten repetidas, cogiendolas de la tabla external
@@ -270,14 +284,16 @@ def main(**kwargs):
                                 month = date_part[4:6]
                                 day = date_part[6:8]
 
+                                #Se hace un conteo de los registros que hay en la tabla external de la particion en cuestion
+                                #Esto sera para evitar hacer inserts de tablas en las que solo haya cabecera
                                 count_records_ext = spark.sql("SELECT count(dat_exec_year) from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={}".format(SCHEMA_PRUEBA_EXT, interface, year,month,day)).take(1)
+                                count_records_ext_def = (str(count_records_ext[0])).replace("Row(count(dat_exec_year)=","").replace(")","") 
 
-                                count_records_ext_def = (str(count_records_ext[0])).replace("Row(count(dat_exec_year)=","").replace(")","")  
-                                os.system('''for x in $(yarn application -list -appStates RUNNING | awk 'NR > 2 { print $1 }'); do yarn application -kill $x; done''')
-                                if int(count_records_ext_def) == 0:
+                                os.system('''for i in `yarn application -list | grep -w root | grep -E -o application_[0-9,_]*`; do yarn application -kill $i; done''')
+                                if int(count_records_ext_def) == 2: #Ya que en la tabla external, si hay 2 registros significa que esta vacia
                                     print("INSERT {} {}".format(cont2, date_part) + " EXITOSO")
                                     date_gbr = str(datetime.now())
-                                    resultado_n = (interface, date_part, "INSERT {}".format(cont2), "OK", "INSERT NO EJECUTADO", "FICHERO ORIGEN VACÍO", date_gbr, "*")
+                                    resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "OK", "INSERT NO EJECUTADO", "FICHERO ORIGEN VACIO, CON CABECERAS", date_gbr, "*")
                                     df_resultado_n.append(resultado_n)
 
                                 else:
@@ -319,18 +335,18 @@ def main(**kwargs):
                                     if int(count_records_def) == 0:
                                         print("INSERT {} {}".format(cont2, date_part) + " FALLIDO")
                                         date_gbr = str(datetime.now())
-                                        resultado_n = (interface, date_part, "INSERT {}".format(cont2), "KO", "INSERT EJECUTADO", "SELECT NO DEVUELVE NADA INSERT ERRONEO", date_gbr, "*")
+                                        resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "KO", "INSERT EJECUTADO", "SELECT NO DEVUELVE NADA INSERT ERRONEO", date_gbr, "*")
                                         df_resultado_n.append(resultado_n)
 
                                     else:
 
                                         print("INSERT {} {}".format(cont2, date_part) + " EXITOSO")
                                         date_gbr = str(datetime.now())
-                                        resultado_n = (interface, date_part, "INSERT {}".format(cont2), "OK", "INSERT EJECUTADO", "SELECT DEVUELVE PARTICION CON DATOS", date_gbr,str(int(count_records_def)))
+                                        resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "OK", "INSERT EJECUTADO", "SELECT DEVUELVE PARTICION CON DATOS", date_gbr,str(int(count_records_def)))
                                         df_resultado_n.append(resultado_n)
                                         latest += 1
 
-                                    os.system('''for x in $(yarn application -list -appStates RUNNING | awk 'NR > 2 { print $1 }'); do yarn application -kill $x; done''')
+                                    os.system('''for i in `yarn application -list | grep -w root | grep -E -o application_[0-9,_]*`; do yarn application -kill $i; done''')
 
                                 # Convert list to RDD
                                 rdd_n = spark.sparkContext.parallelize(df_resultado_n)
@@ -344,7 +360,7 @@ def main(**kwargs):
                                     df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_latest".format(bucket_queries, insert_date))
                         else:
                             date_gbr = str(datetime.now())
-                            resultado_n = (interface, "*", "INSERT {}".format(cont2), "KO", "INSERT NO EJECUTADO", "CREATE ODS ASOCIADO FALLIDO", date_gbr, "*")
+                            resultado_n = ("ODS", interface, "*", "INSERT {}".format(cont2), "KO", "INSERT NO EJECUTADO", "CREATE ODS ASOCIADO FALLIDO", date_gbr, "*")
                             df_resultado_n.append(resultado_n)
                             # Convert list to RDD
                             rdd_n = spark.sparkContext.parallelize(df_resultado_n)
@@ -357,10 +373,10 @@ def main(**kwargs):
                                 df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_latest".format(bucket_queries, insert_date))
                         cont2 += 1
                 except Exception as e:
-                    error = str(e)[:46]
+                    error = str(e)[1:46]
                     print(error)
                     date_gbr = str(datetime.now())
-                    resultado_n = (interface, date_part,"INSERT", "KO", "INSERT NO EJECUTADO EN HIVE", error, date_gbr, "*")
+                    resultado_n = ("ODS", interface, "*","INSERT", "KO", "INSERT NO EJECUTADO", error, date_gbr, "*")
                     df_resultado_n.append(resultado_n)
                     # Convert list to RDD
                     rdd_n = spark.sparkContext.parallelize(df_resultado_n)
@@ -374,6 +390,17 @@ def main(**kwargs):
                     
                     pass
             r += 1
+        # Convert list to RDD
+        rdd_n = spark.sparkContext.parallelize(df_resultado_n)
+
+        # Create data frame
+        df_n = spark.createDataFrame(rdd_n,schema_n)
+
+        if all == "YES":
+            df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_all".format(bucket_queries, insert_date))
+        else:
+            df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_latest".format(bucket_queries, insert_date))
+
 
             
     print("VALIDATOR_ODS EJECUTADO CON EXITO")
@@ -386,5 +413,6 @@ if __name__ == '__main__':
     PARSER.add_argument('--partitions', help='set the amount of partitions to be worked (all or latest)', default="latest")
     PARSER.add_argument('--es_interfaces', help='set list of ES interfaces as string ("" for empty list)')
     PARSER.add_argument('--pt_interfaces', help='set list of PT interfaces as string ("" for empty list)')
-    PARSER.add_argument('--xx_interfaces', help='set list of XX interfaces as string ("" for empty list)')
+    #PARSER.add_argument('--xx_interfaces', help='set list of XX interfaces as string ("" for empty list)')
+    PARSER.add_argument('--no_copy', help='set list of interfaces without source files ("" for empty list)')
     main(**vars(PARSER.parse_args()))
