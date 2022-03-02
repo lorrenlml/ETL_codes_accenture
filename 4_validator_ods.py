@@ -71,11 +71,21 @@ def main(**kwargs):
             all = "YES"
         elif partitions == "latest":
             all = "NO"
+
         else:
-            sys.exit("INTRODUCE PATITIONS TO VALIDATE --all OR --latest AS ARGUMENT")
+            if len(partitions) != 8:
+                sys.exit("INTRODUCE PATITIONS TO VALIDATE --all OR --latest AS ARGUMENT OR INTRODUCE DATE WITH THE CORRECT FORMAT YYYYMMDD")
+            else:
+                all = "YES"
     else:
         sys.exit("INTRODUCE FILE --interfaces.csv AS ARGUMENT")
 
+    partition = kwargs["unique_partition"]
+    if (len(partition) != 0 and len(partition) != 8):
+        sys.exit("INTRODUCE partition WITH THE CORRECT FORMAT YYYYMMDD")
+
+    snapshot = kwargs["snapshot"]
+    
     # CONFIGURATION ASSOCIATED COUNTRIES
     try:
         es_interfaces = kwargs["es_interfaces"].split(',')
@@ -198,8 +208,12 @@ def main(**kwargs):
 
         r = 1
         latest = 1
+        #En caso de que la particion que se quiera añadir sea con snapshot historic, ajustar variable indicadora
+        if (len(partition) == 8 and snapshot == "HISTORIC"):
+            latest = 2
         cont2 = 1
         while r != -1:
+            #Comprobar si la interfaz en cuestion esta en la lista de las que no tienen ficheros de origen
             if interface in no_copy:
                 date_gbr = str(datetime.now())
                 resultado_n = ("ODS", interface, "*", "INSERT {}".format(cont2), "OK", "INSERT NO EJECUTADO", "NO HAY FICHEROS ORIGEN", date_gbr, "*")
@@ -253,23 +267,28 @@ def main(**kwargs):
                     #PROCESO DE LANZAR INSERTS
                     for k in range(len(inserts)):
                         if k not in creates_failed:
+                            if len(partition) == 0:
+                                new_dates = spark.sql('select (dat_exec_year || dat_exec_month || dat_exec_day) as exec_date from {}.et_{}'.format(SCHEMA_PRUEBA_EXT, interface)). \
+                                distinct().rdd.flatMap(lambda x: x).collect()
+                                #Esta variable vendra tambien con las particiones que solo tienen metida la cabecera
+                                #En una query del dbeaver normal estas particiones no aparecerían en el Dataframe
 
-                            new_dates = spark.sql('select (dat_exec_year || dat_exec_month || dat_exec_day) as exec_date from {}.et_{}'.format(SCHEMA_PRUEBA_EXT, interface)). \
-                            distinct().rdd.flatMap(lambda x: x).collect()
-                            #Esta variable vendra tambien con las particiones que solo tienen metida la cabecera
-                            #En una query del dbeaver normal estas particiones no aparecerían en el Dataframe
-
-                            # Caso all == "YES"
-                            #Se hara el proceso del insert tantas veces como fechas haya en los ficheros de origen, ya que habra que añadir dichas particiones
-                            #Definimos una lista con las fechas existentes sin que esten repetidas, cogiendolas de la tabla external
-                            #Ordenamos la lista de menor a mayor para coger la fecha mas reciente primero
-                            #Caso all == "NO"
-                            if all == "YES":
-                                new_dates.sort()
-                                print("LA LISTA ORDENADA ES: ", new_dates)
-                            else: #all == "NO"
-                                max_date = max(new_dates)
-                                new_dates = [max_date]
+                                # Caso all == "YES"
+                                #Se hara el proceso del insert tantas veces como fechas haya en los ficheros de origen, ya que habra que añadir dichas particiones
+                                #Definimos una lista con las fechas existentes sin que esten repetidas, cogiendolas de la tabla external
+                                #Ordenamos la lista de menor a mayor para coger la fecha mas reciente primero
+                                #Caso all == "NO"
+                                if all == "YES":
+                                    new_dates.sort()
+                                    print("LA LISTA ORDENADA ES: ", new_dates)
+                                else: #all == "NO"
+                                    max_date = max(new_dates)
+                                    new_dates = [max_date]
+                            else:
+                                new_dates = [partition]
+                            #En caso de que se quiera trabajar sobre un intervalo mas corto de fechas habra que filtrar
+                            if len(partitions) == 8:
+                                new_dates = list(filter(lambda date: date >= partitions,new_dates))
                             times = len(new_dates)
                             #Contador latest para controlar la particion snapshot = 'LATEST' y que las demas sean 'HISTORIC'
                             
@@ -288,7 +307,7 @@ def main(**kwargs):
                                 #Esto sera para evitar hacer inserts de tablas en las que solo haya cabecera
                                 count_records_ext = spark.sql("SELECT count(dat_exec_year) from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={}".format(SCHEMA_PRUEBA_EXT, interface, year,month,day)).take(1)
                                 count_records_ext_def = (str(count_records_ext[0])).replace("Row(count(dat_exec_year)=","").replace(")","") 
-
+                                #KILL queued applications that we don´t need
                                 os.system('''for i in `yarn application -list | grep -w root | grep -E -o application_[0-9,_]*`; do yarn application -kill $i; done''')
                                 if int(count_records_ext_def) == 2: #Ya que en la tabla external, si hay 2 registros significa que esta vacia
                                     print("INSERT {} {}".format(cont2, date_part) + " EXITOSO")
@@ -318,14 +337,6 @@ def main(**kwargs):
                                     #Ejecucion de la querie desde hive, ya que con spark daba problemas el insert
                                     #El problema era debido al cast que hay que hacer a la hora de hacer el insert y que no tenemos
                                     #Este cast lo hace hive por defecto y por eso recurrimos a lanzar la querie desde aqui
-                                    #spark.sql("set hive.vectorized.execution.enabled = true")
-                                    #spark.sql("set hive.vectorized.execution.reduce.enabled = true")
-                                    #spark.sql("set hive.cbo.enable=true;")
-                                    #spark.sql("set hive.compute.query.using.stats=true;")
-                                    #spark.sql("set hive.stats.fetch.column.stats=true;")
-                                    #spark.sql("set hive.stats.fetch.partition.stats=true;")
-                                    #-hiveconf hive.execution.engine=tez hive.exec.dynamic.partition=true hive.exec.dynamic.partition.mode=nonstrict;
-                                    print(insert_prov)
                                     os.system('hive -e "{}";'.format(insert_prov))
                                     count_records = spark.sql("SELECT count(insert_date) from {}.ods_{} where exec_date = {}".format(SCHEMA_PRUEBA, interface, date_part)).take(1)
                                     #En caso de que encontremos datos en la particion en cuestion de la tabla external
@@ -346,6 +357,7 @@ def main(**kwargs):
                                         df_resultado_n.append(resultado_n)
                                         latest += 1
 
+                                    #KILL queued applications that we don´t need
                                     os.system('''for i in `yarn application -list | grep -w root | grep -E -o application_[0-9,_]*`; do yarn application -kill $i; done''')
 
                                 # Convert list to RDD
@@ -410,9 +422,11 @@ if __name__ == '__main__':
     PARSER = argparse.ArgumentParser(description='GBR TO VERIFY QUERIES')
     PARSER.add_argument('--env', help='set environment to be worked in', default="dev")
     PARSER.add_argument('--interfaces_file', help='set name of the interfaces file that will be processed', default="interfaces.csv")
-    PARSER.add_argument('--partitions', help='set the amount of partitions to be worked (all or latest)', default="latest")
+    PARSER.add_argument('--partitions', help='set the amount of partitions to be worked (all, latest or day until now). Day format: YYYYMMDD', default="latest")
+    PARSER.add_argument('--unique_partition', help='set the partition to be worked (YYYYMMDD)', default="")
+    PARSER.add_argument('--snapshot', help='set the snapshot of the partition to be worked (LATEST or HISTORIC)', default="LATEST")
     PARSER.add_argument('--es_interfaces', help='set list of ES interfaces as string ("" for empty list)')
     PARSER.add_argument('--pt_interfaces', help='set list of PT interfaces as string ("" for empty list)')
-    #PARSER.add_argument('--xx_interfaces', help='set list of XX interfaces as string ("" for empty list)')
-    PARSER.add_argument('--no_copy', help='set list of interfaces without source files ("" for empty list)')
+    PARSER.add_argument('--no_copy', help='set list of interfaces without source files ("" for empty list)', default = "")
+    
     main(**vars(PARSER.parse_args()))

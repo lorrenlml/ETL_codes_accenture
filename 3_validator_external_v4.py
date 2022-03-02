@@ -47,42 +47,35 @@ def main(**kwargs):
         bucket_name = BUCKET_NAME_DEV
         bucket_queries = BUCKET_QUERIES_DEV
     else:
-        sys.exit("INTRODUCE MODE --dev OR --prod AS SECOND ARGUMENT")
+        sys.exit("INTRODUCE MODE dev OR prod AS --env")
     bucket_obj = s3.Bucket(bucket_name)
 
 
     # CONFIGURATION INTERFACES TO VALIDATE
     filename = kwargs["interfaces_file"]
-    if filename == "interfaces.csv":
-        print("INTERFACES TO VALIDATE")
-        file = open(filename, "r")
-        reader = csv.reader(file)
-        interfaces = []
-        for line in reader:
-            t=line[0]
-            interfaces.append(t)
-        print(interfaces)
-        # CONFIGURATION PARTITIONS TO VALIDATE
-        partitions = kwargs["partitions"]
-        if partitions == "all":
-            latest = "NO"
-        else:
-            latest = "YES"
+    print("INTERFACES TO VALIDATE")
+    file = open(filename, "r")
+    reader = csv.reader(file)
+    interfaces = []
+    for line in reader:
+        t=line[0]
+        interfaces.append(t)
+    print(interfaces)
+    # CONFIGURATION PARTITIONS TO VALIDATE
+    partitions = kwargs["partitions"]
+    if partitions == "all":
+        latest = "NO"
+    elif partitions == "latest":
+        latest = "YES"
     else:
-        print("VALIDATE ALL INTERFACES WITH QUERIES IN {}/{}".format(bucket_queries, PATH_QUERIES))
-        result = client.list_objects(Bucket=bucket_queries, Prefix=PATH_QUERIES, Delimiter='/')
-        interfaces = []
-        for o in result.get('CommonPrefixes'):
-            interfaces.append(o.get('Prefix').replace(PATH_QUERIES,"")[:-1])
-        # CONFIGURATION PARTITIONS TO VALIDATE
-        partitions = kwargs["partitions"]
-        if partitions == "all":
-            latest = "NO"
-        elif partitions == "latest":
-            latest = "YES"
+        if len(partitions) != 8:
+            sys.exit("INTRODUCE DATE WITH THE CORRECT FORMAT YYYYMMDD")
         else:
-            sys.exit("INTRODUCE FILE --interfaces.csv AS SECOND ARGUMENT OR INTRODUCE --all OR --latest AS SECOND ARGUMENT IF YOU NEED TO WORK WITH ALL INTERFACES")
+            latest = "NO"
 
+    partition = kwargs["unique_partition"]
+    if (len(partition) != 0 and len(partition) != 8):
+        sys.exit("INTRODUCE partition WITH THE CORRECT FORMAT YYYYMMDD")
 
     # CONFIGURATION SPARK APPLICATION
     appName = "Validator_external"
@@ -90,6 +83,7 @@ def main(**kwargs):
     spark = SparkSession.builder \
         .appName(appName) \
         .master(master) \
+        .config("spark.driver.memory", "8g") \
         .enableHiveSupport() \
         .getOrCreate()
 
@@ -102,25 +96,28 @@ def main(**kwargs):
         dates = []
         prefix='DM/{}/'.format(interface)
 
-        for obj in bucket_obj.objects.filter(Prefix=prefix):
-            file = '{0}'.format(obj.key)
-            print(file)
+        if len(partition) == 0:
+            for obj in bucket_obj.objects.filter(Prefix=prefix):
+                file = '{0}'.format(obj.key)
+                print(file)
 
-            #Busqueda de la fecha en los directorios 
-            year_pattern = "dat_exec_year="
-            if year_pattern in file:
-                index_year = file.index(year_pattern) + len(year_pattern)
-                month_pattern = "dat_exec_month="
-                index_month = file.index(month_pattern) + len(month_pattern)
-                day_pattern = "dat_exec_day="
-                index_day = file.index(day_pattern) + len(day_pattern)
+                #Busqueda de la fecha en los directorios 
+                year_pattern = "dat_exec_year="
+                if year_pattern in file:
+                    index_year = file.index(year_pattern) + len(year_pattern)
+                    month_pattern = "dat_exec_month="
+                    index_month = file.index(month_pattern) + len(month_pattern)
+                    day_pattern = "dat_exec_day="
+                    index_day = file.index(day_pattern) + len(day_pattern)
 
-                year = file[index_year:index_year + 4]
-                month = file[index_month:index_month + 2]
-                day = file[index_day:index_day + 2]
+                    year = file[index_year:index_year + 4]
+                    month = file[index_month:index_month + 2]
+                    day = file[index_day:index_day + 2]
 
-                final_date = year + month + day
-                dates.append(final_date)
+                    final_date = year + month + day
+                    dates.append(final_date)
+        else: 
+            dates.append(partition)
 
         try: 
             #Habra que coger la fecha correspondiente a la particion correcta
@@ -136,6 +133,12 @@ def main(**kwargs):
             else: #latest == "NO"
                 new_dates = list(set(dates))
                 new_dates.sort()
+                #En caso de que se quiera coger un intervalo de fechas mas corto, habra que filtrar la lista
+                if len(partitions) == 8:
+                    print(new_dates)
+                    print(partitions)
+                    new_dates = list(filter(lambda date: date >= partitions,new_dates))
+                    print(new_dates)
 
             times = len(new_dates)
             
@@ -235,7 +238,6 @@ def main(**kwargs):
 
                         
                         
-                        #select = spark.sql("SELECT count(dat_exec_year) from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={}".format(schema_prueba,interface,year,month,day)).take(1)
                         count_records = spark.sql("SELECT count(dat_exec_year) from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={}".format(schema_prueba,interface,year,month,day)).take(1)
                         #En caso de que encontremos datos en la particion en cuestion de la tabla external
                         count_records_def = (str(count_records[0])).replace("Row(count(dat_exec_year)=","").replace(")","")
@@ -308,5 +310,7 @@ if __name__ == '__main__':
     PARSER = argparse.ArgumentParser(description='GBR TO VERIFY QUERIES')
     PARSER.add_argument('--env', help='set environment to be worked in', default="dev")
     PARSER.add_argument('--interfaces_file', help='set name of the interfaces file that will be processed', default="interfaces.csv")
-    PARSER.add_argument('--partitions', help='set the amount of partitions to be worked (all or latest)', default="latest")
+    PARSER.add_argument('--partitions', help='set the amount of partitions to be worked (all, latest or day until now). Day format: YYYYMMDD', default="latest")
+    PARSER.add_argument('--unique_partition', help='set the partition to be worked (YYYYMMDD)', default="")
+
     main(**vars(PARSER.parse_args()))
