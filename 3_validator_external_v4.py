@@ -243,24 +243,17 @@ def main(**kwargs):
                         count_records_def = (str(count_records[0])).replace("Row(count(dat_exec_year)=","").replace(")","")
 
                         if int(count_records_def) == 0:
-                            print("ALTER FAILED")
-                            error = "ALTER fallido"
-                            date_gbr = str(datetime.now())
-                            resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr, "*")
-                            df_resultado.append(resultado)
-
-                        elif (int(count_records_def) > 0 and int(count_records_def) < 3):
                             print("ALTER EXITOSO")
                             error = "Datos no cargados en tabla, fichero vacio"
                             date_gbr = str(datetime.now())
-                            resultado = (interface, date_part, "ALTER TABLE", "OK", error, date_gbr, "0")
+                            resultado = (interface, date_part, "ALTER TABLE", "OK", error, date_gbr, str(int(count_records_def)))
                             df_resultado.append(resultado)
 
                         else:
                             error = 'OK'
                             print("ALTER EXITOSO")
                             date_gbr = str(datetime.now())
-                            resultado = (interface, date_part, "ALTER TABLE", 'OK', "No hay error", date_gbr, str(int(count_records_def) - 2)) 
+                            resultado = (interface, date_part, "ALTER TABLE", 'OK', "No hay error", date_gbr, str(int(count_records_def))) 
                             df_resultado.append(resultado)
                     
 
