@@ -1,0 +1,48 @@
+Organisation,3
+Account Number,19
+Record Number,3
+Record Type,2
+Logo,3
+Date Last Maintenance,8
+Plan Number,5
+Date Added,8
+Date Loan Plan Opened,8
+Date of Original Loan Agreement,8
+Original Disclosed Insurance Amount,19
+Original Disclosed User Fee 1 Amount,19
+Original Disclosed User Fee 2 Amount,19
+Original Disclosed User Fee 3 Amount,19
+Original Disclosed User Fee 4 Amount,19
+Original Disclosed User Fee 5 Amount,19
+Original Disclosed User Fee 6 Amount,19
+Flat Interest Amount,19
+Original Term,3
+Billing Term,3
+Original Final Payment Amount,19
+Original First Payment Date,8
+Original Final Payment Date,8
+Date Interest First Charged,8
+Interest Deferment Period,3
+Date Insurance First Charged,8
+Original Interest Rate,9
+Rebate Period Indicator,1
+Rebate Expiration Date,8
+Interest Rebate Indicator,1
+Insurance Rebate Indicator,1
+User Fee 1 Rebate Indicator,1
+User Fee 2 Rebate Indicator,1
+User Fee 3 Rebate Indicator,1
+User Fee 4 Rebate Indicator,1
+User Fee 5 Rebate Indicator,1
+User Fee 6 Rebate Indicator,1
+Second Interest Rebate Indicator,1
+Second Insurance Rebate Indicator,1
+Second User Fee 1 Rebate Indicator,1
+Second User Fee 2 Rebate Indicator,1
+Second User Fee 3 Rebate Indicator,1
+Reference Number,23
+Principle Amount,19
+Interest Amount,19
+First Payment Amount,19
+Extract Date,8
+Record Delimiter,1

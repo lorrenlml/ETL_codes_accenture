@@ -1,0 +1,230 @@
+Organization,3
+Card Number,19
+Card Sequence Number,4
+Organization,3
+Post to Account,19
+Status,1
+Logo,3
+Source,1
+Block Code,1
+Warning Code 1,1
+Warning Code 7,1
+Reissue attempts -– sign,1
+Reissue attempts,3
+Date Opened ,8
+Status Date,8
+Status update: security identification,3
+Date last maintained,8
+Last Maintenance: security identification,3
+Block Code Date,8
+Block Code Update: security identification,3
+Expiry Date,8
+Date of last plastic issue,8
+Date of last plastic expiry,8
+Date for first card verification.,8
+Current first usage flag,1
+Embossed name 1,26
+Embossed name 2,26
+User Information 1,20
+User Information 2,20
+User Information 3,19
+User Information 4,4
+User Information 5,1
+User Information 6,1
+User Information 7,1
+User Information 8,1
+User Date 1,8
+User Date 2,8
+Type of card,2
+Cardholder flag,1
+Number Requested -– sign,1
+Number Requested,3
+Number of cards outstanding -– sign,1
+Number of cards outstanding,3
+PIN Offset -– sign,1
+PIN Offset,7
+Last card action,1
+Card action,1
+Number of invalid PIN tries,2
+Customer Number,19
+Authorisations ATM OTC and retail frequency,1
+Authorisation ATM cash amount -– sign,1
+Authorisation ATM cash amount,17
+Authorisation ATM cash number -– sign,1
+Authorisation ATM cash number,9
+Authorisation ATM cash single transaction amount -– sign,1
+Authorisation ATM cash single transaction amount,17
+Authorisation OTC cash amount -– sign,1
+Authorisation OTC cash amount,17
+Authorisation OTC cash number -– sign,1
+Authorisation OTC cash number,9
+Authorisation OTC cash single transaction amount -– sign,1
+Authorisation OTC cash single transaction amount,17
+Authorisation retail amount -– sign,1
+Authorisation retail amount,17
+Authorisation retail number -– sign,1
+Authorisation retail number,9
+Authorisation retail single transaction amount -– sign,1
+Authorisation retail single transaction amount,17
+Accumulated amount of cash transactions today -– sign,1
+Accumulated amount of cash transactions today,17
+Accumulated number of cash transactions today -– sign,1
+Accumulated number of cash transactions today,9
+Date of last authorisation,8
+Next expiration date,8
+Warning code 1 date,8
+Card Technology,1
+Last CHIP sequence number used,2
+Current CHIP sequence number,2
+Previous CHIP sequence number,2
+Administration Branch,9
+First Issue Branch,9
+Issue Delivery Option,1
+Reissue Delivery Option,1
+Current card from date,8
+Current card mail date,8
+Transferred account,19
+Transferred Card Number,19
+Effective date of transfer,8
+Name 1 Type indicator,1
+Name 2 Type indicator,1
+MCC Table Override -– sign,1
+MCC Table Override ,3
+MCC Override start date,8
+MCC Override expiry date,8
+Cardholder type.,1
+Gender code,1
+Card action reason,1
+Card activated date,8
+Account logo,3
+Card set identification,19
+New account  scheme report flag,1
+PIN alignment,1
+Card statistics level,1
+Refer anti-refer flag,1
+Refer anti-refer expiry date,8
+Membership fee occurrence,1
+Single cash limit -– sign,1
+Single cash limit,17
+Cash limit modification date,8
+Replace lost or stolen flag,1
+Replacement  fee flag,1
+Old card number,19
+New card number,19
+PIN assignment  date,8
+PIN change  date,8
+Time of last plastic issue,4
+Disability Indicator,1
+Authorisation Quasi Cash Amount -– sign,1
+Authorisation Quasi Cash Amount,17
+Authorisation Quasi Cash Number -– sign,1
+Authorisation Quasi Cash Number,9
+Authorisation Quasi Cash Single Transaction Amount -– sign,1
+Authorisation Quasi Cash Single Transaction Amount,17
+Authorisation Total Transaction Amount -– sign,1
+Authorisation Total Transaction Amount,17
+Authorisation Total Transaction Number -– sign,1
+Authorisation Total Transaction Number,9
+Authorisation at ATM: Daily Amount -– sign,1
+Authorisation at ATM: Daily Amount,17
+Accumulated quasi-authorisation amount today -– sign,1
+Accumulated quasi-authorisation amount today,17
+Accumulated quasi-authorisation number today -– sign,1
+Accumulated quasi-authorisation number today,9
+"Accumulated quasi-authorisation amount, cycle to date -– sign",1
+"Accumulated quasi-authorisation amount, cycle to date",17
+"Accumulated quasi-authorisation number, cycle to date -– sign",1
+"Accumulated quasi-authorisation number, cycle to date",9
+"Accumulated quasi-authorisation amount, year to date -– sign",1
+"Accumulated quasi-authorisation amount, year to date",17
+"Accumulated quasi-authorisation number, year to date -– sign",1
+"Accumulated quasi-authorisation number, year to date",9
+"Accumulated quasi-authorisation amount, life to date -– sign",1
+"Accumulated quasi-authorisation amount, life to date",17
+"Accumulated quasi-authorisation number, life to date -– sign",1
+"Accumulated quasi-authorisation number, life to date",9
+Emblem Identification,5
+Emergency Card,1
+Emergency Card Number,19
+Emergency Card Limit,9
+Last Despatch Delivery Option,10
+Last Despatch Delivery Date,8
+Email Notification sent Card,1
+SMS Outcome,1
+Offer Code Override,10
+2FA indicator,1
+Application transaction counter -– sign,1
+Application transaction counter,5
+Converted,1
+Converted Card Number,19
+Waive-Card-Fee,1
+Addr-Line-1,40
+Addr-Line-2,40
+City,30
+Embr-Name-1,40
+Pstl-Cd,10
+Prior-First-Usage-Flag,1
+Crd-Lmt-Prof,3
+Type-of-Loss,1
+Loss-date,8
+Country-of-loss,3
+Location-of-loss,1
+FRAUD-MONITOR-FLAG,2
+FRAUD-MONITOR-EXP-DTE,8
+FRAUD-DATE-LAST-MAINT,8
+Post-Code-Restriction,1
+Date-Last-Contactless-Txn,8
+Mobile Device ID,20
+Mobile Provision Status,1
+Mobile PI Report Ind,1
+Pin Comm Pref,1
+Pin Comm Pref Overrride,1
+Mobile Number,20
+Memorable Word,20
+ATM PIN IND,1
+Pin Verify Method,1
+Card Serial Number,10
+Plastic ID,10
+User information 9,19
+User information 10,20
+Inst Iss Emboss Status,1
+Inst Iss Branch Id,9
+Inst Iss Emboss Status Date,8
+Ecomm Restrict Ind,1
+RSN-BLOCK-CODE,2
+Filler,26
+COD-DIGITAL-CARD-IND,1
+Filler,65
+ADDITIONAL FREQ,1
+ADDITIONAL TOT TXN AMT Sign,1
+ADDITIONAL TOT TXN AMT,17
+ADDITIONAL TOT TXN NBR Sign,1
+ADDITIONAL TOT TXN NBR,9
+Filler (Campo layout PT),105
+ACCUM-SCA-TRANS-NUM (solo aplica PT),5
+ACCUM-SCA-TRANS-AMT-SIGN (solo aplica PT),1
+ACCUM-SCA-TRANS-AMT-SIGN (solo aplica PT),17
+Filler (Último campo layout PT),61
+Total Cash Transaction Amount Limit Sign ,1
+Total Cash Transaction Amount Limit ,17
+Total Cash Transaction Number Limit Sign ,1
+Total Cash Transaction Number Limit ,9
+MOTO Authorization Amount Threshold Sign ,1
+MOTO Authorization amount Threshold ,17
+MOTO Authorization Count Threshold Sign,1
+MOTO Authorization Threshold Count ,9
+MOTO Authorization Amount Accumulator( Daily) Sign ,1
+MOTO Authorization Accumulator (Daily) ,17
+MOTO Authorization Count (Daily) Sign ,1
+MOTO Authorization Count (Daily) ,9
+MOTO Authorization Amount Accumulator (Cyclic) Sign,1
+MOTO Authorization Amount Accumulator (Cyclic) ,17
+MOTO Authorization Count (Cyclic) Sign,1
+MOTO Authorization Count (Cyclic) ,9
+ONDOT OPT IN ,1
+Filler,8
+CNTLS OPT IN OUT,1
+USER 11,21
+Sign Field for 7 Day Rolling Total Of Cash Auths,1
+7 Day Rolling Total Of Cash Auths,17
+filler_last,87

@@ -1,0 +1,52 @@
+Organisation,3
+Account Number,19
+Record Number,8
+Scheme ,5
+Transaction Code ,3
+Type,1
+Amount,17
+Points,13
+Batch Date,8
+Posting Date,8
+Store Organisation,3
+LMS Organisation,3
+Store Number,9
+Posting Flag,2
+Card Number,19
+User Merchant Description ,43
+Posting Flag,1
+Original Operator,3
+Last Operator ,3
+Merchant Store,9
+CMS Organisation,3
+CMS Account Number ,19
+Effective Date,8
+Actual Value,17
+Redemption Channel,4
+Program Unit ,1
+Trace Number,6
+Earn Rate or Value,9
+Extract Date,8
+Group Code,5
+Description,40
+Category Code,5
+SKU Number,9
+GL Source,1
+Department,4
+User Source Code,4
+User Reference Number,18
+Settlement Flag,1
+Point Rate Indicator,1
+Point Rate,9
+Table Type,1
+Table Priority,2
+Reference Number,23
+Reject Reason,2
+Credit Plan Number,5
+Qualifying Indicator,1
+Rewards Category,6
+Catalogue Number,19
+Cap Exceeded Indicator,1
+Terminal ID,8
+Filler,6
+Record Delimiter,1

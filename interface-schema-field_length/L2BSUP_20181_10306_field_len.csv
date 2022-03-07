@@ -1,0 +1,3624 @@
+Organisation,3
+Account Number,19
+Logo,3
+Short Name,20
+Customer Number,19
+Alternate Customer Number Flag,1
+Alternate Customer Number,19
+User Account Number,19
+State of Residence,3
+State of Issue,3
+Transfer Organisation,3
+Transfer Logo,3
+Transfer Account,19
+Account Type,1
+Source,1
+Status,1
+Charge-off Status,1
+Over limit Flag,1
+Cycle Over limit Fee Indicator,1
+Over limit number of cycles,3
+Condition of account,1
+Block Code 1,1
+Block Code 2 ,1
+Card Usage Flag,1
+Processing Control Table (PCT) Level,1
+PCT Level Start Date,8
+PCT Level Expiry Date,8
+PCT Control ID,3
+PCT Start Date,8
+PCT Expiry Date,8
+Account Control Table Override,3
+Billing Cycle,2
+Statement Flag,1
+Statement Frequency,2
+Return Mail Counter,2
+Return Mail User,3
+Return Mail Date,8
+Originating Bank Number,5
+Originating Branch Number,9
+Owning Bank Number,5
+Owning Branch Number,9
+Current Collector,3
+Permanent Collector,3
+User Code 1,2
+User Code 2,2
+User Code 3,2
+User Code 4,2
+User Code 5,2
+User Code 6,2
+User Code 7,2
+User Code 8,2
+User Code 9,2
+User Code 10,2
+User Code 11,2
+User Code 12,2
+User Code 13,2
+User Code 14,2
+Owner Flag,1
+Employee Code,2
+Source Code,20
+Promotion Code 1,4
+Promotion Code 1 Status,1
+Promotion Code 2,4
+Promotion Code 2 Status,1
+Promotion Code 3,4
+Promotion Code 3 Status,1
+Promotion Code 4,4
+Promotion Code 4 Status,1
+Waive Late Charges,1
+Waive Interest,1
+Waive Service Charge 1,1
+Waive Service Charge 2,1
+Waive Service Charge 3,1
+Waive Service Charge 4,1
+Waive Service Charge 5,1
+Waive Service Charge 6,1
+Waive Service Charge 7,1
+Waive Service Charge 8,1
+Waive Service Charge 9,1
+Waive Service Charge 10,1
+Waive Service Charge 11,1
+Waive Service Charge 12,1
+Waive Service Charge 13,1
+Waive Service Charge 14,1
+Waive Service Charge 15,1
+Waive Service Charge 16,1
+Waive Service Charge 17,1
+Waive Service Charge 18,1
+Waive Service Charge 19,1
+Waive Service Charge 20,1
+Waive Service Charge 21,1
+Waive Service Charge 22,1
+Waive Service Charge 23,1
+Waive Service Charge 24,1
+Waive Service Charge 25,1
+Waive Fee Charge,1
+Waive Late Notices,1
+Waive Over limit Notice,1
+Waive Over limit Fee,1
+Waive NSF Fee,1
+Waive Card Fee,1
+Waive Letter Fee,1
+Flexible Billing Flag,1
+Application Date,8
+Opened Date,8
+Block Code 1 Date,8
+Block Code 2 Date,8
+Last Status Change Date,8
+Closed Date,8
+Charge Off Date,8
+Card Fee Date ,8
+Card Fee Date – Date First Purchase,8
+Last Purchase Date,8
+Last Return Date,8
+Last Delinquent Date ,8
+Prior Delinquent Date,8
+Last Accrued Date,8
+Last Activity Date ,8
+Last Reversed Payment Date,8
+Credit Limit Date,8
+Previous Credit Limit Date,8
+Last Statement Date,8
+Next Statement Date,8
+Payment Due Date,8
+Last Payment Date,8
+Credit balance Date,8
+Last Returned Cheque Date,8
+Last debit date,8
+Last Credit Date,8
+Last Maintained Date,8
+Last rate Change Date,8
+Date of Birth,8
+User Date 1,8
+User Date 2,8
+User Date 3,8
+User Date 4,8
+User Date 5,8
+User Date 6,8
+User Date 7,8
+User Date 8,8
+User Date 9,8
+User Date 10,8
+User Date 11,8
+User Date 12,8
+User Date 13,8
+User Date 14,8
+Transfer Effective Date,8
+Last Re-Age Date,8
+Filler (ACH Authorisation date),8
+ACH Effective Date,8
+Card Expiration Date,8
+Credit Bureau Score – sign,1
+Credit Bureau Score,5
+Application Credit Score – sign,1
+Application Credit Score,5
+Miscellaneous Credit Score – sign,1
+Miscellaneous Credit Score,5
+Credit Limit – sign,1
+Credit Limit,17
+Last Credit Limit – sign,1
+Last Credit Limit,17
+High Balance – sign,1
+High Balance,17
+Income – sign,1
+Income,17
+Number NSF – sign,1
+Number NSF,3
+Number Unblocked Cards – sign,1
+Number Unblocked Cards,5
+Months with Balance,1
+Months with Balance,3
+Months with Purchases,1
+Months with Purchases,3
+Payment Ratio 1 – sign,1
+Payment Ratio 1,4
+Payment Ratio 2 – sign,1
+Payment Ratio 2,4
+Payment Ratio 3 – sign,1
+Payment Ratio 3,4
+Payment Ratio 4 – sign,1
+Payment Ratio 4,4
+Payment Ratio 5 – sign,1
+Payment Ratio 5,4
+Payment Ratio 6 – sign,1
+Payment Ratio 6,4
+Payment Ratio 7 – sign,1
+Payment Ratio 7,4
+Payment Ratio 8 – sign,1
+Payment Ratio 8,4
+Payment Ratio 9 – sign,1
+Payment Ratio 9,4
+Payment Ratio 10 – sign,1
+Payment Ratio 10,4
+Payment Ratio 11 – sign,1
+Payment Ratio 11,4
+Payment Ratio 12 – sign,1
+Payment Ratio 12,4
+Delinquency History 1,1
+Payment History 1,1
+Delinquency History 2,1
+Payment History 2,1
+Delinquency History 3,1
+Payment History 3,1
+Delinquency History 4,1
+Payment History 4,1
+Delinquency History 5,1
+Payment History 5,1
+Delinquency History 6,1
+Payment History 6,1
+Delinquency History 7,1
+Payment History 7,1
+Delinquency History 8,1
+Payment History 8,1
+Delinquency History 9,1
+Payment History 9,1
+Delinquency History 10,1
+Payment History 10,1
+Delinquency History 11,1
+Payment History 11,1
+Delinquency History 12,1
+Payment History 12,1
+Delinquency History 13,1
+Payment History 13,1
+Delinquency History 14,1
+Payment History 14,1
+Delinquency History 15,1
+Payment History 15,1
+Delinquency History 16,1
+Payment History 16,1
+Delinquency History 17,1
+Payment History 17,1
+Delinquency History 18,1
+Payment History 18,1
+Delinquency History 19,1
+Payment History 19,1
+Delinquency History 20,1
+Payment History 20,1
+Delinquency History 21,1
+Payment History 21,1
+Delinquency History 22,1
+Payment History 22,1
+Delinquency History 23,1
+Payment History 23,1
+Delinquency History 24,1
+Payment History 24,1
+Payment Days Delinquent – sign,1
+Payment Days Delinquent,3
+Payment Cycle to date – sign,1
+Payment Cycle to date,17
+Payment Cycle to Date Number – sign,1
+Payment Cycle to Date Number,3
+Payment Last Requested – sign,1
+Payment Last Requested,17
+Payment Skip Flag,1
+ACH Payment Flag,1
+ACH Debit Type,1
+ACH Routing / Transit Number – sign,1
+ACH Routing / Transit Number,10
+ACH Debit Account Number ,17
+Payment Times Reaged – sign,1
+Payment Times Reaged,3
+Payment Cycle Due Code,1
+Payment Amount Prepaid – sign,1
+Payment Amount Prepaid,17
+Payment Number Prepaid – sign,1
+Payment Number Prepaid,3
+Payment Total Amount Due – sign,1
+Payment Total Amount Due,17
+Payment Grace Days – sign,1
+Payment Grace Days,3
+Payment Current Due – sign,1
+Payment Current Due,17
+Payment Past Counter – sign,1
+Payment Past Counter,3
+Payment Past Due – sign,1
+Payment Past Due,17
+Payment 30 days Counter – sign,1
+Payment 30 days Counter,3
+Payment 30 days – sign,1
+Payment 30 days,17
+Payment 60 Days Counter – sign,1
+Payment 60 Days Counter,3
+Payment 60 Days – sign,1
+Payment 60 Days,17
+Payment 90 Days Counter – sign,1
+Payment 90 Days Counter,3
+Payment 90 Days – sign,1
+Payment 90 Days,17
+Payment 120 Days Counter – sign,1
+Payment 120 Days Counter,3
+Payment 120 Days  - sign,1
+Payment 120 Days,17
+Payment 150 Days Counter – sign,1
+Payment 150 Days Counter,3
+Payment 150 Days – sign,1
+Payment 150 Days,17
+Payment 180 Days Counter – sign,1
+Payment 180 Days Counter,3
+Payment 180 Days – sign,1
+Payment 180 Days,17
+Payment 210 Days Counter – sign,1
+Payment 210 Days Counter,3
+Payment 210 Days – sign,1
+Payment 210 Days,17
+Payment Last Amount – sign,1
+Payment Last Amount,17
+Filler (Payment Total Amount Forgiven – sign),1
+Filler (Payment Total Amount Forgiven),17
+Plan Payment Override Flag,1
+Fixed Payment Amount – sign,1
+Fixed Payment Amount,17
+Fixed Payment Percentage – sign,1
+Fixed Payment Percentage,7
+Nominated ACH Amount Percentage Flag,1
+Nominated ACH Amount – sign,1
+Nominated ACH Amount,17
+Nominated ACH Percentage – sign,1
+Nominated ACH Percentage,7
+Nominated ACH Start Date,8
+Projected ACH Payment – sign,1
+Projected ACH Payment,17
+DD Request Day,2
+DD Account Type,1
+Internal Status Previous,1
+DD Account Number,17
+DD Routing Number – sign,1
+DD Routing Number,10
+Year-to-Date Card Issuance Fees – sign,1
+Year-to-Date Card Issuance Fees,17
+DD Actual Payment – sign,1
+DD Actual Payment,17
+Waive Cash Advance Fee 1,1
+Waive Cash Advance Fee 2,1
+Waive Cash Advance Fee 3,1
+Waive Cash Advance Fee 4,1
+Waive Cash Advance Fee 5,1
+Current Balance – sign,1
+Current Balance,17
+Number of Plans – sign,1
+Number of Plans,5
+Fraud Reporting Flag,1
+Open To Buy – sign,1
+Open To Buy,17
+Aggregate Days – sign,1
+Aggregate Days,3
+Amount Last Debit – sign,1
+Amount Last Debit,17
+Amount Last Purchase – sign,1
+Amount Last Purchase,17
+Last Year-To-Date Interest – sign,1
+Last Year-To-Date Interest,17
+Current Year-To-Date Interest Paid – sign,1
+Current Year-To-Date Interest Paid,17
+Last Year-To-Date INT Paid – sign,1
+Last Year-To-Date INT Paid,17
+Current Late Charge Amount – sign,1
+Current Late Charge Amount,17
+Prior Late Charge Amount – sign,1
+Prior Late Charge Amount,17
+Number Year-To-Date Late Charge – sign,1
+Number Year-To-Date Late Charge,5
+Amount Year-To-Date Late Charge – sign,1
+Amount Year-To-Date Late Charge,17
+Year-To-Date  Overlimit Charge – sign,1
+Year-To-Date  Overlimit Charge,17
+Number Year-To-Date Purchases – sign,1
+Number Year-To-Date Purchases,5
+Amount Year-To-Date Purchases – sign,1
+Amount Year-To-Date Purchases,17
+Number Cycle-To-Date Purchases – sign,1
+Number Cycle-To-Date Purchases,5
+Amount Cycle-To-Date Purchases – sign,1
+Amount Cycle-To-Date Purchases,17
+Number Year-To-Date Cash – sign,1
+Number Year-To-Date Cash,5
+Amount Year-To-Date Cash – sign,1
+Amount Year-To-Date Cash,17
+Number Cycle-To-Date Cash – sign,1
+Number Cycle-To-Date Cash,5
+Amount Cycle-To-Date Cash – sign,1
+Amount Cycle-To-Date Cash,17
+Number Year-To-Date Returns – sign,1
+Number Year-To-Date Returns,5
+Amount Year-To-Date Returns – sign,1
+Amount Year-To-Date Returns,17
+Number Cycle-To-Date Returns – sign,1
+Number Cycle-To-Date Returns,5
+Amount Cycle-To-Date Returns – sign,1
+Amount Cycle-To-Date Returns,17
+Amount Cycle-To-Date NSF – sign,1
+Amount Cycle-To-Date NSF,17
+Number Cycle-To-Date NSF – sign,1
+Number Cycle-To-Date NSF,3
+Number Year-To-Date Payments – sign,1
+Number Year-To-Date Payments,3
+Amount Year-To-Date Payments – sign,1
+Amount Year-To-Date Payments,17
+Number Disputed Items – sign,1
+Number Disputed Items,5
+Amount Disputed Items – sign,1
+Amount Disputed Items,17
+Amount Chargeoff – sign,1
+Amount Chargeoff,17
+Cash Amount Chargeoff – sign,1
+Cash Amount Chargeoff,17
+Chargeoff Reason 1,1
+Chargeoff Reason 2,1
+OVLM-EXCL-BAL-SIGN,1
+OVLM-EXCL-BAL,17
+User Amount 1 – sign,1
+User Amount 1,17
+User Amount 2 – sign,1
+User Amount 2,17
+User Amount 3 – sign,1
+User Amount 3,17
+User Amount 4 – sign,1
+User Amount 4,17
+User Amount 5 – sign,1
+User Amount 5,17
+User Amount 6 – sign,1
+User Amount 6,17
+User Amount 7 – sign,1
+User Amount 7,17
+User Amount 8 – sign,1
+User Amount 8,17
+User Amount 9 – sign,1
+User Amount 9,17
+User Amount 10 – sign,1
+User Amount 10,17
+User Amount 11 – sign,1
+User Amount 11,17
+User Amount 12 – sign,1
+User Amount 12,17
+User Amount 13 – sign,1
+User Amount 13,17
+User Amount 14 – sign,1
+User Amount 14,17
+Month-To-Date Finance Charge – sign,1
+Month-To-Date Finance Charge,17
+Month-To-Date Insurance Premium – sign,1
+Month-To-Date Insurance Premium,17
+Month-To-Date Service Charge – sign,1
+Month-To-Date Service Charge,17
+Cycle-To-Date Service Charge – sign,1
+Cycle-To-Date Service Charge,17
+Cycle-To-Date Cash Advance Service Charge – sign,1
+Cycle-To-Date Cash Advance Service Charge,17
+Number Cycle-To-Date Late Fees – sign,1
+Number Cycle-To-Date Late Fees,3
+Amount Cycle-To-Date Late Fees – sign,1
+Amount Cycle-To-Date Late Fees,17
+Amount Cycle-To-Date Membership Fees – sign,1
+Amount Cycle-To-Date Membership Fees,17
+Amount Cycle-To-Date Overlimit Fees – sign,1
+Amount Cycle-To-Date Overlimit Fees,17
+Amount Cycle-To-Date Recovery Fees – sign,1
+Amount Cycle-To-Date Recovery Fees,17
+Amount Cycle-To-Date Collection Fees – sign,1
+Amount Cycle-To-Date Collection Fees,17
+Amount Cycle-To-Date NSF Fees – sign,1
+Amount Cycle-To-Date NSF Fees,17
+Amount Memo Debit – sign,1
+Amount Memo Debit,17
+Number Memo Debit – sign,1
+Number Memo Debit,3
+Amount Memo Credit – sign,1
+Amount Memo Credit,17
+Number Memo Credit – sign,1
+Number Memo Credit,3
+Warning Code 1,1
+Warning Code 2,1
+Warning Code 3,1
+Warning Code 4,1
+Warning Code 5,1
+Warning Code 6,1
+Warning Code 7,1
+Waive Cash Available Credit Flag,1
+Cash Available Credit – sign,1
+Cash Available Credit,17
+Cash Amount Disputed Items – sign,1
+Cash Amount Disputed Items,17
+Cash Balance – sign,1
+Cash Balance,17
+Cash Available Credit Flag,1
+Cash Available Credit Amount – sign,1
+Cash Available Credit Amount,17
+Cash Available Credit Percent – sign,1
+Cash Available Credit Percent,8
+Cash Credit Limit – sign,1
+Cash Credit Limit,17
+Cash Number Disputed Items – sign,1
+Cash Number Disputed Items,5
+Interest Variance 1 – sign,1
+Interest Variance 1,7
+Interest Variance 2 – sign,1
+Interest Variance 2,7
+Interest Variance 3 – sign,1
+Interest Variance 3,7
+Interest Variance 4 – sign,1
+Interest Variance 4,7
+Interest Variance 5 – sign,1
+Interest Variance 5,7
+Interest Variance 6 – sign,1
+Interest Variance 6,7
+Interest Variance 7 – sign,1
+Interest Variance 7,7
+Interest Variance 8 – sign,1
+Interest Variance 8,7
+Interest Variance 9 – sign,1
+Interest Variance 9,7
+Interest Variance 10 – sign,1
+Interest Variance 10,7
+Interest Variance 11 – sign,1
+Interest Variance 11,7
+Interest Variance 12 – sign,1
+Interest Variance 12,7
+Interest Variance Pending 1 – sign,1
+Interest Variance Pending 1,7
+Interest Variance Pending 2 – sign,1
+Interest Variance Pending 2,7
+Interest Variance Pending 3 – sign,1
+Interest Variance Pending 3,7
+Interest Variance Pending 4 – sign,1
+Interest Variance Pending 4,7
+Interest Variance Pending 5 – sign,1
+Interest Variance Pending 5,7
+Interest Variance Pending 6 – sign,1
+Interest Variance Pending 6,7
+Interest Variance Pending 7 – sign,1
+Interest Variance Pending 7,7
+Interest Variance Pending 8 – sign,1
+Interest Variance Pending 8,7
+Interest Variance Pending 9 – sign,1
+Interest Variance Pending 9,7
+Interest Variance Pending 10 – sign,1
+Interest Variance Pending 10,7
+Interest Variance Pending 11 – sign,1
+Interest Variance Pending 11,7
+Interest Variance Pending 12 – sign,1
+Interest Variance Pending 12,7
+Variance Effective Date,8
+Pending PCT,3
+Pending PCT Effective Date,8
+Pending PCT End Date,8
+Pending Level,1
+Cash Plan Number – sigm,1
+Cash Plan Number,5
+Retail Plan Number  - sign,1
+Retail Plan Number ,5
+Greatest Card Expiration Date,8
+DDA Routing Number – sign,1
+DDA Routing Number,9
+DDA Account Number ,19
+Savings Routing Number  - SIGN,1
+Savings Routing Number ,9
+Savings Account Number ,19
+User Defined Account Number ,19
+Payment Hold,1
+Temporary Credit Limit  - sign,1
+Temporary Credit Limit ,17
+Temporary Credit Limit Expiration Date,8
+Customer Organisation,3
+Date Last Cycle,8
+Customer Statement Flag,1
+Customer Letter Flag,1
+Associated Type 1,1
+Associated Account Number 1,19
+Associated Relationship Type 1,1
+Associated Date 1,8
+Associated Amount 1 – sign,1
+Associated Amount 1,17
+Associated Type 2,1
+Associated Account Number 2,19
+Associated Relationship Type 2,1
+Associated Date 2,8
+Associated Amount 2 – sign,1
+Associated Amount 2,17
+Associated Type 3,1
+Associated Account Number 3,19
+Associated Relationship Type 3,1
+Associated Date 3,8
+Associated Amount 3 – sign,1
+Associated Amount 3,17
+Filler (Terms Condition),4
+Filler (Terms Condition Date),8
+Waive User Fee 1,1
+Waive User Fee 2,1
+Waive User Fee 3,1
+Waive User Fee 4,1
+Waive User Fee 5,1
+Waive User Fee 6,1
+Filler (Preferential Minimum Amount – sign),1
+Filler (Preferential Minimum Amount),17
+Preferential Interest Days – sign,1
+Preferential Interest Days,3
+Preferential Start Date,8
+Preferential End Date,8
+Filler (Preferential Promo Date),8
+Rebate Preferential Transaction Amount – sign,1
+Rebate Preferential Transaction Amount,17
+Payment Remittance Method,1
+Previous Payment Remittance Method,1
+Suppress Letters Flag,1
+Hold Letters Flag,1
+Application User 1,20
+Application User 2,20
+Application User 3,20
+Miscellaneous User 1,30
+Miscellaneous User 2,1
+Miscellaneous User 3,11
+Miscellaneous User 4,11
+Miscellaneous User 5,11
+Miscellaneous User 6,11
+Miscellaneous User 7,11
+Miscellaneous User 8,11
+Miscellaneous User 9,2
+Miscellaneous User 10,2
+Miscellaneous User 11,2
+Miscellaneous User 12,2
+Maker Home Phone,20
+Maker Employment Phone,20
+Immediate Due – sign,1
+Immediate Due,17
+First Purchase Date,8
+First Purchase Amount – sign,1
+First Purchase Amount,17
+Last Cash Advance Date,8
+Last Cash Advance Amount – sign,1
+Last Cash Advance Amount,17
+Balance Transfer Balance – sign,1
+Balance Transfer Balance,17
+Least Card Expiration Date,8
+Year-To-Date paid insurance – sign,1
+Year-To-Date paid insurance,17
+Year-To-Date paid user fee 1  - sign,1
+Year-To-Date paid user fee 1 ,17
+Year-To-Date paid user fee 2  - sign,1
+Year-To-Date paid user fee 2 ,17
+Year-To-Date paid user fee 3  - sign,1
+Year-To-Date paid user fee 3 ,17
+Year-To-Date paid user fee 4  - sign,1
+Year-To-Date paid user fee 4 ,17
+Year-To-Date paid user fee 5  - sign,1
+Year-To-Date paid user fee 5 ,17
+Year-To-Date paid user fee 6  - sign,1
+Year-To-Date paid user fee 6 ,17
+Year-To-Date billed interest  - sign,1
+Year-To-Date billed interest ,17
+Year-To-Date billed insurance – sign,1
+Year-To-Date billed insurance   ,17
+Cycle-To-Date billed user fee 1 – sign,1
+Cycle-To-Date billed user fee 1   ,17
+Year-To-Date billed user fee 1 – sign,1
+Year-To-Date billed user fee 1   ,17
+Cycle-To-Date billed user fee 2 – sign,1
+Cycle-To-Date billed user fee 2   ,17
+Year-To-Date billed user fee 2 – sign,1
+Year-To-Date billed user fee 2   ,17
+Cycle-To-Date billed user fee 3 – sign,1
+Cycle-To-Date billed user fee 3   ,17
+Year-To-Date billed user fee 3 – sign,1
+Year-To-Date billed user fee 3   ,17
+Cycle-To-Date billed user fee 4 – sign,1
+Cycle-To-Date billed user fee 4   ,17
+Year-To-Date billed user fee 4 – sign,1
+Year-To-Date billed user fee 4   ,17
+Cycle-To-Date billed user fee 5 – sign,1
+Cycle-To-Date billed user fee 5   ,17
+Year-To-Date billed user fee 5 – sign,1
+Year-To-Date billed user fee 5   ,17
+Cycle-To-Date billed user fee 6 – sign,1
+Cycle-To-Date billed user fee 6   ,17
+Year-To-Date billed user fee 6 – sign,1
+Year-To-Date billed user fee 6   ,17
+First Billed Interest Date ,8
+Filler (Statement Produced Flag),1
+Last Credit Balance Statement Date,8
+Filler (Next Plan Record Number – sign),1
+Filler (Next Plan Record Number),3
+Grace Day Expiration Date,8
+Number of Returned Payments – sign,1
+Number of Returned Payments,3
+Date Next Cycle,8
+VIP Status,1
+Commercial Flag,1
+Initial Status Before Transfer,1
+Original Billing Cycle,2
+Number of Month-to-date Transactions – sign,1
+Number of Month-to-date Transactions   ,5
+Amount of Month-to-date Transactions – sign,1
+Amount of Month-to-date Transactions   ,17
+Card Technology,1
+Activation Call Qualification Indicator ,1
+Sweep Account Number,19
+Date Start Overlimit,8
+Contact Indicator,2
+Amount Declined Cycle-To-Date – sign,1
+Amount Declined Cycle-To-Date,17
+Number Declined Cycle-To-Date – sign,1
+Number Declined Cycle-To-Date,3
+Open-To-Buy Ratio,3
+Account Updater Switch,1
+Transfer Type,1
+Prepaid Flag,1
+Prepaid Type                ,1
+Prepaid Plan Number – sign,1
+Prepaid Plan Number         ,5
+Prepaid Load Frequency         ,1
+Prepaid Load Number,2
+Prepaid Load Amount – sign,1
+Prepaid Load Amount        ,17
+Min Initial Load Amount – sign,1
+Min Initial Load Amount        ,17
+Max Initial Load Amount – sign,1
+Max Initial Load Amount        ,17
+Min Single Load Amount – sign,1
+Min Single Load Amount        ,17
+Max Single Load Amount – sign,1
+Max Single Load Amount        ,17
+Max Lifetime Load Number – sign,1
+Max Lifetime Load Number         ,5
+Max Lifetime Load Amount – sign,1
+Max Lifetime Load Amount        ,17
+Generic Loads Allowed      ,2
+Load Amount Accumulated 1 – sign,1
+Load Amount Accumulated 1,17
+Load Number Accumulated 1 – sign,1
+Load Number Accumulated 1,5
+Load Amount Accumulated 2 – sign,1
+Load Amount Accumulated 2,17
+Load Number Accumulated 2 – sign,1
+Load Number Accumulated 2,5
+Load Amount Accumulated 3 – sign,1
+Load Amount Accumulated 3,17
+Load Number Accumulated 3 – sign,1
+Load Number Accumulated 3,5
+Load Amount Accumulated 4 – sign,1
+Load Amount Accumulated 4,17
+Load Number Accumulated 4 – sign,1
+Load Number Accumulated 4,5
+Number Load Memo               ,1
+Number Load Memo               ,5
+Amount Load Memo – sign,1
+Amount Load Memo             ,17
+Amount Life-To-Date Authorized Purchases – sign,1
+Amount Life-To-Date Authorized Purchases  ,17
+Amount Life-To-Date Authorized Returns- sign,1
+Amount Life-To-Date Authorized Returns ,17
+Number Cycle-To-Date Loads – sign,1
+Number Cycle-To-Date Loads             ,5
+Amount Cycle-To-Date Loads – sign,1
+Amount Cycle-To-Date Loads             ,17
+Number Year-To-Date Loads – sign,1
+Number Year-To-Date Loads             ,5
+Amount Year-To-Date Loads – sign,1
+Amount Year-To-Date Loads             ,17
+Number Life-To-Date Loads – sign,1
+Number Life-To-Date Loads             ,5
+Amount Life-To-Date Loads – sign,1
+Amount Life-To-Date Loads             ,17
+Date First Load        ,8
+Amount First Load – sign,1
+Amount First Load           ,17
+Date Last Load           ,8
+Amount Last Load – sign,1
+Amount Last Load            ,17
+Number Return Load – sign,1
+Number Return Load           ,5
+Date Last Load Reversal    ,8
+Amount Last Load Reversal – sign,1
+Amount Last Load Reversal    ,17
+Prepaid Migration Switch,1
+Grace Counter Transaction Fee Daily 1          ,2
+Grace Counter Transaction Fee Cycle 1          ,2
+Grace Counter Transaction Fee Yearly 1          ,2
+Grace Counter Transaction Fee Daily 2          ,2
+Grace Counter Transaction Fee Cycle 2          ,2
+Grace Counter Transaction Fee Yearly 2          ,2
+Grace Counter Transaction Fee Daily 3          ,2
+Grace Counter Transaction Fee Cycle 3          ,2
+Grace Counter Transaction Fee Yearly 3          ,2
+Grace Counter Transaction Fee Daily 4          ,2
+Grace Counter Transaction Fee Cycle 4          ,2
+Grace Counter Transaction Fee Yearly 4          ,2
+Grace Counter Transaction Fee Daily 5          ,2
+Grace Counter Transaction Fee Cycle 5          ,2
+Grace Counter Transaction Fee Yearly 5          ,2
+Grace Counter Transaction Fee Daily 6          ,2
+Grace Counter Transaction Fee Cycle 6          ,2
+Grace Counter Transaction Fee Yearly 6          ,2
+Grace Counter Statement Fee Transaction Code        ,2
+Grace Counter Dormancy Fee Transaction Code              ,2
+Grace-Limits-Frequency Dormancy Fee Limit,2
+Grace-Limits-Frequency Statement Fee Limit,2
+Grace-Limits-Frequency Transaction Fee Limit 1,2
+Grace-Limits-Frequency Transaction Fee Frequency 1,1
+Grace-Limits-Frequency Transaction Fee Limit 2,2
+Grace-Limits-Frequency Transaction Fee Frequency 2,1
+Grace-Limits-Frequency Transaction Fee Limit 3,2
+Grace-Limits-Frequency Transaction Fee Frequency 3,1
+Grace-Limits-Frequency Transaction Fee Limit 4,2
+Grace-Limits-Frequency Transaction Fee Frequency 4,1
+Grace-Limits-Frequency Transaction Fee Limit 5,2
+Grace-Limits-Frequency Transaction Fee Frequency 5,1
+Grace-Limits-Frequency Transaction Fee Limit 6,2
+Grace-Limits-Frequency Transaction Fee Frequency 6,1
+Waive Dormancy Fee           ,1
+Waive Refund Fee        ,1
+Waive Statement Fee    ,1
+Waive Transaction Fee 1,1
+Waive Transaction Fee 2,1
+Waive Transaction Fee 3,1
+Waive Transaction Fee 4,1
+Waive Transaction Fee 5,1
+Waive Transaction Fee 6,1
+Customer Select Due Day       ,2
+Life-To-Date Skip Counter           ,3
+Year-To-Date Skip Counter           ,3
+Skip Level                   ,1
+Date Last Skip         ,8
+Prepaid Auth Restriction Daily Indicator,1
+Prepaid Auth Restriction Cycle-to-Date Indicator,1
+Prepaid Auth Restriction Yearly Indicator,1
+Service Charge Fee Table,3
+Service Charge Fee Start Date       ,8
+Service Charge Fee Expiry Date       ,8
+Pending Service Charge Fee,3
+Pending Service Charge Fee Effective Date,8
+Pending Service Charge Fee End Date ,8
+Number Statement Reprints – sign,1
+Number Statement Reprints     ,5
+Multi-Scheme Flag      ,1
+Multi-Scheme Card Logo 1          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 1  ,3
+Multi-Scheme Card  Number Active 1 – sign,1
+Multi-Scheme Card  Number Active 1,5
+Multi-Scheme Card Logo 2          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 2  ,3
+Multi-Scheme Card  Number Active 2 – sign,1
+Multi-Scheme Card  Number Active 2,5
+Multi-Scheme Card Logo 3          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 3  ,3
+Multi-Scheme Card  Number Active 3 – sign,1
+Multi-Scheme Card  Number Active 3,5
+Multi-Scheme Card Logo 4         ,3
+Multi-Scheme Card Quarterly Affiliate Flag 4  ,3
+Multi-Scheme Card  Number Active 4 – sign,1
+Multi-Scheme Card  Number Active 4,5
+Multi-Scheme Card Logo 5          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 5  ,3
+Multi-Scheme Card  Number Active 5 – sign,1
+Multi-Scheme Card  Number Active 5,5
+Multi-Scheme Card Logo 6          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 6  ,3
+Multi-Scheme Card  Number Active 6 – sign,1
+Multi-Scheme Card  Number Active 6,5
+Multi-Scheme Primary Card Set ID,19
+Cash Balance Statement – sign,1
+Cash Balance Statement,17
+Retail Balance Statement – sign,1
+Retail Balance Statement,17
+Last Statement Balance – sign,1
+Last Statement Balance,17
+Previous Payment ACH Transit Routing Number – sign,1
+Previous Payment ACH Transit Routing Number,10
+Previous Payment ACH Debit Type,1
+Previous Payment ACH Debit Number,17
+Source Channel ,1
+Customer Block Date,8
+Miscellaneous Credit After Chargeoff – sign,1
+Miscellaneous Credit After Chargeoff,17
+Miscellaneous Debit After Chargeoff – sign,1
+Miscellaneous Debit After Chargeoff,17
+Amount Recovered – sign,1
+Amount Recovered,17
+29 Days Delinquency Counter,2
+Customer Block Code,1
+Customer Warning Code ,1
+SPID,3
+Test Digits,4
+Special Handling Flag,1
+Collection Class Type,1
+Amount At Risk – sign,1
+Amount At Risk,17
+Amount At Risk Factor – sign,1
+Amount At Risk Factor,10
+Collection Block Code,1
+Collection Class,3
+Collection Indicator,1
+PTP Action Today,1
+Number Broken Promise – sign,1
+Number Broken Promise,3
+Current PTP,1
+Phone Address Indicator,1
+Phone Address Change Indicator,1
+Date Last Credit Decrease,8
+Date Last Credit Increase,8
+Pre-Post Delinquency,1
+Delinquency Strategy ID – sign,1
+Delinquency Strategy ID,3
+Delinquency Scenario ID – sign,1
+Delinquency Scenario ID,3
+Delinquency Action Counter,1
+Delinquency Control Indicator,1
+Delinquency Next Call – sign,1
+Delinquency Next Call,7
+Delinquency Number Letters – sign,1
+Delinquency Number Letters,3
+Authorisation Strategy ID 1 – sign,1
+Authorisation Strategy ID 1,3
+Filler,4
+Authorisation Scenario ID 1 – sign,1
+Authorisation Scenario ID 1,3
+Authorisation Control ID 1,1
+Overlimit Fee Waived Counter,2
+MCOM Date Last Communication,8
+MCOM Number of Letters – sign,1
+MCOM Number of Letters,3
+MCOM Control ID 1 ,1
+MCOM Strategy ID 1 – sign,1
+MCOM Strategy ID 1,3
+MCOM Scenario Indicator 1 – sign,1
+MCOM Scenario Indicator 1,3
+MCOM Date Promo 1,8
+MCOM Promo Code 1,4
+MCOM Notify Indicator 1,1
+MCOM Control Indicator 2 ,1
+MCOM Strategy ID 2 – sign,1
+MCOM Strategy ID 2,3
+MCOM Scenario ID 2 – sign,1
+MCOM Scenario ID 2,3
+MCOM Date Promo 2,8
+MCOM Promo Code 2,4
+MCOM Notify Indicator 2,1
+MCOM Control Indicator 3 ,1
+MCOM Strategy ID 3 – sign,1
+MCOM Strategy ID 3,3
+MCOM Scenario ID 3 – sign,1
+MCOM Scenario ID 3,3
+MCOM Date Promo 3,8
+MCOM Promo Code 3,4
+MCOM Notify Indicator 3,1
+MCOM Control Indicator 4 ,1
+MCOM Strategy ID 4 – sign,1
+MCOM Strategy ID 4,3
+MCOM Scenario ID 4 – sign,1
+MCOM Scenario ID 4,3
+MCOM Date Promo 4,8
+MCOM Promo Code 4,4
+MCOM Notify Indicator 4,1
+MCOM Control Indicator 5 ,1
+MCOM Strategy ID 5 – sign,1
+MCOM Strategy ID 5,3
+MCOM Scenario ID 5 – sign,1
+MCOM Scenario ID 5,3
+MCOM Date Promo 5,8
+MCOM Promo Code 5,4
+MCOM Notify Indicator 5,1
+Reprice Date Last Review,8
+Reprice Scenario ID – sign,1
+Reprice Scenario ID,3
+Reprice Strategy ID – sign,1
+Reprice Strategy ID,3
+Reprice Control ID,1
+Reprice Status Indicator,1
+Re-price Date Last Re-priced,8
+Re-price Interest Variance – sign,1
+Re-price Interest Variance,7
+Re-price PCT ID,3
+Re-price Effective Date,8
+Re-price End Date,8
+Re-price PCT Level,1
+Reissue Strategy ID – sign,1
+Reissue Strategy ID ,3
+Reissue Scenario ID – sign,1
+Reissue Scenario ID,3
+Reissue Control ID,1
+Credit Limit Strategy ID – sign,1
+Credit Limit Strategy ID ,3
+Credit Limit Scenario ID – sign,1
+Credit Limit Scenario ID,3
+Credit Limit Control ID,1
+TRIAD Score 1 – sign,1
+TRIAD Score 1,4
+TRIAD Score 2 – sign,1
+TRIAD Score 2,4
+TRIAD Score 3 – sign,1
+TRIAD Score 3,4
+TRIAD Score 4 – sign,1
+TRIAD Score 4,4
+TRIAD Score 5 – sign,1
+TRIAD Score 5,4
+TRIAD Score 6 – sign,1
+TRIAD Score 6,4
+TRIAD Score 7 – sign,1
+TRIAD Score 7,4
+TRIAD Score 8 – sign,1
+TRIAD Score 8,4
+TRIAD Score 9 – sign,1
+TRIAD Score 9,4
+TRIAD Score 10 – sign,1
+TRIAD Score 10,4
+TRIAD Score 11 – sign,1
+TRIAD Score 11,4
+TRIAD Score 12 – sign,1
+TRIAD Score 12,4
+TRIAD Score 13 – sign,1
+TRIAD Score 13,4
+TRIAD Score 14 – sign,1
+TRIAD Score 14,4
+TRIAD Score 15 – sign,1
+TRIAD Score 15,4
+TRIAD Score 16 – sign,1
+TRIAD Score 16,4
+TRIAD Score 17 – sign,1
+TRIAD Score 17,4
+TRIAD Score 18 – sign,1
+TRIAD Score 18,4
+TRIAD Score 19 – sign,1
+TRIAD Score 19,4
+TRIAD Score 20 – sign,1
+TRIAD Score 20,4
+TRIAD Authorisation Block Code ,1
+TRIAD Overlimit Block Code ,1
+TRIAD Recurring Statement Message – sign,1
+TRIAD Recurring Statement Message,3
+TRIAD Credit Limit Exclusion Indicator,1
+TRIAD Billing Exclusion Indicator,1
+TRIAD Reissue Decline Reason,5
+TRIAD Repricing Reason ,2
+Cheque Book Ordering Flag      ,1
+Cheque Book Bank Sort Code – sign,1
+Cheque Book Bank Sort Code     ,7
+Cheque Book Cross-Reference Number – sign,1
+Cheque Book Cross-Reference Number    ,9
+Cheque Book Sequence Number – sign,1
+Cheque Book Sequence Number   ,7
+Cheque Book Unused – sign,1
+Cheque Book Unused     ,3
+Cheque Book Auto Reissue Flag,1
+Cheque Book Dispatch Method,1
+Cheque Book Last Unpaid Date ,8
+Cheque Book Number Unpaid Fee Today,2
+Cheque Book Amount Unpaid Fee Today – sign,1
+Cheque Book Amount Unpaid Fee Today,17
+Cheque Book Number Unpaid Fees Cycle-To-Date,3
+Cheque Book Amount Unpaid Fees Cycle-To-Date – sign,1
+Cheque Book Amount Unpaid Fees Cycle-To-Date,17
+Payment ACH Bank ID,4
+Marketing Opt Out,1
+Disability Indicator,1
+Delivery Option,1
+Affiliate Emblem,5
+Cycle-To-Date Payment Reversal Amount – sign,1
+Cycle-To-Date Payment Reversal Amount,17
+Base Rate Change Indicator,1
+Qualified Payment History 1             ,1
+Qualified Payment History 2             ,1
+Qualified Payment History 3             ,1
+Qualified Payment History 4             ,1
+Qualified Payment History 5             ,1
+Qualified Payment History 6             ,1
+Qualified Payment History 7             ,1
+Qualified Payment History 8             ,1
+Qualified Payment History 9             ,1
+Qualified Payment History 10             ,1
+Qualified Payment History 11             ,1
+Qualified Payment History 12             ,1
+Payment Consecutive Variable     ,2
+Payment Consecutive Fixed,2
+Auto Re-age Override          ,1
+Account Limit Check  ,1
+Authorisation ATM OTC Retail Frequency ,1
+Max Authorisation Quasi Cash Amount- sign,1
+Max Authorisation Quasi Cash Amount     ,17
+Max Authorisation Quasi Cash Number – sign,1
+Max Authorisation Quasi Cash Number     ,9
+Max Authorisation ATM Cash Amount – sign,1
+Max Authorisation ATM Cash Amount,17
+Max Authorisation ATM Cash Number – sign,1
+Max Authorisation ATM Cash Number        ,9
+Max Authorisation OTC Cash Amount – sign,1
+Max Authorisation OTC Cash Amount ,17
+Max Authorisation OTC Cash Number – sign,1
+Max Authorisation OTC Cash Number        ,9
+Max Authorisation Total Cash Amount – sign,1
+Max Authorisation Total Cash Amount     ,17
+Max Authorisation Total Cash Number – sign,1
+Max Authorisation Total Cash Number          ,9
+Max Authorisation Retail Amount – sign,1
+Max Authorisation Retail Amount          ,17
+Max Authorisation Retail Number – sign,1
+Max Authorisation Retail Number             ,9
+Total Authorisation ATM Amount Today – sign,1
+Total Authorisation ATM Amount Today,17
+Total Authorisation ATM Number Today – sign,1
+Total Authorisation ATM Number Today,9
+Total Authorisation ATM Amount Cycle-To-Date ,1
+Total Authorisation ATM Amount Cycle-To-Date ,17
+Total Authorisation ATM Number Cycle-To-Date,1
+Total Authorisation ATM Number Cycle-To-Date,9
+Total Authorisation ATM Amount Year-To-Date – sign,1
+Total Authorisation ATM Amount Year-To-Date ,17
+Total Authorisation ATM Number Year-To-Date – sign,1
+Total Authorisation ATM Number Year-To-Date,9
+Total Authorisation ATM Amount Life-To-Date – sign,1
+Total Authorisation ATM Amount Life-To-Date ,17
+Total Authorisation ATM Number Life-To-Date – sign,1
+Total Authorisation ATM Number Life-To-Date,9
+Total Authorisation OTC Amount Today – sign,1
+Total Authorisation OTC Amount Today,17
+Total Authorisation OTC Number Today – sign,1
+Total Authorisation OTC Number Today,9
+Total Authorisation OTC Amount Cycle-To-Date – sign,1
+Total Authorisation OTC Amount Cycle-To-Date ,17
+Total Authorisation OTC Number Cycle-To-Date – sign,1
+Total Authorisation OTC Number Cycle-To-Date,9
+Total Authorisation OTC Amount Year-To-Date – sign,1
+Total Authorisation OTC Amount Year-To-Date ,17
+Total Authorisation OTC Number Year-To-Date – sign,1
+Total Authorisation OTC Number Year-To-Date,9
+Total Authorisation OTC Amount Life-To-Date – sign,1
+Total Authorisation OTC Amount Life-To-Date ,17
+Total Authorisation OTC Number Life-To-Date – sign,1
+Total Authorisation OTC Number Life-To-Date,9
+Total Authorisation Quasi Amount Today – sign,1
+Total Authorisation Quasi Amount Today,17
+Total Authorisation Quasi Number Today – sign,1
+Total Authorisation Quasi Number Today,9
+Total Authorisation Quasi Quasi Amount Cycle-To-Date – sign,1
+Total Authorisation Quasi Quasi Amount Cycle-To-Date ,17
+Total Authorisation Quasi Number Cycle-To-Date – sign,1
+Total Authorisation Quasi Number Cycle-To-Date,9
+Total Authorisation Quasi Amount Year-To-Date – sign,1
+Total Authorisation Quasi Amount Year-To-Date ,17
+Total Authorisation Quasi Number Year-To-Date – sign,1
+Total Authorisation Quasi Number Year-To-Date,9
+Total Authorisation Quasi Amount Life-To-Date – sign,1
+Total Authorisation Quasi Amount Life-To-Date ,17
+Total Authorisation Quasi Number Life-To-Date – sign,1
+Total Authorisation Quasi Number Life-To-Date,9
+Total Authorisation Retail Amount Today – sign,1
+Total Authorisation Retail Amount Today,17
+Total Authorisation Retail Number Today – sign,1
+Total Authorisation Retail Number Today,9
+Total Authorisation Retail Amount Cycle-To-Date – sign,1
+Total Authorisation Retail Amount Cycle-To-Date ,17
+Total Authorisation Retail Number Cycle-To-Date – sign,1
+Total Authorisation Retail Number Cycle-To-Date,9
+Total Authorisation Retail Amount Year-To-Date – sign,1
+Total Authorisation Retail Amount Year-To-Date ,17
+Total Authorisation Retail Number Year-To-Date – sign,1
+Total Authorisation Retail Number Year-To-Date,9
+Total Authorisation Retail Amount Life-To-Date – sign,1
+Total Authorisation Retail Amount Life-To-Date ,17
+Total Authorisation Retail Number Life-To-Date – sign,1
+Total Authorisation Retail Number Life-To-Date,9
+Date Last Authorisation            ,8
+Card Statement              ,1
+Fiscal Year End          ,2
+Over limit Protection Flag   ,1
+Over limit Fee Date        ,8
+Number Over Limit – sign,1
+Number Over Limit  ,3
+Number Over Protection Limit – sign,1
+Number Over Protection Limit,3
+Number Over limit Fee Assessed – sign,1
+Number Over limit Fee Assessed,3
+Auto Re-age Reason         ,1
+External Loyalty Active Flag,1
+BGC Generation,1
+Total Non-BGC Payment,1
+Converted Letter Indicator,1
+MCC Table Number ,3
+APR Balance Transfer – sign,1
+APR Balance Transfer,7
+APR Cash – sign,1
+APR Cash,7
+APR Retail – sign,1
+APR Retail,7
+Correspondence Customer Number,19
+Date Alternate Customer Start,8
+Disclosure Cycle Indicator,1
+Promo Plan Number – sign,1
+Promo Plan Number,5
+Offers Enrolled Flag,1
+Membership Fee Deferral Date,8
+Date Next Re-price,8
+TRIAD Upper Credit Limit Threshold,3
+TRIAD Lower Credit Limit Threshold,3
+TRIAD Upper Cash Credit Limit Threshold,3
+TRIAD Lower Cash Credit Limit Threshold,3
+TRIAD Upper Credit Bureau Score Threshold,3
+TRIAD Lower Credit Bureau Score Threshold,3
+TRIAD Upper User Defined Score Threshold,3
+TRIAD Lower User Defined Score Threshold,3
+TRIAD Account Profile,5
+TRIAD Authorisation Marker,1
+TRIAD Collection Marker,1
+Cash Managed by TRIAD,1
+TRIAD Date Last Cash Limit Decrease,8
+TRIAD Date Last Cash Limit Increase,8
+TRIAD Credit Limit Offer – sign,1
+TRIAD Credit Limit Offer,17
+TRIAD Date Credit Limit Offer,8
+TRIAD Expiry Date Credit Limit Offer,8
+TRIAD Previous Credit Limit Offer – sign,1
+TRIAD Previous Credit Limit Offer,17
+TRIAD Previous Offer Outcome,1
+Non-Domestic Indicator,1
+Collection Stage,5
+TRIAD Credit Limit Offer – sign,1
+TRIAD Credit Limit Offer,17
+User Defined Sub-Status,2
+Account Type/Product Code,2
+Customer Class,1
+Foreign Indicator,1
+Lower Credit Bureau Score Crossed,1
+Upper Credit Bureau Score Crossed,1
+Lower User Defined Score Crossed,1
+Upper User Defined Score Crossed,1
+User Score 1,5
+User Score 2,2
+User Score 3,2
+User Score 4,2
+User Score 5,2
+User Score 6,2
+User Score 7,2
+User Score 8,2
+User Score 9,2
+User Score 10,2
+User Score 11,2
+User Score 12,2
+User Score 13,2
+User Score 14,2
+User Score 15,2
+User Score 16,2
+User Score 17,2
+User Score 18,2
+User Score 19,2
+User Score 20,2
+User Score 21,7
+User Score 22,7
+User Score 23,7
+User Score 24,7
+User Score 25,7
+User Score 26,7
+User Score 27,7
+User Score 28,7
+User Score 29,4
+User Score 30,4
+User Score 31,4
+User Score 32,4
+User Score 33,4
+User Score 34,4
+User Score 35,4
+User Score 36,4
+User field 1,2
+User field 2,2
+User field 3,2
+User field 4,2
+User field 5,2
+User field 6,2
+User field 7,2
+User field 8,2
+User field 9,2
+User field 10,2
+User field 11,2
+User field 12,2
+User field 13,2
+User field 14,2
+User field 15,2
+User field 16,2
+User field 17,2
+User field 18,2
+User field 19,2
+User field 20,2
+User field 21,2
+User field 22,2
+User field 23,2
+User field 24,2
+User field 25,2
+User field 26,2
+User field 27,2
+User field 28,2
+User field 29,2
+User field 30,2
+User field 31,2
+User field 32,2
+User field 33,2
+User field 34,2
+User field 35,2
+User field 36,7
+User field 37,7
+User field 38,7
+User field 39,7
+User field 40,7
+User field 41,7
+User field 42,7
+User field 43,7
+User field 44,7
+User field 45,7
+User field 46,4
+User field 47,4
+User field 48,4
+User field 49,4
+User field 50,4
+Last Arrears Notice Date,8
+Arrears Notice Counter,1
+New Account Campaign,8
+TRIAD Block Code Previous,1
+TRIAD Collection Strategy ID – sign,1
+TRIAD Collection Strategy ID,3
+TRIAD Collection Scenario ID – sign,1
+TRIAD Collection Scenario ID,4
+TRIAD Collection Action Count,1
+TRIAD Collection Control Indicator,1
+TRIAD Collection Next Call ,7
+TRIAD Collection Number Letters – sign,1
+TRIAD Collection Number Letters,3
+TRIAD User Strategy ID – sign,1
+TRIAD User Strategy ID,3
+TRIAD User Scenario ID – sign,1
+TRIAD User Scenario ID,3
+TRIAD User Control Indicator,1
+TRIAD User Exclusion Indicator 1,2
+TRIAD Credit Limit Bypass Expiry Date,8
+Fee Frequency Code,1
+Collection Reclass Indicator,1
+TRIAD Collection OOO Type,1
+TRIAD Authorisation Exclusion Indicator 1,2
+TRIAD Authorisation Digit High – sign,1
+TRIAD Authorisation Digit High,4
+TRIAD Credit Limit Digit Low – sign,1
+TRIAD Credit Limit Digit Low,4
+TRIAD Credit Limit Digit High – sign,1
+TRIAD Credit Limit Digit High,4
+TRIAD Credit Limit Bypass Indicator,1
+Cycle-To-Date Insurance Premium – sign,1
+Cycle-To-Date Insurance Premium,17
+Number Year-To-Date Disputed ,5
+Amount Year-To-Date Disputed – sign,1
+Amount Year-To-Date Disputed ,17
+Number 2nd Year-To-Date Disputed ,5
+Amount 2nd Year-To-Date Disputed – sign,1
+Amount 2nd Year-To-Date Disputed ,17
+Number 3rd Year-To-Date Disputed ,5
+Amount 3rd Year-To-Date Disputed – sign,1
+Amount 3rd Year-To-Date Disputed ,17
+Insurance Table Number ,3
+DD Interim Payments Flag,1
+DD Interim Payment Amount – sign,1
+DD Interim Payment Amount,17
+DD Interim Transaction Code Indicator,1
+DD Interim Transaction Code Number,3
+Test Digits 2,4
+Test Digits 3,4
+TRIAD Authorisation Strategy ID 2 – sign,1
+TRIAD Authorisation Strategy ID 2,3
+TRIAD Authorisation Scenario ID 2 – sign,1
+TRIAD Authorisation Scenario ID 2,3
+TRIAD Authorisation Control Indicator 2,1
+TRIAD Authorisation Exclusion Indicator 2,2
+TRIAD Authorisation Strategy ID 3 – sign,1
+TRIAD Authorisation Strategy ID 3,3
+TRIAD Authorisation Scenario ID 3 – sign,1
+TRIAD Authorisation Scenario ID 3,3
+TRIAD Authorisation Control Indicator 3,1
+TRIAD Authorisation Exclusion Indicator 3,2
+TRIAD Authorisation Strategy ID 4 – sign,1
+TRIAD Authorisation Strategy ID 4,3
+TRIAD Authorisation Scenario ID 4 – sign,1
+TRIAD Authorisation Scenario ID 4,3
+TRIAD Authorisation Control Indicator 4,1
+TRIAD Authorisation Exclusion Indicator 4,2
+TRIAD Authorisation Digit Low – sign,1
+TRIAD Authorisation Digit Low,4
+Total Outstanding Arrears Amount – sign,1
+Total Outstanding Arrears Amount,17
+Previous Disclosed Arrears Amount – sign,1
+Previous Disclosed Arrears Amount,17
+Arrears Notice Statement Indicator,1
+Default Fee Counter,2
+Cycle-To-Date Default Fee Total Amount – sign,1
+Cycle-To-Date Default Fee Total Amount,17
+Net Payments Amount Outstanding Amount – sign,1
+Net Payments Amount Outstanding Amount,17
+DD Interim Payment Date,8
+Credit Limit Update ARTC,1
+Filler (Cash Available Credit Percent – sign),1
+Filler (Cash Available Credit Percent),8
+Amount auths today – sign,1
+Amount auths today,17
+Number auths today – sign,1
+Number auths today,3
+Amount declined auths today,1
+Amount declined auths today,17
+Number declined auths today,1
+Number declined auths today,3
+New account campaign ID,10
+On Demand ACH DC Type,1
+On Demand ACH DC Number,17
+On Demand ACH Transit Routing Number,10
+On Demand Direct Credit IBAN,34
+Direct Debit IBAN,34
+Direct Credit IBAN,34
+On Demand Direct Credit BIC,11
+Direct Debit BIC,11
+Direct Credit BIC,11
+Credit Bureau Indicator,1
+Last Projected DD Maintenance Date,8
+DD Cancel,1
+OLC reason,2
+Bureaus Score Refresh ,8
+Co-maker date of Birth,8
+Cash amount outstanding auth – sign,1
+Cash amount outstanding auth,17
+Cash amount decline today 1 – sign,1
+Cash amount decline today 1,17
+Cash amount decline today  2 – sign,1
+Cash amount decline today  2,17
+Cash amount decline today  3 – sign,1
+Cash amount decline today  3,17
+Cash amount decline today  4 – sign,1
+Cash amount decline today  4,17
+Cash amount decline today  5 – sign,1
+Cash amount decline today  5,17
+Cash amount decline today  6 – sign,1
+Cash amount decline today  6,17
+Cash amount decline today  7 – sign,1
+Cash amount decline today  7,17
+Cash number decline today 1 – sign,1
+Cash number decline today 1,3
+Cash number decline today 2 – sign,1
+Cash number decline today 2,3
+Cash number decline today 3 – sign,1
+Cash number decline today 3,3
+Cash number decline today 4 – sign,1
+Cash number decline today 4,3
+Cash n umber decline today  5 – sign,1
+Cash n umber decline today  5,3
+Cash number  decline today  6 – sign,1
+Cash number  decline today  6,3
+Cash number decline today  7 – sign,1
+Cash number decline today  7,3
+Cash number outstanding auth – sign,1
+Cash number outstanding auth,3
+Date hi balance,8
+Date late fee,8
+Date last Reclass,8
+Date late fee current,8
+Last payment reaged by,3
+Last reage category code,2
+Last reage exception flag,1
+Reage history date reage (occur 1),8
+Reage history pmt reaged by (occur 1),3
+Reage history reage category code (occur 1),2
+Reage history reage exception flag (occur 1),1
+Reage history date reage (occur 2),8
+Reage history pmt reaged by (occur 2),3
+Reage history reage category code (occur 2),2
+Reage history reage exception flag (occur 2),1
+Reage history date reage (occur 3),8
+Reage history pmt reaged by (occur 3),3
+Reage history reage category code (occur 3),2
+Reage history reage exception flag (occur 3),1
+Reage history date reage (occur 4),8
+Reage history pmt reaged by (occur 4),3
+Reage history reage category code (occur 4),2
+Reage history reage exception flag (occur 4),1
+Reage history date reage (occur 5),8
+Reage history pmt reaged by (occur 5),3
+Reage history reage category code (occur 5),2
+Reage history reage exception flag (occur 5),1
+Reage history date reage (occur 6),8
+Reage history pmt reaged by (occur 6),3
+Reage history reage category code (occur 6),2
+Reage history reage exception flag (occur 6),1
+Reage history date reage (occur 7),8
+Reage history pmt reaged by (occur 7),3
+Reage history reage category code (occur 7),2
+Reage history reage exception flag (occur 7),1
+Reage history date reage (occur 8),8
+Reage history pmt reaged by (occur 8),3
+Reage history reage category code (occur 8),2
+Reage history reage exception flag (occur 8),1
+Cust comp group code,3
+Cost Centre Rpt,16
+Current Contractual Minimum Payment – sign,1
+Current Contractual Minimum Payment,17
+Previous Contractual Minimum Payment – sign,1
+Previous Contractual Minimum Payment,17
+Prepaid Maximum Balance Amount – sign,1
+Prepaid Maximum Balance Amount,17
+Secure ID,3
+Secure ID Date Last Updated,8
+Filler (ACCT-DISPLAY),1
+ACCT-RESTRUCTURE,1
+COLAT-CODE,2
+COLL-CARD,1
+CR-CLASS,2
+DATE-ACH-PMT-EXPR,8
+DATE-INTO-COLL,8
+DATE-NEXT-RECLASS,8
+DATE-NOTIFIC-RECVD,8
+DAYS-TIL-CHGOFF,3
+FS-FLAG,1
+LETTER-REQUEST,3
+LOAN-BALANCE-SIGN,1
+LOAN-BALANCE,13
+PURGED-PLAN-YTD-INT-SIGN,1
+PURGED-PLAN-YTD-INT,17
+REISSUE-SCHEME,1
+REL-CARD-SCHEME,1
+REL-NBR,19
+SECUR,1
+AUTH-TEXT-MSG-SW,1
+AUTH-TEXT-MSG-AMT-SIGN,1
+AUTH-TEXT-MSG-AMT,9
+IBS-DDA-RTNG-NBR,10
+IBS-DDA-ACCT-NBR,17
+IBS-SAV-RTNG-NBR,10
+IBS-SAV-ACCT-NBR,17
+IBS-ACCT-DFLT,2
+TIME-LAST-AUTH,6
+CCD-INT-CODE,3
+IGT EXEMPT FLAG,1
+IGT EXEMPTION REASON,2
+IGT CURRENT YR SIGN,1
+IGT CURR YR BILLING AMT,13
+IGT LAST YR SIGN,1
+IGT LAST YR BILLING AMT,13
+MOBILE PI ALLOWED,1
+MOBILE PI IND,1
+ANNUAL STRIKES,2
+STRIKE FLAG,1
+PRIOR SECURITIZATION ID,3
+INSTANT CREDIT FLAG,1
+INSTANT CREDIT NUMBER,19
+ORIG TEMP CR LIM SIGN,1
+ORIG TEMP CR LIMIT,17
+EMP ID,15
+HOME STORE,12
+REPRICE RETAIL APR,7
+REPRICE CASH APR,7
+REPRICE BT APR,7
+EMP DISC YTD SIGN,1
+EMP DICS YTD,13
+TRIAD REPR WITHDRAWN,1
+TRIAD REPR WITHDRAWN DTE,8
+ACCOUNT SERIAL NUMBER,10
+FOREX FEE,2
+MEMBERSHIP METH,1
+SMS Alerts,1
+CURR CMP CTR,3
+LAST CMP LETR,1
+LAST CMP LETR CTR,3
+RM PERCENT,7
+PMT-DUE-ALERT  ,1
+SPND-LMT-ALERT ,1
+CRDT-LMT-ALERT ,1
+OVER-LMT-ALERT ,1
+PD-REM-DAYS    ,2
+SPND-LMT-AMT   ,9
+CRDT-LMT-AMT   ,9
+DD-SUSPEND,1
+DD-SUSPEND-BYPASS,1
+ECOM-RESTRICT-FLAG,1
+IBAN-CC,2
+IBAN-CHECKDIGIT,2
+IBAN-BASIC-ACCOUNT,30
+CCI-IND,1
+DATE-FIRST-MISD-PMT,8
+EPP-PRIN-BAL-SIGN,1
+EPP-PRIN-BAL,17
+LWC-PRIN-BAL-SIGN,1
+LWC-PRIN-BAL,17
+LOC-PRIN-BAL-SIGN,1
+LOC-PRIN-BAL,17
+EPP-TOT-BAL-SIGN,1
+EPP-TOT-BAL,17
+LWC-TOT-BAL-SIGN,1
+LWC-TOT-BAL,17
+LOC-TOT-BAL-SIGN,1
+LOC-TOT-BAL,17
+EDA-PMT-210DAYS-SIGN,1
+EDA-PMT-210DAYS,17
+EDA-PMT-240DAYS-SIGN,1
+EDA-PMT-240DAYS,17
+EDA-PMT-270DAYS-SIGN,1
+EDA-PMT-270DAYS,17
+EDA-PMT-300DAYS-SIGN,1
+EDA-PMT-300DAYS,17
+EDA-PMT-330DAYS-SIGN,1
+EDA-PMT-330DAYS,17
+EDA-PMT-360DAYS-SIGN,1
+EDA-PMT-360DAYS,17
+DELQ-AGE           ,3
+HIST-DUE-DATE-13   ,8
+HIST-DUE-DATE-14   ,8
+INT-ACCRUAL-FLAG   ,1
+NON-ACCR-START-DATE,8
+RISK-CLASS         ,3
+RISK-CLASS-DATE    ,8
+RETAIL-PROMO-PLN,5
+RETAIL-PROMO-ST-DATE,8
+RETAIL-PROMO-EXP-DATE,8
+CASH-PROMO-PLN  ,5
+CASH-PROMO-ST-DATE  ,8
+CASH-PROMO-EXP-DATE   ,8
+RSN-BLOCK-CODE-1,2
+RSN-BLOCK-CODE-2,2
+FI-SCRD-SIGN,1
+FI-SCRD,4
+DES_FI_SCRD_SIGN_2,1
+MEA_FI_SCRD_2,4
+DES_FI_SCRD_SIGN_3,1
+MEA_FI_SCRD_3,4
+DES_FI_SCRD_SIGN_4,1
+MEA_FI_SCRD_4,4
+DES_FI_SCRD_SIGN_5,1
+MEA_FI_SCRD_5,4
+DES_FI_SCRD_SIGN_6,1
+MEA_FI_SCRD_6,4
+DES_FI_SCRD_SIGN_7,1
+MEA_FI_SCRD_7,4
+DES_FI_SCRD_SIGN_8,1
+MEA_FI_SCRD_8,4
+DES_FI_SCRD_SIGN_9,1
+MEA_FI_SCRD_9,4
+DES_FI_SCRD_SIGN_10,1
+MEA_FI_SCRD_10,4
+DES_FI_SCRD_SIGN_11,1
+MEA_FI_SCRD_11,4
+DES_FI_SCRD_SIGN_12,1
+MEA_FI_SCRD_12,4
+DES_FI_SCRD_SIGN_13,1
+MEA_FI_SCRD_13,4
+DES_FI_SCRD_SIGN_14,1
+MEA_FI_SCRD_14,4
+DES_FI_SCRD_SIGN_15,1
+MEA_FI_SCRD_15,4
+DES_FI_SCRD_SIGN_16,1
+MEA_FI_SCRD_16,4
+DES_FI_SCRD_SIGN_17,1
+MEA_FI_SCRD_17,4
+DES_FI_SCRD_SIGN_18,1
+MEA_FI_SCRD_18,4
+DES_FI_SCRD_SIGN_19,1
+MEA_FI_SCRD_19,4
+DES_FI_SCRD_SIGN_20,1
+MEA_FI_SCRD_20,4
+AUTH-OTB-MSG-IND ,1
+AUTH-OTB-MSG-AMT-SIGN ,1
+AUTH-OTB-MSG-AMT ,11
+AUTH-OTB-CH-TYPE ,1
+FLG_MSG_NOTIFY,1
+DES_OTA_MSG_AMT_SIGN,1
+COD_MSG_AMT,13
+FLG_SMS_GEN_BANK_IND,1
+DES_TKN_CRDS_COUNT,2
+COD_SUPRS_TKN,1
+Test Digits 4 ,4
+SDG2-OPT-OUT-FLAG,1
+DT-LST-SDG2-OPT-OUT-CHG,8
+FOREX-OVRD-IND ,1
+FOREX-OVRD-AMT-PCT-SIGN ,1
+FOREX-OVRD-AMT-PCT ,7
+FOREX-OVRD-CARD-SCHEME ,2
+FOREX-OVRD-UL-PERC-SIGN ,1
+FOREX-OVRD-UL-PERC-AMT ,7
+FOREX-FEE-WV-ST-DT ,8
+FOREX-FEE-WV-EXP-DT ,8
+CLIENT-REF-ID ,40
+DAT-FST-PRM-CARD-ACT-DT,8
+DAT-DD-EFF-DATE-EFF-DT,8
+COD-OVLM-EXCL-BAL-SIGN,1
+AMT-OVLM-EXCL-BAL,17
+DAT-LAST-OVLM-CHG,8
+DAT-PMT-REV-DUTY-ARSN-DT,8
+DAT-PMT-REV-NOSIA-PRC-DT,8
+COD-NO-FEE-ON-PTP,1
+FLG-PH-FLAG,1
+COD-PH-TERM,1
+DAT-PH-START-DATE,8
+DAT-PH-END-DATE,8
+COD-PH-CYC-CNT,2
+COD-RSK-IND,2
+DAT-RISK-IND-DATE,8
+DESCARTADO-BAU-1,3
+DESCARTADO-BAU-2,8
+DESCARTADO-BAU-3,1
+COD-RSK-LVL,2
+DAT-RSK-LVL-DATE,8
+COD-RSK-RSN,3
+DAT-RSK-RSN-DATE,8
+COD-COLL-LTR-IND,1
+COD-MANDATE-FLAG,1
+COD-MANDATE-SOURCE,1
+COD-ATM-ENT-NUM,5
+COD-ACCT-USURY-CAP,7
+AMT-ACCT-RPD-SG,1
+AMT-ACCT-RPD,9
+FILLER 4,125
+COD-INST-DECI-STATUS,1
+DAT-INST-DECI-DATE,8
+FILLER 5,1374
+CTLS-RESTRICT-GLAG,1
+ATM Restriction Indicator,1
+Last date to Authorize,8
+FAS DEFAULT OVLM PCT SIGN,1
+FAS DEFAULT OVLM PCT,3
+NON EPP PLAN BAL SIGN,1
+NON EPP PLAN BAL,17
+RT CHG FRZ OVRD,1
+BBR FREEZE FLAG,1
+BBR-FREEZE-IND,1
+BBR-IND-DT,8
+BASE-RT-OVRD-SIGN,1
+BASE-RT-OVRD,7
+FPP- FPP-GT-SAR-RATE-SIGN  ,1
+FPP-GOTO-SAR-RATE,7
+RETAIL-GT-SAR-RATE-SIGN,1
+RETAIL-GOTO-SAR-RATE,7
+CASH-GT-SAR-RATE-SIGN,1
+CASH-GOTO-SAR-RATE,7
+BT-GT-SAR-RATE-SIGN,1
+BT-GOTO-SAR-RATE,7
+MT- GT-SAR-RATE-SIGN,1
+MT-GOTO-SAR-RATE,7
+NSF RTN CNT,2
+NSF PREV RTN CNT,2
+NSF RESET IND,1
+NSF RESET DATE,8
+TRANSACTOR/REVOLVER STATUS,1
+BLKLST-MAINT-DATE,8
+NPA STATUS CHANGE DATE,8
+NBR CTD DEBLOCK FEE,1
+AUTH-RESTRICT-ALL,1
+CBP ALERT,1
+FILLER7,879
+Organisation,3
+Account Number,19
+Logo,3
+Short Name,20
+Customer Number,19
+Alternate Customer Number Flag,1
+Alternate Customer Number,19
+User Account Number,19
+State of Residence,3
+State of Issue,3
+Transfer Organisation,3
+Transfer Logo,3
+Transfer Account,19
+Account Type,1
+Source,1
+Status,1
+Charge-off Status,1
+Over limit Flag,1
+Cycle Over limit Fee Indicator,1
+Over limit number of cycles,3
+Condition of account,1
+Block Code 1,1
+Block Code 2 ,1
+Card Usage Flag,1
+Processing Control Table (PCT) Level,1
+PCT Level Start Date,8
+PCT Level Expiry Date,8
+PCT Control ID,3
+PCT Start Date,8
+PCT Expiry Date,8
+Account Control Table Override,3
+Billing Cycle,2
+Statement Flag,1
+Statement Frequency,2
+Return Mail Counter,2
+Return Mail User,3
+Return Mail Date,8
+Originating Bank Number,5
+Originating Branch Number,9
+Owning Bank Number,5
+Owning Branch Number,9
+Current Collector,3
+Permanent Collector,3
+User Code 1,2
+User Code 2,2
+User Code 3,2
+User Code 4,2
+User Code 5,2
+User Code 6,2
+User Code 7,2
+User Code 8,2
+User Code 9,2
+User Code 10,2
+User Code 11,2
+User Code 12,2
+User Code 13,2
+User Code 14,2
+Owner Flag,1
+Employee Code,2
+Source Code,20
+Promotion Code 1,4
+Promotion Code 1 Status,1
+Promotion Code 2,4
+Promotion Code 2 Status,1
+Promotion Code 3,4
+Promotion Code 3 Status,1
+Promotion Code 4,4
+Promotion Code 4 Status,1
+Waive Late Charges,1
+Waive Interest,1
+Waive Service Charge 1,1
+Waive Service Charge 2,1
+Waive Service Charge 3,1
+Waive Service Charge 4,1
+Waive Service Charge 5,1
+Waive Service Charge 6,1
+Waive Service Charge 7,1
+Waive Service Charge 8,1
+Waive Service Charge 9,1
+Waive Service Charge 10,1
+Waive Service Charge 11,1
+Waive Service Charge 12,1
+Waive Service Charge 13,1
+Waive Service Charge 14,1
+Waive Service Charge 15,1
+Waive Service Charge 16,1
+Waive Service Charge 17,1
+Waive Service Charge 18,1
+Waive Service Charge 19,1
+Waive Service Charge 20,1
+Waive Service Charge 21,1
+Waive Service Charge 22,1
+Waive Service Charge 23,1
+Waive Service Charge 24,1
+Waive Service Charge 25,1
+Waive Fee Charge,1
+Waive Late Notices,1
+Waive Over limit Notice,1
+Waive Over limit Fee,1
+Waive NSF Fee,1
+Waive Card Fee,1
+Waive Letter Fee,1
+Flexible Billing Flag,1
+Application Date,8
+Opened Date,8
+Block Code 1 Date,8
+Block Code 2 Date,8
+Last Status Change Date,8
+Closed Date,8
+Charge Off Date,8
+Card Fee Date ,8
+Card Fee Date – Date First Purchase,8
+Last Purchase Date,8
+Last Return Date,8
+Last Delinquent Date ,8
+Prior Delinquent Date,8
+Last Accrued Date,8
+Last Activity Date ,8
+Last Reversed Payment Date,8
+Credit Limit Date,8
+Previous Credit Limit Date,8
+Last Statement Date,8
+Next Statement Date,8
+Payment Due Date,8
+Last Payment Date,8
+Credit balance Date,8
+Last Returned Cheque Date,8
+Last debit date,8
+Last Credit Date,8
+Last Maintained Date,8
+Last rate Change Date,8
+Date of Birth,8
+User Date 1,8
+User Date 2,8
+User Date 3,8
+User Date 4,8
+User Date 5,8
+User Date 6,8
+User Date 7,8
+User Date 8,8
+User Date 9,8
+User Date 10,8
+User Date 11,8
+User Date 12,8
+User Date 13,8
+User Date 14,8
+Transfer Effective Date,8
+Last Re-Age Date,8
+ACH Authorisation date,8
+ACH Effective Date,8
+Card Expiration Date,8
+Credit Bureau Score – sign,1
+Credit Bureau Score,5
+Application Credit Score – sign,1
+Application Credit Score,5
+Miscellaneous Credit Score – sign,1
+Miscellaneous Credit Score,5
+Credit Limit – sign,1
+Credit Limit,17
+Last Credit Limit – sign,1
+Last Credit Limit,17
+High Balance – sign,1
+High Balance,17
+Income – sign,1
+Income,17
+Number NSF – sign,1
+Number NSF,3
+Number Unblocked Cards – sign,1
+Number Unblocked Cards,5
+Months with Balance,1
+Months with Balance,3
+Months with Purchases,1
+Months with Purchases,3
+Payment Ratio 1 – sign,1
+Payment Ratio 1,4
+Payment Ratio 2 – sign,1
+Payment Ratio 2,4
+Payment Ratio 3 – sign,1
+Payment Ratio 3,4
+Payment Ratio 4 – sign,1
+Payment Ratio 4,4
+Payment Ratio 5 – sign,1
+Payment Ratio 5,4
+Payment Ratio 6 – sign,1
+Payment Ratio 6,4
+Payment Ratio 7 – sign,1
+Payment Ratio 7,4
+Payment Ratio 8 – sign,1
+Payment Ratio 8,4
+Payment Ratio 9 – sign,1
+Payment Ratio 9,4
+Payment Ratio 10 – sign,1
+Payment Ratio 10,4
+Payment Ratio 11 – sign,1
+Payment Ratio 11,4
+Payment Ratio 12 – sign,1
+Payment Ratio 12,4
+Delinquency History 1,1
+Payment History 1,1
+Delinquency History 2,1
+Payment History 2,1
+Delinquency History 3,1
+Payment History 3,1
+Delinquency History 4,1
+Payment History 4,1
+Delinquency History 5,1
+Payment History 5,1
+Delinquency History 6,1
+Payment History 6,1
+Delinquency History 7,1
+Payment History 7,1
+Delinquency History 8,1
+Payment History 8,1
+Delinquency History 9,1
+Payment History 9,1
+Delinquency History 10,1
+Payment History 10,1
+Delinquency History 11,1
+Payment History 11,1
+Delinquency History 12,1
+Payment History 12,1
+Delinquency History 13,1
+Payment History 13,1
+Delinquency History 14,1
+Payment History 14,1
+Delinquency History 15,1
+Payment History 15,1
+Delinquency History 16,1
+Payment History 16,1
+Delinquency History 17,1
+Payment History 17,1
+Delinquency History 18,1
+Payment History 18,1
+Delinquency History 19,1
+Payment History 19,1
+Delinquency History 20,1
+Payment History 20,1
+Delinquency History 21,1
+Payment History 21,1
+Delinquency History 22,1
+Payment History 22,1
+Delinquency History 23,1
+Payment History 23,1
+Delinquency History 24,1
+Payment History 24,1
+Payment Days Delinquent – sign,1
+Payment Days Delinquent,3
+Payment Cycle to date – sign,1
+Payment Cycle to date,17
+Payment Cycle to Date Number – sign,1
+Payment Cycle to Date Number,3
+Payment Last Requested – sign,1
+Payment Last Requested,17
+Payment Skip Flag,1
+ACH Payment Flag,1
+ACH Debit Type,1
+ACH Routing / Transit Number – sign,1
+ACH Routing / Transit Number,10
+ACH Debit Account Number ,17
+Payment Times Reaged – sign,1
+Payment Times Reaged,3
+Payment Cycle Due Code,1
+Payment Amount Prepaid – sign,1
+Payment Amount Prepaid,17
+Payment Number Prepaid – sign,1
+Payment Number Prepaid,3
+Payment Total Amount Due – sign,1
+Payment Total Amount Due,17
+Payment Grace Days – sign,1
+Payment Grace Days,3
+Payment Current Due – sign,1
+Payment Current Due,17
+Payment Past Counter – sign,1
+Payment Past Counter,3
+Payment Past Due – sign,1
+Payment Past Due,17
+Payment 30 days Counter – sign,1
+Payment 30 days Counter,3
+Payment 30 days – sign,1
+Payment 30 days,17
+Payment 60 Days Counter – sign,1
+Payment 60 Days Counter,3
+Payment 60 Days – sign,1
+Payment 60 Days,17
+Payment 90 Days Counter – sign,1
+Payment 90 Days Counter,3
+Payment 90 Days – sign,1
+Payment 90 Days,17
+Payment 120 Days Counter – sign,1
+Payment 120 Days Counter,3
+Payment 120 Days  - sign,1
+Payment 120 Days,17
+Payment 150 Days Counter – sign,1
+Payment 150 Days Counter,3
+Payment 150 Days – sign,1
+Payment 150 Days,17
+Payment 180 Days Counter – sign,1
+Payment 180 Days Counter,3
+Payment 180 Days – sign,1
+Payment 180 Days,17
+Payment 210 Days Counter – sign,1
+Payment 210 Days Counter,3
+Payment 210 Days – sign,1
+Payment 210 Days,17
+Payment Last Amount – sign,1
+Payment Last Amount,17
+Payment Total Amount Forgiven – sign,1
+Payment Total Amount Forgiven,17
+Plan Payment Override Flag,1
+Fixed Payment Amount – sign,1
+Fixed Payment Amount,17
+Fixed Payment Percentage – sign,1
+Fixed Payment Percentage,7
+Nominated ACH Amount Percentage Flag,1
+Nominated ACH Amount – sign,1
+Nominated ACH Amount,17
+Nominated ACH Percentage – sign,1
+Nominated ACH Percentage,7
+Nominated ACH Start Date,8
+Projected ACH Payment – sign,1
+Projected ACH Payment,17
+DD Request Day,2
+DD Account Type,1
+Internal Status Previous,1
+DD Account Number,17
+DD Routing Number – sign,1
+DD Routing Number,10
+Year-to-Date Card Issuance Fees – sign,1
+Year-to-Date Card Issuance Fees,17
+DD Actual Payment – sign,1
+DD Actual Payment,17
+Waive Cash Advance Fee 1,1
+Waive Cash Advance Fee 2,1
+Waive Cash Advance Fee 3,1
+Waive Cash Advance Fee 4,1
+Waive Cash Advance Fee 5,1
+Current Balance – sign,1
+Current Balance,17
+Number of Plans – sign,1
+Number of Plans,5
+Fraud Reporting Flag,1
+Open To Buy – sign,1
+Open To Buy,17
+Aggregate Days – sign,1
+Aggregate Days,3
+Amount Last Debit – sign,1
+Amount Last Debit,17
+Amount Last Purchase – sign,1
+Amount Last Purchase,17
+Last Year-To-Date Interest – sign,1
+Last Year-To-Date Interest,17
+Current Year-To-Date Interest Paid – sign,1
+Current Year-To-Date Interest Paid,17
+Last Year-To-Date INT Paid – sign,1
+Last Year-To-Date INT Paid,17
+Current Late Charge Amount – sign,1
+Current Late Charge Amount,17
+Prior Late Charge Amount – sign,1
+Prior Late Charge Amount,17
+Number Year-To-Date Late Charge – sign,1
+Number Year-To-Date Late Charge,5
+Amount Year-To-Date Late Charge – sign,1
+Amount Year-To-Date Late Charge,17
+Year-To-Date  Overlimit Charge – sign,1
+Year-To-Date  Overlimit Charge,17
+Number Year-To-Date Purchases – sign,1
+Number Year-To-Date Purchases,5
+Amount Year-To-Date Purchases – sign,1
+Amount Year-To-Date Purchases,17
+Number Cycle-To-Date Purchases – sign,1
+Number Cycle-To-Date Purchases,5
+Amount Cycle-To-Date Purchases – sign,1
+Amount Cycle-To-Date Purchases,17
+Number Year-To-Date Cash – sign,1
+Number Year-To-Date Cash,5
+Amount Year-To-Date Cash – sign,1
+Amount Year-To-Date Cash,17
+Number Cycle-To-Date Cash – sign,1
+Number Cycle-To-Date Cash,5
+Amount Cycle-To-Date Cash – sign,1
+Amount Cycle-To-Date Cash,17
+Number Year-To-Date Returns – sign,1
+Number Year-To-Date Returns,5
+Amount Year-To-Date Returns – sign,1
+Amount Year-To-Date Returns,17
+Number Cycle-To-Date Returns – sign,1
+Number Cycle-To-Date Returns,5
+Amount Cycle-To-Date Returns – sign,1
+Amount Cycle-To-Date Returns,17
+Amount Cycle-To-Date NSF – sign,1
+Amount Cycle-To-Date NSF,17
+Number Cycle-To-Date NSF – sign,1
+Number Cycle-To-Date NSF,3
+Number Year-To-Date Payments – sign,1
+Number Year-To-Date Payments,3
+Amount Year-To-Date Payments – sign,1
+Amount Year-To-Date Payments,17
+Number Disputed Items – sign,1
+Number Disputed Items,5
+Amount Disputed Items – sign,1
+Amount Disputed Items,17
+Amount Chargeoff – sign,1
+Amount Chargeoff,17
+Cash Amount Chargeoff – sign,1
+Cash Amount Chargeoff,17
+Chargeoff Reason 1,1
+Chargeoff Reason 2,1
+OVLM-EXCL-BAL-SIGN,1
+OVLM-EXCL-BAL,17
+User Amount 1 – sign,1
+User Amount 1,17
+User Amount 2 – sign,1
+User Amount 2,17
+User Amount 3 – sign,1
+User Amount 3,17
+User Amount 4 – sign,1
+User Amount 4,17
+User Amount 5 – sign,1
+User Amount 5,17
+User Amount 6 – sign,1
+User Amount 6,17
+User Amount 7 – sign,1
+User Amount 7,17
+User Amount 8 – sign,1
+User Amount 8,17
+User Amount 9 – sign,1
+User Amount 9,17
+User Amount 10 – sign,1
+User Amount 10,17
+User Amount 11 – sign,1
+User Amount 11,17
+User Amount 12 – sign,1
+User Amount 12,17
+User Amount 13 – sign,1
+User Amount 13,17
+User Amount 14 – sign,1
+User Amount 14,17
+Month-To-Date Finance Charge – sign,1
+Month-To-Date Finance Charge,17
+Month-To-Date Insurance Premium – sign,1
+Month-To-Date Insurance Premium,17
+Month-To-Date Service Charge – sign,1
+Month-To-Date Service Charge,17
+Cycle-To-Date Service Charge – sign,1
+Cycle-To-Date Service Charge,17
+Cycle-To-Date Cash Advance Service Charge – sign,1
+Cycle-To-Date Cash Advance Service Charge,17
+Number Cycle-To-Date Late Fees – sign,1
+Number Cycle-To-Date Late Fees,3
+Amount Cycle-To-Date Late Fees – sign,1
+Amount Cycle-To-Date Late Fees,17
+Amount Cycle-To-Date Membership Fees – sign,1
+Amount Cycle-To-Date Membership Fees,17
+Amount Cycle-To-Date Overlimit Fees – sign,1
+Amount Cycle-To-Date Overlimit Fees,17
+Amount Cycle-To-Date Recovery Fees – sign,1
+Amount Cycle-To-Date Recovery Fees,17
+Amount Cycle-To-Date Collection Fees – sign,1
+Amount Cycle-To-Date Collection Fees,17
+Amount Cycle-To-Date NSF Fees – sign,1
+Amount Cycle-To-Date NSF Fees,17
+Amount Memo Debit – sign,1
+Amount Memo Debit,17
+Number Memo Debit – sign,1
+Number Memo Debit,3
+Amount Memo Credit – sign,1
+Amount Memo Credit,17
+Number Memo Credit – sign,1
+Number Memo Credit,3
+Warning Code 1,1
+Warning Code 2,1
+Warning Code 3,1
+Warning Code 4,1
+Warning Code 5,1
+Warning Code 6,1
+Warning Code 7,1
+Waive Cash Available Credit Flag,1
+Cash Available Credit – sign,1
+Cash Available Credit,17
+Cash Amount Disputed Items – sign,1
+Cash Amount Disputed Items,17
+Cash Balance – sign,1
+Cash Balance,17
+Cash Available Credit Flag,1
+Cash Available Credit Amount – sign,1
+Cash Available Credit Amount,17
+Cash Available Credit Percent – sign,1
+Cash Available Credit Percent,8
+Cash Credit Limit – sign,1
+Cash Credit Limit,17
+Cash Number Disputed Items – sign,1
+Cash Number Disputed Items,5
+Interest Variance 1 – sign,1
+Interest Variance 1,7
+Interest Variance 2 – sign,1
+Interest Variance 2,7
+Interest Variance 3 – sign,1
+Interest Variance 3,7
+Interest Variance 4 – sign,1
+Interest Variance 4,7
+Interest Variance 5 – sign,1
+Interest Variance 5,7
+Interest Variance 6 – sign,1
+Interest Variance 6,7
+Interest Variance 7 – sign,1
+Interest Variance 7,7
+Interest Variance 8 – sign,1
+Interest Variance 8,7
+Interest Variance 9 – sign,1
+Interest Variance 9,7
+Interest Variance 10 – sign,1
+Interest Variance 10,7
+Interest Variance 11 – sign,1
+Interest Variance 11,7
+Interest Variance 12 – sign,1
+Interest Variance 12,7
+Interest Variance Pending 1 – sign,1
+Interest Variance Pending 1,7
+Interest Variance Pending 2 – sign,1
+Interest Variance Pending 2,7
+Interest Variance Pending 3 – sign,1
+Interest Variance Pending 3,7
+Interest Variance Pending 4 – sign,1
+Interest Variance Pending 4,7
+Interest Variance Pending 5 – sign,1
+Interest Variance Pending 5,7
+Interest Variance Pending 6 – sign,1
+Interest Variance Pending 6,7
+Interest Variance Pending 7 – sign,1
+Interest Variance Pending 7,7
+Interest Variance Pending 8 – sign,1
+Interest Variance Pending 8,7
+Interest Variance Pending 9 – sign,1
+Interest Variance Pending 9,7
+Interest Variance Pending 10 – sign,1
+Interest Variance Pending 10,7
+Interest Variance Pending 11 – sign,1
+Interest Variance Pending 11,7
+Interest Variance Pending 12 – sign,1
+Interest Variance Pending 12,7
+Variance Effective Date,8
+Pending PCT,3
+Pending PCT Effective Date,8
+Pending PCT End Date,8
+Pending Level,1
+Cash Plan Number – sigm,1
+Cash Plan Number,5
+Retail Plan Number  - sign,1
+Retail Plan Number ,5
+Greatest Card Expiration Date,8
+DDA Routing Number – sign,1
+DDA Routing Number,9
+DDA Account Number ,19
+Savings Routing Number  - SIGN,1
+Savings Routing Number ,9
+Savings Account Number ,19
+User Defined Account Number ,19
+Payment Hold,1
+Temporary Credit Limit  - sign,1
+Temporary Credit Limit ,17
+Temporary Credit Limit Expiration Date,8
+Customer Organisation,3
+Date Last Cycle,8
+Customer Statement Flag,1
+Customer Letter Flag,1
+Associated Type 1,1
+Associated Account Number 1,19
+Associated Relationship Type 1,1
+Associated Date 1,8
+Associated Amount 1 – sign,1
+Associated Amount 1,17
+Associated Type 2,1
+Associated Account Number 2,19
+Associated Relationship Type 2,1
+Associated Date 2,8
+Associated Amount 2 – sign,1
+Associated Amount 2,17
+Associated Type 3,1
+Associated Account Number 3,19
+Associated Relationship Type 3,1
+Associated Date 3,8
+Associated Amount 3 – sign,1
+Associated Amount 3,17
+Terms Condition,4
+Terms Condition Date,8
+Waive User Fee 1,1
+Waive User Fee 2,1
+Waive User Fee 3,1
+Waive User Fee 4,1
+Waive User Fee 5,1
+Waive User Fee 6,1
+Preferential Minimum Amount – sign,1
+Preferential Minimum Amount,17
+Preferential Interest Days – sign,1
+Preferential Interest Days,3
+Preferential Start Date,8
+Preferential End Date,8
+Preferential Promo Date,8
+Rebate Preferential Transaction Amount – sign,1
+Rebate Preferential Transaction Amount,17
+Payment Remittance Method,1
+Previous Payment Remittance Method,1
+Suppress Letters Flag,1
+Hold Letters Flag,1
+Application User 1,20
+Application User 2,20
+Application User 3,20
+Miscellaneous User 1,30
+Miscellaneous User 2,1
+Miscellaneous User 3,11
+Miscellaneous User 4,11
+Miscellaneous User 5,11
+Miscellaneous User 6,11
+Miscellaneous User 7,11
+Miscellaneous User 8,11
+Miscellaneous User 9,2
+Miscellaneous User 10,2
+Miscellaneous User 11,2
+Miscellaneous User 12,2
+Maker Home Phone,20
+Maker Employment Phone,20
+Immediate Due – sign,1
+Immediate Due,17
+First Purchase Date,8
+First Purchase Amount – sign,1
+First Purchase Amount,17
+Last Cash Advance Date,8
+Last Cash Advance Amount – sign,1
+Last Cash Advance Amount,17
+Balance Transfer Balance – sign,1
+Balance Transfer Balance,17
+Least Card Expiration Date,8
+Year-To-Date paid insurance – sign,1
+Year-To-Date paid insurance,17
+Year-To-Date paid user fee 1  - sign,1
+Year-To-Date paid user fee 1 ,17
+Year-To-Date paid user fee 2  - sign,1
+Year-To-Date paid user fee 2 ,17
+Year-To-Date paid user fee 3  - sign,1
+Year-To-Date paid user fee 3 ,17
+Year-To-Date paid user fee 4  - sign,1
+Year-To-Date paid user fee 4 ,17
+Year-To-Date paid user fee 5  - sign,1
+Year-To-Date paid user fee 5 ,17
+Year-To-Date paid user fee 6  - sign,1
+Year-To-Date paid user fee 6 ,17
+Year-To-Date billed interest  - sign,1
+Year-To-Date billed interest ,17
+Year-To-Date billed insurance – sign,1
+Year-To-Date billed insurance   ,17
+Cycle-To-Date billed user fee 1 – sign,1
+Cycle-To-Date billed user fee 1   ,17
+Year-To-Date billed user fee 1 – sign,1
+Year-To-Date billed user fee 1   ,17
+Cycle-To-Date billed user fee 2 – sign,1
+Cycle-To-Date billed user fee 2   ,17
+Year-To-Date billed user fee 2 – sign,1
+Year-To-Date billed user fee 2   ,17
+Cycle-To-Date billed user fee 3 – sign,1
+Cycle-To-Date billed user fee 3   ,17
+Year-To-Date billed user fee 3 – sign,1
+Year-To-Date billed user fee 3   ,17
+Cycle-To-Date billed user fee 4 – sign,1
+Cycle-To-Date billed user fee 4   ,17
+Year-To-Date billed user fee 4 – sign,1
+Year-To-Date billed user fee 4   ,17
+Cycle-To-Date billed user fee 5 – sign,1
+Cycle-To-Date billed user fee 5   ,17
+Year-To-Date billed user fee 5 – sign,1
+Year-To-Date billed user fee 5   ,17
+Cycle-To-Date billed user fee 6 – sign,1
+Cycle-To-Date billed user fee 6   ,17
+Year-To-Date billed user fee 6 – sign,1
+Year-To-Date billed user fee 6   ,17
+First Billed Interest Date ,8
+Statement Produced Flag,1
+Last Credit Balance Statement Date,8
+Next Plan Record Number – sign,1
+Next Plan Record Number ,3
+Grace Day Expiration Date,8
+Number of Returned Payments – sign,1
+Number of Returned Payments,3
+Date Next Cycle,8
+VIP Status,1
+Commercial Flag,1
+Initial Status Before Transfer,1
+Original Billing Cycle,2
+Number of Month-to-date Transactions – sign,1
+Number of Month-to-date Transactions   ,5
+Amount of Month-to-date Transactions – sign,1
+Amount of Month-to-date Transactions   ,17
+Card Technology,1
+Activation Call Qualification Indicator ,1
+Sweep Account Number,19
+Date Start Overlimit,8
+Contact Indicator,2
+Amount Declined Cycle-To-Date – sign,1
+Amount Declined Cycle-To-Date,17
+Number Declined Cycle-To-Date – sign,1
+Number Declined Cycle-To-Date,3
+Open-To-Buy Ratio,3
+Account Updater Switch,1
+Transfer Type,1
+Prepaid Flag,1
+Prepaid Type                ,1
+Prepaid Plan Number – sign,1
+Prepaid Plan Number         ,5
+Prepaid Load Frequency         ,1
+Prepaid Load Number,2
+Prepaid Load Amount – sign,1
+Prepaid Load Amount        ,17
+Min Initial Load Amount – sign,1
+Min Initial Load Amount        ,17
+Max Initial Load Amount – sign,1
+Max Initial Load Amount        ,17
+Min Single Load Amount – sign,1
+Min Single Load Amount        ,17
+Max Single Load Amount – sign,1
+Max Single Load Amount        ,17
+Max Lifetime Load Number – sign,1
+Max Lifetime Load Number         ,5
+Max Lifetime Load Amount – sign,1
+Max Lifetime Load Amount        ,17
+Generic Loads Allowed      ,2
+Load Amount Accumulated 1 – sign,1
+Load Amount Accumulated 1,17
+Load Number Accumulated 1 – sign,1
+Load Number Accumulated 1,5
+Load Amount Accumulated 2 – sign,1
+Load Amount Accumulated 2,17
+Load Number Accumulated 2 – sign,1
+Load Number Accumulated 2,5
+Load Amount Accumulated 3 – sign,1
+Load Amount Accumulated 3,17
+Load Number Accumulated 3 – sign,1
+Load Number Accumulated 3,5
+Load Amount Accumulated 4 – sign,1
+Load Amount Accumulated 4,17
+Load Number Accumulated 4 – sign,1
+Load Number Accumulated 4,5
+Number Load Memo               ,1
+Number Load Memo               ,5
+Amount Load Memo – sign,1
+Amount Load Memo             ,17
+Amount Life-To-Date Authorized Purchases – sign,1
+Amount Life-To-Date Authorized Purchases  ,17
+Amount Life-To-Date Authorized Returns- sign,1
+Amount Life-To-Date Authorized Returns ,17
+Number Cycle-To-Date Loads – sign,1
+Number Cycle-To-Date Loads             ,5
+Amount Cycle-To-Date Loads – sign,1
+Amount Cycle-To-Date Loads             ,17
+Number Year-To-Date Loads – sign,1
+Number Year-To-Date Loads             ,5
+Amount Year-To-Date Loads – sign,1
+Amount Year-To-Date Loads             ,17
+Number Life-To-Date Loads – sign,1
+Number Life-To-Date Loads             ,5
+Amount Life-To-Date Loads – sign,1
+Amount Life-To-Date Loads             ,17
+Date First Load        ,8
+Amount First Load – sign,1
+Amount First Load           ,17
+Date Last Load           ,8
+Amount Last Load – sign,1
+Amount Last Load            ,17
+Number Return Load – sign,1
+Number Return Load           ,5
+Date Last Load Reversal    ,8
+Amount Last Load Reversal – sign,1
+Amount Last Load Reversal    ,17
+Prepaid Migration Switch,1
+Grace Counter Transaction Fee Daily 1          ,2
+Grace Counter Transaction Fee Cycle 1          ,2
+Grace Counter Transaction Fee Yearly 1          ,2
+Grace Counter Transaction Fee Daily 2          ,2
+Grace Counter Transaction Fee Cycle 2          ,2
+Grace Counter Transaction Fee Yearly 2          ,2
+Grace Counter Transaction Fee Daily 3          ,2
+Grace Counter Transaction Fee Cycle 3          ,2
+Grace Counter Transaction Fee Yearly 3          ,2
+Grace Counter Transaction Fee Daily 4          ,2
+Grace Counter Transaction Fee Cycle 4          ,2
+Grace Counter Transaction Fee Yearly 4          ,2
+Grace Counter Transaction Fee Daily 5          ,2
+Grace Counter Transaction Fee Cycle 5          ,2
+Grace Counter Transaction Fee Yearly 5          ,2
+Grace Counter Transaction Fee Daily 6          ,2
+Grace Counter Transaction Fee Cycle 6          ,2
+Grace Counter Transaction Fee Yearly 6          ,2
+Grace Counter Statement Fee Transaction Code        ,2
+Grace Counter Dormancy Fee Transaction Code              ,2
+Grace-Limits-Frequency Dormancy Fee Limit,2
+Grace-Limits-Frequency Statement Fee Limit,2
+Grace-Limits-Frequency Transaction Fee Limit 1,2
+Grace-Limits-Frequency Transaction Fee Frequency 1,1
+Grace-Limits-Frequency Transaction Fee Limit 2,2
+Grace-Limits-Frequency Transaction Fee Frequency 2,1
+Grace-Limits-Frequency Transaction Fee Limit 3,2
+Grace-Limits-Frequency Transaction Fee Frequency 3,1
+Grace-Limits-Frequency Transaction Fee Limit 4,2
+Grace-Limits-Frequency Transaction Fee Frequency 4,1
+Grace-Limits-Frequency Transaction Fee Limit 5,2
+Grace-Limits-Frequency Transaction Fee Frequency 5,1
+Grace-Limits-Frequency Transaction Fee Limit 6,2
+Grace-Limits-Frequency Transaction Fee Frequency 6,1
+Waive Dormancy Fee           ,1
+Waive Refund Fee        ,1
+Waive Statement Fee    ,1
+Waive Transaction Fee 1,1
+Waive Transaction Fee 2,1
+Waive Transaction Fee 3,1
+Waive Transaction Fee 4,1
+Waive Transaction Fee 5,1
+Waive Transaction Fee 6,1
+Customer Select Due Day       ,2
+Life-To-Date Skip Counter           ,3
+Year-To-Date Skip Counter           ,3
+Skip Level                   ,1
+Date Last Skip         ,8
+Prepaid Auth Restriction Daily Indicator,1
+Prepaid Auth Restriction Cycle-to-Date Indicator,1
+Prepaid Auth Restriction Yearly Indicator,1
+Service Charge Fee Table,3
+Service Charge Fee Start Date       ,8
+Service Charge Fee Expiry Date       ,8
+Pending Service Charge Fee,3
+Pending Service Charge Fee Effective Date,8
+Pending Service Charge Fee End Date ,8
+Number Statement Reprints – sign,1
+Number Statement Reprints     ,5
+Multi-Scheme Flag      ,1
+Multi-Scheme Card Logo 1          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 1  ,3
+Multi-Scheme Card  Number Active 1 – sign,1
+Multi-Scheme Card  Number Active 1,5
+Multi-Scheme Card Logo 2          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 2  ,3
+Multi-Scheme Card  Number Active 2 – sign,1
+Multi-Scheme Card  Number Active 2,5
+Multi-Scheme Card Logo 3          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 3  ,3
+Multi-Scheme Card  Number Active 3 – sign,1
+Multi-Scheme Card  Number Active 3,5
+Multi-Scheme Card Logo 4         ,3
+Multi-Scheme Card Quarterly Affiliate Flag 4  ,3
+Multi-Scheme Card  Number Active 4 – sign,1
+Multi-Scheme Card  Number Active 4,5
+Multi-Scheme Card Logo 5          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 5  ,3
+Multi-Scheme Card  Number Active 5 – sign,1
+Multi-Scheme Card  Number Active 5,5
+Multi-Scheme Card Logo 6          ,3
+Multi-Scheme Card Quarterly Affiliate Flag 6  ,3
+Multi-Scheme Card  Number Active 6 – sign,1
+Multi-Scheme Card  Number Active 6,5
+Multi-Scheme Primary Card Set ID,19
+Cash Balance Statement – sign,1
+Cash Balance Statement,17
+Retail Balance Statement – sign,1
+Retail Balance Statement,17
+Last Statement Balance – sign,1
+Last Statement Balance,17
+Previous Payment ACH Transit Routing Number – sign,1
+Previous Payment ACH Transit Routing Number,10
+Previous Payment ACH Debit Type,1
+Previous Payment ACH Debit Number,17
+Source Channel ,1
+Customer Block Date,8
+Miscellaneous Credit After Chargeoff – sign,1
+Miscellaneous Credit After Chargeoff,17
+Miscellaneous Debit After Chargeoff – sign,1
+Miscellaneous Debit After Chargeoff,17
+Amount Recovered – sign,1
+Amount Recovered,17
+29 Days Delinquency Counter,2
+Customer Block Code,1
+Customer Warning Code ,1
+SPID,3
+Test Digits,4
+Special Handling Flag,1
+Collection Class Type,1
+Amount At Risk – sign,1
+Amount At Risk,17
+Amount At Risk Factor – sign,1
+Amount At Risk Factor,10
+Collection Block Code,1
+Collection Class,3
+Collection Indicator,1
+PTP Action Today,1
+Number Broken Promise – sign,1
+Number Broken Promise,3
+Current PTP,1
+Phone Address Indicator,1
+Phone Address Change Indicator,1
+Date Last Credit Decrease,8
+Date Last Credit Increase,8
+Pre-Post Delinquency,1
+Delinquency Strategy ID – sign,1
+Delinquency Strategy ID,3
+Delinquency Scenario ID – sign,1
+Delinquency Scenario ID,3
+Delinquency Action Counter,1
+Delinquency Control Indicator,1
+Delinquency Next Call – sign,1
+Delinquency Next Call,7
+Delinquency Number Letters – sign,1
+Delinquency Number Letters,3
+Authorisation Strategy ID 1 – sign,1
+Authorisation Strategy ID 1,3
+Filler,4
+Authorisation Scenario ID 1 – sign,1
+Authorisation Scenario ID 1,3
+Authorisation Control ID 1,1
+Overlimit Fee Waived Counter,2
+MCOM Date Last Communication,8
+MCOM Number of Letters – sign,1
+MCOM Number of Letters,3
+MCOM Control ID 1 ,1
+MCOM Strategy ID 1 – sign,1
+MCOM Strategy ID 1,3
+MCOM Scenario Indicator 1 – sign,1
+MCOM Scenario Indicator 1,3
+MCOM Date Promo 1,8
+MCOM Promo Code 1,4
+MCOM Notify Indicator 1,1
+MCOM Control Indicator 2 ,1
+MCOM Strategy ID 2 – sign,1
+MCOM Strategy ID 2,3
+MCOM Scenario ID 2 – sign,1
+MCOM Scenario ID 2,3
+MCOM Date Promo 2,8
+MCOM Promo Code 2,4
+MCOM Notify Indicator 2,1
+MCOM Control Indicator 3 ,1
+MCOM Strategy ID 3 – sign,1
+MCOM Strategy ID 3,3
+MCOM Scenario ID 3 – sign,1
+MCOM Scenario ID 3,3
+MCOM Date Promo 3,8
+MCOM Promo Code 3,4
+MCOM Notify Indicator 3,1
+MCOM Control Indicator 4 ,1
+MCOM Strategy ID 4 – sign,1
+MCOM Strategy ID 4,3
+MCOM Scenario ID 4 – sign,1
+MCOM Scenario ID 4,3
+MCOM Date Promo 4,8
+MCOM Promo Code 4,4
+MCOM Notify Indicator 4,1
+MCOM Control Indicator 5 ,1
+MCOM Strategy ID 5 – sign,1
+MCOM Strategy ID 5,3
+MCOM Scenario ID 5 – sign,1
+MCOM Scenario ID 5,3
+MCOM Date Promo 5,8
+MCOM Promo Code 5,4
+MCOM Notify Indicator 5,1
+Reprice Date Last Review,8
+Reprice Scenario ID – sign,1
+Reprice Scenario ID,3
+Reprice Strategy ID – sign,1
+Reprice Strategy ID,3
+Reprice Control ID,1
+Reprice Status Indicator,1
+Re-price Date Last Re-priced,8
+Re-price Interest Variance – sign,1
+Re-price Interest Variance,7
+Re-price PCT ID,3
+Re-price Effective Date,8
+Re-price End Date,8
+Re-price PCT Level,1
+Reissue Strategy ID – sign,1
+Reissue Strategy ID ,3
+Reissue Scenario ID – sign,1
+Reissue Scenario ID,3
+Reissue Control ID,1
+Credit Limit Strategy ID – sign,1
+Credit Limit Strategy ID ,3
+Credit Limit Scenario ID – sign,1
+Credit Limit Scenario ID,3
+Credit Limit Control ID,1
+TRIAD Score 1 – sign,1
+TRIAD Score 1,4
+TRIAD Score 2 – sign,1
+TRIAD Score 2,4
+TRIAD Score 3 – sign,1
+TRIAD Score 3,4
+TRIAD Score 4 – sign,1
+TRIAD Score 4,4
+TRIAD Score 5 – sign,1
+TRIAD Score 5,4
+TRIAD Score 6 – sign,1
+TRIAD Score 6,4
+TRIAD Score 7 – sign,1
+TRIAD Score 7,4
+TRIAD Score 8 – sign,1
+TRIAD Score 8,4
+TRIAD Score 9 – sign,1
+TRIAD Score 9,4
+TRIAD Score 10 – sign,1
+TRIAD Score 10,4
+TRIAD Score 11 – sign,1
+TRIAD Score 11,4
+TRIAD Score 12 – sign,1
+TRIAD Score 12,4
+TRIAD Score 13 – sign,1
+TRIAD Score 13,4
+TRIAD Score 14 – sign,1
+TRIAD Score 14,4
+TRIAD Score 15 – sign,1
+TRIAD Score 15,4
+TRIAD Score 16 – sign,1
+TRIAD Score 16,4
+TRIAD Score 17 – sign,1
+TRIAD Score 17,4
+TRIAD Score 18 – sign,1
+TRIAD Score 18,4
+TRIAD Score 19 – sign,1
+TRIAD Score 19,4
+TRIAD Score 20 – sign,1
+TRIAD Score 20,4
+TRIAD Authorisation Block Code ,1
+TRIAD Overlimit Block Code ,1
+TRIAD Recurring Statement Message – sign,1
+TRIAD Recurring Statement Message,3
+TRIAD Credit Limit Exclusion Indicator,1
+TRIAD Billing Exclusion Indicator,1
+TRIAD Reissue Decline Reason,5
+TRIAD Repricing Reason ,2
+Cheque Book Ordering Flag      ,1
+Cheque Book Bank Sort Code – sign,1
+Cheque Book Bank Sort Code     ,7
+Cheque Book Cross-Reference Number – sign,1
+Cheque Book Cross-Reference Number    ,9
+Cheque Book Sequence Number – sign,1
+Cheque Book Sequence Number   ,7
+Cheque Book Unused – sign,1
+Cheque Book Unused     ,3
+Cheque Book Auto Reissue Flag,1
+Cheque Book Dispatch Method,1
+Cheque Book Last Unpaid Date ,8
+Cheque Book Number Unpaid Fee Today,2
+Cheque Book Amount Unpaid Fee Today – sign,1
+Cheque Book Amount Unpaid Fee Today,17
+Cheque Book Number Unpaid Fees Cycle-To-Date,3
+Cheque Book Amount Unpaid Fees Cycle-To-Date – sign,1
+Cheque Book Amount Unpaid Fees Cycle-To-Date,17
+Payment ACH Bank ID,4
+Marketing Opt Out,1
+Disability Indicator,1
+Delivery Option,1
+Affiliate Emblem,5
+Cycle-To-Date Payment Reversal Amount – sign,1
+Cycle-To-Date Payment Reversal Amount,17
+Base Rate Change Indicator,1
+Qualified Payment History 1             ,1
+Qualified Payment History 2             ,1
+Qualified Payment History 3             ,1
+Qualified Payment History 4             ,1
+Qualified Payment History 5             ,1
+Qualified Payment History 6             ,1
+Qualified Payment History 7             ,1
+Qualified Payment History 8             ,1
+Qualified Payment History 9             ,1
+Qualified Payment History 10             ,1
+Qualified Payment History 11             ,1
+Qualified Payment History 12             ,1
+Payment Consecutive Variable     ,2
+Payment Consecutive Fixed,2
+Auto Re-age Override          ,1
+Account Limit Check  ,1
+Authorisation ATM OTC Retail Frequency ,1
+Max Authorisation Quasi Cash Amount- sign,1
+Max Authorisation Quasi Cash Amount     ,17
+Max Authorisation Quasi Cash Number – sign,1
+Max Authorisation Quasi Cash Number     ,9
+Max Authorisation ATM Cash Amount – sign,1
+Max Authorisation ATM Cash Amount,17
+Max Authorisation ATM Cash Number – sign,1
+Max Authorisation ATM Cash Number        ,9
+Max Authorisation OTC Cash Amount – sign,1
+Max Authorisation OTC Cash Amount ,17
+Max Authorisation OTC Cash Number – sign,1
+Max Authorisation OTC Cash Number        ,9
+Max Authorisation Total Cash Amount – sign,1
+Max Authorisation Total Cash Amount     ,17
+Max Authorisation Total Cash Number – sign,1
+Max Authorisation Total Cash Number          ,9
+Max Authorisation Retail Amount – sign,1
+Max Authorisation Retail Amount          ,17
+Max Authorisation Retail Number – sign,1
+Max Authorisation Retail Number             ,9
+Total Authorisation ATM Amount Today – sign,1
+Total Authorisation ATM Amount Today,17
+Total Authorisation ATM Number Today – sign,1
+Total Authorisation ATM Number Today,9
+Total Authorisation ATM Amount Cycle-To-Date ,1
+Total Authorisation ATM Amount Cycle-To-Date ,17
+Total Authorisation ATM Number Cycle-To-Date,1
+Total Authorisation ATM Number Cycle-To-Date,9
+Total Authorisation ATM Amount Year-To-Date – sign,1
+Total Authorisation ATM Amount Year-To-Date ,17
+Total Authorisation ATM Number Year-To-Date – sign,1
+Total Authorisation ATM Number Year-To-Date,9
+Total Authorisation ATM Amount Life-To-Date – sign,1
+Total Authorisation ATM Amount Life-To-Date ,17
+Total Authorisation ATM Number Life-To-Date – sign,1
+Total Authorisation ATM Number Life-To-Date,9
+Total Authorisation OTC Amount Today – sign,1
+Total Authorisation OTC Amount Today,17
+Total Authorisation OTC Number Today – sign,1
+Total Authorisation OTC Number Today,9
+Total Authorisation OTC Amount Cycle-To-Date – sign,1
+Total Authorisation OTC Amount Cycle-To-Date ,17
+Total Authorisation OTC Number Cycle-To-Date – sign,1
+Total Authorisation OTC Number Cycle-To-Date,9
+Total Authorisation OTC Amount Year-To-Date – sign,1
+Total Authorisation OTC Amount Year-To-Date ,17
+Total Authorisation OTC Number Year-To-Date – sign,1
+Total Authorisation OTC Number Year-To-Date,9
+Total Authorisation OTC Amount Life-To-Date – sign,1
+Total Authorisation OTC Amount Life-To-Date ,17
+Total Authorisation OTC Number Life-To-Date – sign,1
+Total Authorisation OTC Number Life-To-Date,9
+Total Authorisation Quasi Amount Today – sign,1
+Total Authorisation Quasi Amount Today,17
+Total Authorisation Quasi Number Today – sign,1
+Total Authorisation Quasi Number Today,9
+Total Authorisation Quasi Quasi Amount Cycle-To-Date – sign,1
+Total Authorisation Quasi Quasi Amount Cycle-To-Date ,17
+Total Authorisation Quasi Number Cycle-To-Date – sign,1
+Total Authorisation Quasi Number Cycle-To-Date,9
+Total Authorisation Quasi Amount Year-To-Date – sign,1
+Total Authorisation Quasi Amount Year-To-Date ,17
+Total Authorisation Quasi Number Year-To-Date – sign,1
+Total Authorisation Quasi Number Year-To-Date,9
+Total Authorisation Quasi Amount Life-To-Date – sign,1
+Total Authorisation Quasi Amount Life-To-Date ,17
+Total Authorisation Quasi Number Life-To-Date – sign,1
+Total Authorisation Quasi Number Life-To-Date,9
+Total Authorisation Retail Amount Today – sign,1
+Total Authorisation Retail Amount Today,17
+Total Authorisation Retail Number Today – sign,1
+Total Authorisation Retail Number Today,9
+Total Authorisation Retail Amount Cycle-To-Date – sign,1
+Total Authorisation Retail Amount Cycle-To-Date ,17
+Total Authorisation Retail Number Cycle-To-Date – sign,1
+Total Authorisation Retail Number Cycle-To-Date,9
+Total Authorisation Retail Amount Year-To-Date – sign,1
+Total Authorisation Retail Amount Year-To-Date ,17
+Total Authorisation Retail Number Year-To-Date – sign,1
+Total Authorisation Retail Number Year-To-Date,9
+Total Authorisation Retail Amount Life-To-Date – sign,1
+Total Authorisation Retail Amount Life-To-Date ,17
+Total Authorisation Retail Number Life-To-Date – sign,1
+Total Authorisation Retail Number Life-To-Date,9
+Date Last Authorisation            ,8
+Card Statement              ,1
+Fiscal Year End          ,2
+Over limit Protection Flag   ,1
+Over limit Fee Date        ,8
+Number Over Limit – sign,1
+Number Over Limit  ,3
+Number Over Protection Limit – sign,1
+Number Over Protection Limit,3
+Number Over limit Fee Assessed – sign,1
+Number Over limit Fee Assessed,3
+Auto Re-age Reason         ,1
+External Loyalty Active Flag,1
+BGC Generation,1
+Total Non-BGC Payment,1
+Converted Letter Indicator,1
+MCC Table Number ,3
+APR Balance Transfer – sign,1
+APR Balance Transfer,7
+APR Cash – sign,1
+APR Cash,7
+APR Retail – sign,1
+APR Retail,7
+Correspondence Customer Number,19
+Date Alternate Customer Start,8
+Disclosure Cycle Indicator,1
+Promo Plan Number – sign,1
+Promo Plan Number,5
+Offers Enrolled Flag,1
+Membership Fee Deferral Date,8
+Date Next Re-price,8
+TRIAD Upper Credit Limit Threshold,3
+TRIAD Lower Credit Limit Threshold,3
+TRIAD Upper Cash Credit Limit Threshold,3
+TRIAD Lower Cash Credit Limit Threshold,3
+TRIAD Upper Credit Bureau Score Threshold,3
+TRIAD Lower Credit Bureau Score Threshold,3
+TRIAD Upper User Defined Score Threshold,3
+TRIAD Lower User Defined Score Threshold,3
+TRIAD Account Profile,5
+TRIAD Authorisation Marker,1
+TRIAD Collection Marker,1
+Cash Managed by TRIAD,1
+TRIAD Date Last Cash Limit Decrease,8
+TRIAD Date Last Cash Limit Increase,8
+TRIAD Credit Limit Offer – sign,1
+TRIAD Credit Limit Offer,17
+TRIAD Date Credit Limit Offer,8
+TRIAD Expiry Date Credit Limit Offer,8
+TRIAD Previous Credit Limit Offer – sign,1
+TRIAD Previous Credit Limit Offer,17
+TRIAD Previous Offer Outcome,1
+Non-Domestic Indicator,1
+Collection Stage,5
+TRIAD Credit Limit Offer – sign,1
+TRIAD Credit Limit Offer,17
+User Defined Sub-Status,2
+Account Type/Product Code,2
+Customer Class,1
+Foreign Indicator,1
+Lower Credit Bureau Score Crossed,1
+Upper Credit Bureau Score Crossed,1
+Lower User Defined Score Crossed,1
+Upper User Defined Score Crossed,1
+User Score 1,5
+User Score 2,2
+User Score 3,2
+User Score 4,2
+User Score 5,2
+User Score 6,2
+User Score 7,2
+User Score 8,2
+User Score 9,2
+User Score 10,2
+User Score 11,2
+User Score 12,2
+User Score 13,2
+User Score 14,2
+User Score 15,2
+User Score 16,2
+User Score 17,2
+User Score 18,2
+User Score 19,2
+User Score 20,2
+User Score 21,7
+User Score 22,7
+User Score 23,7
+User Score 24,7
+User Score 25,7
+User Score 26,7
+User Score 27,7
+User Score 28,7
+User Score 29,4
+User Score 30,4
+User Score 31,4
+User Score 32,4
+User Score 33,4
+User Score 34,4
+User Score 35,4
+User Score 36,4
+User field 1,2
+User field 2,2
+User field 3,2
+User field 4,2
+User field 5,2
+User field 6,2
+User field 7,2
+User field 8,2
+User field 9,2
+User field 10,2
+User field 11,2
+User field 12,2
+User field 13,2
+User field 14,2
+User field 15,2
+User field 16,2
+User field 17,2
+User field 18,2
+User field 19,2
+User field 20,2
+User field 21,2
+User field 22,2
+User field 23,2
+User field 24,2
+User field 25,2
+User field 26,2
+User field 27,2
+User field 28,2
+User field 29,2
+User field 30,2
+User field 31,2
+User field 32,2
+User field 33,2
+User field 34,2
+User field 35,2
+User field 36,7
+User field 37,7
+User field 38,7
+User field 39,7
+User field 40,7
+User field 41,7
+User field 42,7
+User field 43,7
+User field 44,7
+User field 45,7
+User field 46,4
+User field 47,4
+User field 48,4
+User field 49,4
+User field 50,4
+Last Arrears Notice Date,8
+Arrears Notice Counter,1
+New Account Campaign,8
+TRIAD Block Code Previous,1
+TRIAD Collection Strategy ID – sign,1
+TRIAD Collection Strategy ID,3
+TRIAD Collection Scenario ID – sign,1
+TRIAD Collection Scenario ID,4
+TRIAD Collection Action Count,1
+TRIAD Collection Control Indicator,1
+TRIAD Collection Next Call ,7
+TRIAD Collection Number Letters – sign,1
+TRIAD Collection Number Letters,3
+TRIAD User Strategy ID – sign,1
+TRIAD User Strategy ID,3
+TRIAD User Scenario ID – sign,1
+TRIAD User Scenario ID,3
+TRIAD User Control Indicator,1
+TRIAD User Exclusion Indicator 1,2
+TRIAD Credit Limit Bypass Expiry Date,8
+Fee Frequency Code,1
+Collection Reclass Indicator,1
+TRIAD Collection OOO Type,1
+TRIAD Authorisation Exclusion Indicator 1,2
+TRIAD Authorisation Digit High – sign,1
+TRIAD Authorisation Digit High,4
+TRIAD Credit Limit Digit Low – sign,1
+TRIAD Credit Limit Digit Low,4
+TRIAD Credit Limit Digit High – sign,1
+TRIAD Credit Limit Digit High,4
+TRIAD Credit Limit Bypass Indicator,1
+Cycle-To-Date Insurance Premium – sign,1
+Cycle-To-Date Insurance Premium,17
+Number Year-To-Date Disputed ,5
+Amount Year-To-Date Disputed – sign,1
+Amount Year-To-Date Disputed ,17
+Number 2nd Year-To-Date Disputed ,5
+Amount 2nd Year-To-Date Disputed – sign,1
+Amount 2nd Year-To-Date Disputed ,17
+Number 3rd Year-To-Date Disputed ,5
+Amount 3rd Year-To-Date Disputed – sign,1
+Amount 3rd Year-To-Date Disputed ,17
+Insurance Table Number ,3
+DD Interim Payments Flag,1
+DD Interim Payment Amount – sign,1
+DD Interim Payment Amount,17
+DD Interim Transaction Code Indicator,1
+DD Interim Transaction Code Number,3
+Test Digits 2,4
+Test Digits 3,4
+TRIAD Authorisation Strategy ID 2 – sign,1
+TRIAD Authorisation Strategy ID 2,3
+TRIAD Authorisation Scenario ID 2 – sign,1
+TRIAD Authorisation Scenario ID 2,3
+TRIAD Authorisation Control Indicator 2,1
+TRIAD Authorisation Exclusion Indicator 2,2
+TRIAD Authorisation Strategy ID 3 – sign,1
+TRIAD Authorisation Strategy ID 3,3
+TRIAD Authorisation Scenario ID 3 – sign,1
+TRIAD Authorisation Scenario ID 3,3
+TRIAD Authorisation Control Indicator 3,1
+TRIAD Authorisation Exclusion Indicator 3,2
+TRIAD Authorisation Strategy ID 4 – sign,1
+TRIAD Authorisation Strategy ID 4,3
+TRIAD Authorisation Scenario ID 4 – sign,1
+TRIAD Authorisation Scenario ID 4,3
+TRIAD Authorisation Control Indicator 4,1
+TRIAD Authorisation Exclusion Indicator 4,2
+TRIAD Authorisation Digit Low – sign,1
+TRIAD Authorisation Digit Low,4
+Total Outstanding Arrears Amount – sign,1
+Total Outstanding Arrears Amount,17
+Previous Disclosed Arrears Amount – sign,1
+Previous Disclosed Arrears Amount,17
+Arrears Notice Statement Indicator,1
+Default Fee Counter,2
+Cycle-To-Date Default Fee Total Amount – sign,1
+Cycle-To-Date Default Fee Total Amount,17
+Net Payments Amount Outstanding Amount – sign,1
+Net Payments Amount Outstanding Amount,17
+DD Interim Payment Date,8
+Credit Limit Update ARTC,1
+Cash Available Credit Percent – sign,1
+Cash Available Credit Percent,8
+Amount auths today – sign,1
+Amount auths today,17
+Number auths today – sign,1
+Number auths today,3
+Amount declined auths today,1
+Amount declined auths today,17
+Number declined auths today,1
+Number declined auths today,3
+New account campaign ID,10
+On Demand ACH DC Type,1
+On Demand ACH DC Number,17
+On Demand ACH Transit Routing Number,10
+On Demand Direct Credit IBAN,34
+Direct Debit IBAN,34
+Direct Credit IBAN,34
+On Demand Direct Credit BIC,11
+Direct Debit BIC,11
+Direct Credit BIC,11
+Credit Bureau Indicator,1
+Last Projected DD Maintenance Date,8
+DD Cancel,1
+OLC reason,2
+Bureaus Score Refresh ,8
+Co-maker date of Birth,8
+Cash amount outstanding auth – sign,1
+Cash amount outstanding auth,17
+Cash amount decline today 1 – sign,1
+Cash amount decline today 1,17
+Cash amount decline today  2 – sign,1
+Cash amount decline today  2,17
+Cash amount decline today  3 – sign,1
+Cash amount decline today  3,17
+Cash amount decline today  4 – sign,1
+Cash amount decline today  4,17
+Cash amount decline today  5 – sign,1
+Cash amount decline today  5,17
+Cash amount decline today  6 – sign,1
+Cash amount decline today  6,17
+Cash amount decline today  7 – sign,1
+Cash amount decline today  7,17
+Cash number decline today 1 – sign,1
+Cash number decline today 1,3
+Cash number decline today 2 – sign,1
+Cash number decline today 2,3
+Cash number decline today 3 – sign,1
+Cash number decline today 3,3
+Cash number decline today 4 – sign,1
+Cash number decline today 4,3
+Cash n umber decline today  5 – sign,1
+Cash n umber decline today  5,3
+Cash number  decline today  6 – sign,1
+Cash number  decline today  6,3
+Cash number decline today  7 – sign,1
+Cash number decline today  7,3
+Cash number outstanding auth – sign,1
+Cash number outstanding auth,3
+Date hi balance,8
+Date late fee,8
+Date last Reclass,8
+Date late fee current,8
+Last payment reaged by,3
+Last reage category code,2
+Last reage exception flag,1
+Reage history date reage (occur 1),8
+Reage history pmt reaged by (occur 1),3
+Reage history reage category code (occur 1),2
+Reage history reage exception flag (occur 1),1
+Reage history date reage (occur 2),8
+Reage history pmt reaged by (occur 2),3
+Reage history reage category code (occur 2),2
+Reage history reage exception flag (occur 2),1
+Reage history date reage (occur 3),8
+Reage history pmt reaged by (occur 3),3
+Reage history reage category code (occur 3),2
+Reage history reage exception flag (occur 3),1
+Reage history date reage (occur 4),8
+Reage history pmt reaged by (occur 4),3
+Reage history reage category code (occur 4),2
+Reage history reage exception flag (occur 4),1
+Reage history date reage (occur 5),8
+Reage history pmt reaged by (occur 5),3
+Reage history reage category code (occur 5),2
+Reage history reage exception flag (occur 5),1
+Reage history date reage (occur 6),8
+Reage history pmt reaged by (occur 6),3
+Reage history reage category code (occur 6),2
+Reage history reage exception flag (occur 6),1
+Reage history date reage (occur 7),8
+Reage history pmt reaged by (occur 7),3
+Reage history reage category code (occur 7),2
+Reage history reage exception flag (occur 7),1
+Reage history date reage (occur 8),8
+Reage history pmt reaged by (occur 8),3
+Reage history reage category code (occur 8),2
+Reage history reage exception flag (occur 8),1
+Cust comp group code,3
+Cost Centre Rpt,16
+Current Contractual Minimum Payment – sign,1
+Current Contractual Minimum Payment,17
+Previous Contractual Minimum Payment – sign,1
+Previous Contractual Minimum Payment,17
+Prepaid Maximum Balance Amount – sign,1
+Prepaid Maximum Balance Amount,17
+Secure ID,3
+Secure ID Date Last Updated,8
+ACCT-DISPLAY,1
+ACCT-RESTRUCTURE,1
+COLAT-CODE,2
+COLL-CARD,1
+CR-CLASS,2
+DATE-ACH-PMT-EXPR,8
+DATE-INTO-COLL,8
+DATE-NEXT-RECLASS,8
+DATE-NOTIFIC-RECVD,8
+DAYS-TIL-CHGOFF,3
+FS-FLAG,1
+LETTER-REQUEST,3
+LOAN-BALANCE-SIGN,1
+LOAN-BALANCE,13
+PURGED-PLAN-YTD-INT-SIGN,1
+PURGED-PLAN-YTD-INT,17
+REISSUE-SCHEME,1
+REL-CARD-SCHEME,1
+REL-NBR,19
+SECUR,1
+AUTH-TEXT-MSG-SW,1
+AUTH-TEXT-MSG-AMT-SIGN,1
+AUTH-TEXT-MSG-AMT,9
+IBS-DDA-RTNG-NBR,10
+IBS-DDA-ACCT-NBR,17
+IBS-SAV-RTNG-NBR,10
+IBS-SAV-ACCT-NBR,17
+IBS-ACCT-DFLT,2
+TIME-LAST-AUTH,6
+CCD-INT-CODE,3
+IGT EXEMPT FLAG,1
+IGT EXEMPTION REASON,2
+IGT CURRENT YR SIGN,1
+IGT CURR YR BILLING AMT,13
+IGT LAST YR SIGN,1
+IGT LAST YR BILLING AMT,13
+MOBILE PI ALLOWED,1
+MOBILE PI IND,1
+ANNUAL STRIKES,2
+STRIKE FLAG,1
+PRIOR SECURITIZATION ID,3
+INSTANT CREDIT FLAG,1
+INSTANT CREDIT NUMBER,19
+ORIG TEMP CR LIM SIGN,1
+ORIG TEMP CR LIMIT,17
+EMP ID,15
+HOME STORE,12
+REPRICE RETAIL APR,7
+REPRICE CASH APR,7
+REPRICE BT APR,7
+EMP DISC YTD SIGN,1
+EMP DICS YTD,13
+TRIAD REPR WITHDRAWN,1
+TRIAD REPR WITHDRAWN DTE,8
+ACCOUNT SERIAL NUMBER,10
+FOREX FEE,2
+MEMBERSHIP METH,1
+SMS Alerts,1
+CURR CMP CTR,3
+LAST CMP LETR,1
+LAST CMP LETR CTR,3
+RM PERCENT,7
+PMT-DUE-ALERT  ,1
+SPND-LMT-ALERT ,1
+CRDT-LMT-ALERT ,1
+OVER-LMT-ALERT ,1
+PD-REM-DAYS    ,2
+SPND-LMT-AMT   ,9
+CRDT-LMT-AMT   ,9
+DD-SUSPEND,1
+DD-SUSPEND-BYPASS,1
+ECOM-RESTRICT-FLAG,1
+IBAN-CC,2
+IBAN-CHECKDIGIT,2
+IBAN-BASIC-ACCOUNT,30
+CCI-IND,1
+DATE-FIRST-MISD-PMT,8
+EPP-PRIN-BAL-SIGN,1
+EPP-PRIN-BAL,17
+LWC-PRIN-BAL-SIGN,1
+LWC-PRIN-BAL,17
+LOC-PRIN-BAL-SIGN,1
+LOC-PRIN-BAL,17
+EPP-TOT-BAL-SIGN,1
+EPP-TOT-BAL,17
+LWC-TOT-BAL-SIGN,1
+LWC-TOT-BAL,17
+LOC-TOT-BAL-SIGN,1
+LOC-TOT-BAL,17
+EDA-PMT-210DAYS-SIGN,1
+EDA-PMT-210DAYS,17
+EDA-PMT-240DAYS-SIGN,1
+EDA-PMT-240DAYS,17
+EDA-PMT-270DAYS-SIGN,1
+EDA-PMT-270DAYS,17
+EDA-PMT-300DAYS-SIGN,1
+EDA-PMT-300DAYS,17
+EDA-PMT-330DAYS-SIGN,1
+EDA-PMT-330DAYS,17
+EDA-PMT-360DAYS-SIGN,1
+EDA-PMT-360DAYS,17
+DELQ-AGE           ,3
+HIST-DUE-DATE-13   ,8
+HIST-DUE-DATE-14   ,8
+INT-ACCRUAL-FLAG   ,1
+NON-ACCR-START-DATE,8
+RISK-CLASS         ,3
+RISK-CLASS-DATE    ,8
+RETAIL-PROMO-PLN,5
+RETAIL-PROMO-ST-DATE,8
+RETAIL-PROMO-EXP-DATE,8
+CASH-PROMO-PLN  ,5
+CASH-PROMO-ST-DATE  ,8
+CASH-PROMO-EXP-DATE   ,8
+RSN-BLOCK-CODE-1,2
+RSN-BLOCK-CODE-2,2
+FI-SCRD-SIGN,1
+FI-SCRD,4
+DES_FI_SCRD_SIGN_2,1
+MEA_FI_SCRD_2,4
+DES_FI_SCRD_SIGN_3,1
+MEA_FI_SCRD_3,4
+DES_FI_SCRD_SIGN_4,1
+MEA_FI_SCRD_4,4
+DES_FI_SCRD_SIGN_5,1
+MEA_FI_SCRD_5,4
+DES_FI_SCRD_SIGN_6,1
+MEA_FI_SCRD_6,4
+DES_FI_SCRD_SIGN_7,1
+MEA_FI_SCRD_7,4
+DES_FI_SCRD_SIGN_8,1
+MEA_FI_SCRD_8,4
+DES_FI_SCRD_SIGN_9,1
+MEA_FI_SCRD_9,4
+DES_FI_SCRD_SIGN_10,1
+MEA_FI_SCRD_10,4
+DES_FI_SCRD_SIGN_11,1
+MEA_FI_SCRD_11,4
+DES_FI_SCRD_SIGN_12,1
+MEA_FI_SCRD_12,4
+DES_FI_SCRD_SIGN_13,1
+MEA_FI_SCRD_13,4
+DES_FI_SCRD_SIGN_14,1
+MEA_FI_SCRD_14,4
+DES_FI_SCRD_SIGN_15,1
+MEA_FI_SCRD_15,4
+DES_FI_SCRD_SIGN_16,1
+MEA_FI_SCRD_16,4
+DES_FI_SCRD_SIGN_17,1
+MEA_FI_SCRD_17,4
+DES_FI_SCRD_SIGN_18,1
+MEA_FI_SCRD_18,4
+DES_FI_SCRD_SIGN_19,1
+MEA_FI_SCRD_19,4
+DES_FI_SCRD_SIGN_20,1
+MEA_FI_SCRD_20,4
+AUTH-OTB-MSG-IND ,1
+AUTH-OTB-MSG-AMT-SIGN ,1
+AUTH-OTB-MSG-AMT ,11
+AUTH-OTB-CH-TYPE ,1
+FLG_MSG_NOTIFY,1
+DES_OTA_MSG_AMT_SIGN,1
+COD_MSG_AMT,13
+FLG_SMS_GEN_BANK_IND,1
+DES_TKN_CRDS_COUNT,2
+COD_SUPRS_TKN,1
+Test Digits 4 ,4
+SDG2-OPT-OUT-FLAG,1
+DT-LST-SDG2-OPT-OUT-CHG,8
+FOREX-OVRD-IND ,1
+FOREX-OVRD-AMT-PCT-SIGN ,1
+FOREX-OVRD-AMT-PCT ,7
+FOREX-OVRD-CARD-SCHEME ,2
+FOREX-OVRD-UL-PERC-SIGN ,1
+FOREX-OVRD-UL-PERC-AMT ,7
+FOREX-FEE-WV-ST-DT ,8
+FOREX-FEE-WV-EXP-DT ,8
+CLIENT-REF-ID ,40
+DAT-FST-PRM-CARD-ACT-DT,8
+DAT-DD-EFF-DATE-EFF-DT,8
+COD-OVLM-EXCL-BAL-SIGN,1
+AMT-OVLM-EXCL-BAL,17
+DAT-LAST-OVLM-CHG,8
+DAT-PMT-REV-DUTY-ARSN-DT,8
+DAT-PMT-REV-NOSIA-PRC-DT,8
+COD-NO-FEE-ON-PTP,1
+FLG-PH-FLAG,1
+COD-PH-TERM,1
+DAT-PH-START-DATE,8
+DAT-PH-END-DATE,8
+COD-PH-CYC-CNT,2
+COD-RSK-IND,2
+DAT-RISK-IND-DATE,8
+DESCARTADO-BAU-1,3
+DESCARTADO-BAU-2,8
+DESCARTADO-BAU-3,1
+COD-RSK-LVL,2
+DAT-RSK-LVL-DATE,8
+COD-RSK-RSN,3
+DAT-RSK-RSN-DATE,8
+COD-COLL-LTR-IND,1
+COD-MANDATE-FLAG,1
+COD-MANDATE-SOURCE,1
+COD-ATM-ENT-NUM,5
+COD-ACCT-USURY-CAP,7
+AMT-ACCT-RPD-SG,1
+AMT-ACCT-RPD,9
+FILLER 4,125
+COD-INST-DECI-STATUS,1
+DAT-INST-DECI-DATE,8
+FILLER 5,395
+PMT-SKIP-TERM,2
+PMT-SKIP-START-DATE,8
+PMT-SKIP-END-DATE,8
+Des_FILLER_1,174
+Waive PIN Change Fee,1
+Statement Notification Indicator,1
+Account Cancellation Date,8
+T&C Effective Date,8
+New Account Inactive Cancellation Date,8
+Installment billing retail credit limit flag,1
+Installment billing cash limit flag,1
+IB-RETAIL-LIMIT-SIGN,1
+Installment billing retail limit,13
+IB-CASH-LIMIT-SIGN,1
+Installment billing cash limit,13
+IB-RETAIL-BAL-SIGN,1
+Installment billing retail balance,13
+IB-CASH-BAL-SIGN,1
+Installment billing cash balance,13
+IB-RETAIL-AVAIL-SIGN,1
+Installment billing retail available,13
+IB-CASH-AVAIL-SIGN,1
+Installment billing cash available,13
+IB-RET-AMT-OUTSTAUTH-SIGN,1
+Installment billing retail authorization,13
+IB-CASH-AMT-OUTSTAUTH-SIGN,1
+Installment billing cash authorization,13
+IB-RET-AMT-DISPUITEMS-SIGN,1
+Installment billing retail amount disputes,7
+IB-CASH-AMT-DISPUITEMS-SIGN,1
+Installment billing cash amount disputes,7
+IB-RET-NBR-OUTSTAUTH -SIGN ,1
+Installment billing retail authorization number,3
+IB-CASH-NBR-OUTSTAUTH-SIGN,1
+Installment billing cash authorization number,3
+IB-RET-NBR-DISPUITEMS-SIGN,1
+Installment billing retail disputes number,3
+IB-CASH-NBR-DISPUITEMS-SIGN,1
+Installment billing cash disputes number,3
+IB-AMT-MEMO-DB-SIGN,1
+Installment billing memo debit amount,7
+IB-NBR-MEMO-DB SIGN,1
+Installment billing memo debit number,3
+IB-ISS-CASH-PLANSIGN,1
+Installment billing cash plan,5
+IB-ISS-RETAIL-PLANSIGN,1
+Installment billing retail plan,5
+Installment billing cash available flag,1
+IB-CASH-AVAIL-CRAMT -SIGN,1
+Installment billing cash available credit amount,7
+IB-CASH-AVAIL-CR-PCT -SIGN,1
+Installment billing cash PCT,3
+Installment billing retail available flag,1
+IB-RETAIL-AVAIL-CRAMT-SIGN,1
+Installment billing retail pct,7
+IB-RETAIL-AVAIL-CRPCT-SIGN,1
+Installment billing retail PCT,3
+Installment billing anticipated due date,8
+IB-ANTCP-PMT-AMTSIGN,1
+Installment billing anticipated payment amount,7
+FGN-CSH-PLAN-SIGN,1
+Foreign cash plan,5
+FGN-RTL-PLAN-SIGN,1
+Foreign retail plan,5
+Foreign fee table,3
+Foreign Fee Start Date,8
+Foreign Fee expiry Date,8
+Blacklist Flag,1
+FGN-CURR-BAL-SIGN,1
+Foreign currency balance,17
+LCL-CURR-BAL-SIGN,1
+Local currency balance,17
+FGN-CASH-BAL-SIGN,1
+Foreign cash balance,17
+LCL-CASH-BAL-SIGN,1
+Local cash balance,17
+FGN-PMT-CTD-SIGN,1
+Foreign currency payment amount,17
+LCL-PMT-CTD-SIGN,1
+Local currency payment amount,17
+BILLED-BAL-SIGN,1
+Billed balance,13
+Waive Mora Interest,1
+INT BEG DUE DATE,8
+NPA Status,1
+Shadow Credit Limit Sign,1
+Shadow Credit Limit,17
+Shadow Credit Limit Date,8
+Highest Overlimit Sign,1
+Highest Overlimit Amount,17
+Highest Overlimit Date,8
+Available Loan Over Credit Limit Sign,1
+Available Loan Over Credit Limit,17
+Moto Amount Sign,1
+Moto Amount Threshold,17
+Moto Number Sign,1
+Moto Number Threshold,9
+Moto Auth Amount Accumulator (Daily) Sign,1
+Moto Auth Amount Accumulator (Daily),17
+Moto Authorizations Count (Daily) Sign,1
+MOTO Authorizations Count (Daily),9
+Moto Authorizations Amount Accumulator (Cyclic) Sign,1
+MOTO Authorizations Amount Accumulator(Cyclic),17
+MOTO Authorization Count (Cyclic) Sign,1
+MOTO Authorization Count(Cyclic),9
+Shadow Credit Limit Flag,1
+Paydown Opt Out Flag,1
+Paydown stage,1
+Original Paydown Terms,2
+Current Paydown Terms,2
+Sign field for paydown Installment Amount,1
+paydown Installment Amount,13
+Sign Field for Total Paydown Balance,1
+Total Paydown Balance,13
+Current Fiscal Cash Transactions,17
+Prior Fiscal Cash Transactions,17
+Current Fiscal Foreign Transactions,17
+Prior Fiscal Foreign Transactions,17
+DD CRD NBR ,16
+DD CRD EXP DATE ,4
+DMP PERCENT IND ,1
+OVLM CHG CTR ,2
+OVLM WVE CYC ,2
+SPND CAP IND ,1
+STATEMENT OVERLIMIT PROXY ALERT ,1
+OVERLIMIT PAY ALERT ,1
+AMT LTD INT PAID SIGN ,1
+AMT LTD INT PAID ,17
+LTD BILLED INT SIGN ,1
+LTD BILLED INT ,17
+SUSPENSE STATUS ,1
+SUSPENSE STATUS PREV,1
+DATE SUSPENSE STATUS,8
+SUSPENSE WAIVER FLAG ,1
+AUTH-EPP-OPT ,1
+TOT-ACTV-AUTH-EPPSIGN,1
+TOT-ACTV-AUTH-EPP ,3
+WV INSUFF FUND FEE ,1
+TMP-FXD-PMT-MTHD ,1
+TMP-FXD-PMT-AMTSIGN,1
+TMP-FXD-PMT-AMT ,17
+TMP-FXD-PMT-PCTSIGN,1
+TMP-FXD-PMT-PCT ,7
+TMP-FXD-PMT-MTHDEXP,8
+PD36 Auto Cure Flag,1
+PD36 Arrangement,1
+PD36 Arrangement Date,8
+ATM-PCKG-CTR-SEC,2
+Contactless Restriction Indicator,1
+ATM Restriction Indicator,1
+Last date to Authorize,8
+FAS DEFAULT OVLM PCT SIGN,1
+FAS DEFAULT OVLM PCT,3
+NON EPP PLAN BAL SIGN,1
+NON EPP PLAN BAL,17
+RT CHG FRZ OVRD,1
+BBR FREEZE FLAG,1
+BBR-FREEZE-IND,1
+BBR-IND-DT,8
+BASE-RT-OVRD-SIGN,1
+BASE-RT-OVRD,7
+FPP- FPP-GT-SAR-RATE-SIGN  ,1
+FPP-GOTO-SAR-RATE,7
+RETAIL-GT-SAR-RATE-SIGN,1
+RETAIL-GOTO-SAR-RATE,7
+CASH-GT-SAR-RATE-SIGN,1
+CASH-GOTO-SAR-RATE,7
+BT-GT-SAR-RATE-SIGN,1
+BT-GOTO-SAR-RATE,7
+MT- GT-SAR-RATE-SIGN,1
+MT-GOTO-SAR-RATE,7
+NSF RTN CNT,2
+NSF PREV RTN CNT,2
+NSF RESET IND,1
+NSF RESET DATE,8
+TRANSACTOR/REVOLVER STATUS,1

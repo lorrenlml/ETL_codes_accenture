@@ -1,0 +1,17 @@
+
+SCRIPT ConvertFixedToDelimiter.py converts a positional file to a delimited file using a plain text file with field length
+
+FOLDER interface-schema-field_length
+Contains plain text files to use as INPUT for ConvertFixedToDelimiter.py
+Each .csv file is for a particular interface and specifies where to place the delimiter "|"
+This files are generated from .csv file ic_field_len_interface.csv in FOLDER interface_contract-schemas
+
+FOLDER schema_format-converters
+Contains scripts to generate plain text files that are stored in FOLDER interface-schema-field_length
+- ic_schemas_to_interface_csv recieves a csv file with cleaned data from INTERFACE CONTRACT (IC) excel file
+- jsoncopy_to_length_csv recieves a json file from FOLDER copybooks-json
+
+
+USAGE
+python positional_to_delimited_cascade.py -env dev
+python positional_to_delimited_cascade.py -env prod

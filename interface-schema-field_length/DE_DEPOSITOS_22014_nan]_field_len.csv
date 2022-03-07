@@ -1,0 +1,21 @@
+Número Interno Cliente,10
+Código de Producto,5
+Contrato en del depósito(IBAN),24
+Situación del contrato,2
+Razón del estado,30
+Fecha del estado,8
+Fecha de Contratación,8
+Moneda,3
+Fecha Última renovación,8
+Fecha última liquidación de intereses,8
+Intereses Liquidados,17
+Intereses Devengados No liquidados,17
+Importe del depósito,17
+TAE,12
+Tipo Interés Nominal,12
+Cuenta asociada,24
+Referencia Solicitud,18
+Renovación automática (SI/NO),2
+Número de renovaciones del depósito,3
+Plazo,4
+Fecha de Vencimiento,8

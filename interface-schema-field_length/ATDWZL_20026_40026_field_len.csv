@@ -1,0 +1,69 @@
+Org,3
+Account,16
+History Date,8
+History Time,6
+Record Type,1
+Alternate Org,3
+Case Number,11
+Alternate History Date,8
+Alternate History Time,6
+Status,1
+Action ASM Org,3
+Action Rep,3
+Action Code,4
+Action Description,20
+Purge Date,8
+Referral ASM Org,3
+Referral Rep,3
+Filler,7
+Transcript Date,8
+Transcript Amount,11
+Transcript Store number,9
+Transcript Department,4
+Transcript Ticket,15
+Transcript Reference number,24
+Transcript Reversal Date,8
+Transcript Reversal Time,6
+Transcript Letter Id,3
+Transcript Letter Org,3
+Transcript Card number,16
+Transcript Card Sequence number,5
+Transcript Purchase Order number,16
+Transcript R Reference number,15
+Filler,62
+ Effective Date,8
+ Amount,11
+ Plan number,5
+ Plan Sequence number,2
+Department number,4
+Authorization number,6
+Store number,9
+SKU number,9
+Clerk,12
+Approval decline,1
+Letter id,3
+Letter org,3
+Monetary type,1
+Points program,1
+Points amount,9
+Card number,16
+Card Sequence number,5
+Purchase Order number,16
+R Reference number,15
+Ticket number,15
+Insurance,2
+Filler,52
+Non Mon Reversal Date,8
+ Non Mon Reversal Time,6
+Non Mon Letter Id,3
+Non Mon Letter Org,3
+Non Mon Card number,16
+Non Mon Card Sequence number,5
+Filler,164
+Memo Line 1,60
+Memo Line 2,60
+Memo Line 3,60
+Memo Line 4,60
+Memo Line 5,60
+Filler,80
+End of Detail record indicator,1
