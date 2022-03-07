@@ -24,10 +24,12 @@ def main(**kwargs):
     df_resultado = []
     # Create a schema for the dataframe
     schema = StructType([
+        StructField('type', StringType(), True),
         StructField('interface', StringType(), True),
         StructField('partition', StringType(), True),
         StructField('operation', StringType(), True),
         StructField('status', StringType(), True),
+        StructField('action_realized', StringType(), True),
         StructField('error', StringType(), True),
         StructField('date_gbr', StringType(), True),
         StructField('count', StringType(), True)
@@ -169,7 +171,7 @@ def main(**kwargs):
                     except Exception as e:
                         error = "Falta Create External"
                         date_gbr = str(datetime.now())
-                        resultado = (interface, "*", "No hay CREATE EXTERNAL para esta interface", "KO", error, date_gbr, "*") 
+                        resultado = ("ET", interface, "*", "No hay CREATE EXTERNAL para esta interface", "KO", "NULL", error, date_gbr, "*") 
                         df_resultado.append(resultado)
                         break
 
@@ -206,14 +208,14 @@ def main(**kwargs):
                     #status por defecto en caso de que no haya problemas en la ejecución
                     error = "OK"
                     date_gbr = str(datetime.now())
-                    resultado = (interface, "*","CREATE EXTERNAL {}".format(i-1), "OK", "No hay error", date_gbr, "*") 
+                    resultado = ("ET", interface, "*","CREATE EXTERNAL {}".format(i-1), "OK", "NULL", "No hay error", date_gbr, "*") 
                     df_resultado.append(resultado)
                     
                     
                 except Exception as e:
                     error = str(e)[:24]
                     date_gbr = str(datetime.now())
-                    resultado = (interface, "*","CREATE EXTERNAL {}".format(i-1), "KO", error, date_gbr, "*") 
+                    resultado = ("ET", interface, "*","CREATE EXTERNAL {}".format(i-1), "KO", "NULL", error, date_gbr, "*") 
                     df_resultado.append(resultado)
                     break
                 
@@ -246,14 +248,14 @@ def main(**kwargs):
                             print("ALTER EXITOSO")
                             error = "Datos no cargados en tabla, fichero vacio"
                             date_gbr = str(datetime.now())
-                            resultado = (interface, date_part, "ALTER TABLE", "OK", error, date_gbr, str(int(count_records_def)))
+                            resultado = ("ET", interface, date_part, "ALTER TABLE", "OK", "NULL", error, date_gbr, str(int(count_records_def)))
                             df_resultado.append(resultado)
 
                         else:
                             error = 'OK'
                             print("ALTER EXITOSO")
                             date_gbr = str(datetime.now())
-                            resultado = (interface, date_part, "ALTER TABLE", 'OK', "No hay error", date_gbr, str(int(count_records_def))) 
+                            resultado = ("ET", interface, date_part, "ALTER TABLE", 'OK', "NULL", "No hay error", date_gbr, str(int(count_records_def))) 
                             df_resultado.append(resultado)
                     
 
@@ -261,7 +263,7 @@ def main(**kwargs):
                     except Exception as e:
                         error = "ALTER mal implementado o particiones ya introducidas"
                         date_gbr = str(datetime.now())
-                        resultado = (interface, date_part, "ALTER TABLE", "KO", error, date_gbr, "*")
+                        resultado = ("ET", interface, date_part, "ALTER TABLE", "KO", "NULL", error, date_gbr, "*")
                         df_resultado.append(resultado)
                         pass
                 
@@ -279,7 +281,7 @@ def main(**kwargs):
         except Exception as e:
             error = "Lista de fechas vacia"
             date_gbr = str(datetime.now())
-            resultado = (interface, "*", "No hay ficheros de datos en origen para esta interface", "KO", error, date_gbr, "*") 
+            resultado = ("ET", interface, "*", "No hay ficheros de datos en origen para esta interface", "KO", "NULL", error, date_gbr, "*") 
             df_resultado.append(resultado)
             pass
 

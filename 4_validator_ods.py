@@ -162,7 +162,7 @@ def main(**kwargs):
                 if i == 1: #Si se esta cogiendo el primer create y falla, habra que generar un reporte de error
                     error = str(e)
                     date_gbr = str(datetime.now())
-                    resultado_n = ("ODS", interface, "*","No hay CREATE ODS para esta interface", "KO", "*","*", date_gbr, "*")
+                    resultado_n = ("ODS", interface, "*","No hay CREATE ODS para esta interface", "KO", "*","Falta CREATE ODS", date_gbr, "*")
                     df_resultado_n.append(resultado_n)
                     break
                 else: #Si se esta intentando coger otro create y no hay, no pasa nada
@@ -254,7 +254,7 @@ def main(**kwargs):
                 if r == 1: #Si se esta cogiendo el primer insert habra que generar un reporte de error
                     error = str(e)
                     date_gbr = str(datetime.now())
-                    resultado_n = ("ODS", interface, "*","No hay INSERT para esta interface", "KO", "*","*", date_gbr, "*")
+                    resultado_n = ("ODS", interface, "*","No hay INSERT para esta interface", "KO", "*","Falta INSERT", date_gbr, "*")
                     df_resultado_n.append(resultado_n)
                     break
                 else: #Si se esta intentando coger otro insert y no hay, no pasa nada
@@ -267,7 +267,7 @@ def main(**kwargs):
                     #PROCESO DE LANZAR INSERTS
                     for k in range(len(inserts)):
                         if k not in creates_failed:
-                            if len(partition) == 0:
+                            if len(partition) == 0: #Si no se quiere trabajar con una sola particion
                                 new_dates = spark.sql('select (dat_exec_year || dat_exec_month || dat_exec_day) as exec_date from {}.et_{}'.format(SCHEMA_PRUEBA_EXT, interface)). \
                                 distinct().rdd.flatMap(lambda x: x).collect()
                                 #Esta variable vendra tambien con las particiones que solo tienen metida la cabecera
@@ -305,60 +305,61 @@ def main(**kwargs):
 
                                 #Se hace un conteo de los registros que hay en la tabla external de la particion en cuestion
                                 #Esto sera para evitar hacer inserts de tablas en las que solo haya cabecera
+                                
                                 count_records_ext = spark.sql("SELECT count(dat_exec_year) from {}.et_{} where dat_exec_year={} and dat_exec_month={} and dat_exec_day={}".format(SCHEMA_PRUEBA_EXT, interface, year,month,day)).take(1)
                                 count_records_ext_def = (str(count_records_ext[0])).replace("Row(count(dat_exec_year)=","").replace(")","") 
                                 #KILL queued applications that we don´t need
                                 os.system('''for i in `yarn application -list | grep -w root | grep -E -o application_[0-9,_]*`; do yarn application -kill $i; done''')
-                                if int(count_records_ext_def) == 2: #Ya que en la tabla external, si hay 2 registros significa que esta vacia
-                                    print("INSERT {} {}".format(cont2, date_part) + " EXITOSO")
+                                #if int(count_records_ext_def) == 2: #Ya que en la tabla external, si hay 2 registros significa que esta vacia
+                                #    print("INSERT {} {}".format(cont2, date_part) + " EXITOSO")
+                                #    date_gbr = str(datetime.now())
+                                #    resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "OK", "INSERT NO EJECUTADO", "FICHERO ORIGEN VACIO, CON CABECERAS", date_gbr, "*")
+                                #    df_resultado_n.append(resultado_n)
+
+                                #else:
+                                #Variable provisional con el insert para luego poder volver a introducir los datos buscados en el insert original, 
+                                #ya que si no tendrian siempre las variables de la primera fecha/particion 
+                                insert_prov = inserts[k]
+
+                                #Insercion de los campos que nos interesan, ya que en el insert vienen por defecto como variables a introducir
+                                insert_prov = insert_prov.replace("'${Vinsert_DATE}'", "'{}' as insert_date".format(insert_date))
+                                if latest == 1:
+                                    insert_prov = insert_prov.replace("'${VSNAPSHOT}'", "'LATEST'")
+                                else:
+                                    insert_prov = insert_prov.replace("'${VSNAPSHOT}'", "'HISTORIC'")
+                                insert_prov = insert_prov.replace("'${VODATE}'", "{}".format(date_part))
+                                insert_prov = insert_prov.replace("'${VCOUNTRY}'", "'{}'".format(country))
+
+                                if "${VODATE_YYYY}" in insert_prov: 
+                                    insert_prov = insert_prov.replace('${VODATE_YYYY}', year)
+                                    insert_prov = insert_prov.replace('${VODATE_MM}', month)
+                                    insert_prov = insert_prov.replace('${VODATE_DD}', day)
+
+                                #Ejecucion de la querie desde hive, ya que con spark daba problemas el insert
+                                #El problema era debido al cast que hay que hacer a la hora de hacer el insert y que no tenemos
+                                #Este cast lo hace hive por defecto y por eso recurrimos a lanzar la querie desde aqui
+                                os.system('hive -e "{}";'.format(insert_prov))
+                                count_records = spark.sql("SELECT count(insert_date) from {}.ods_{} where exec_date = {}".format(SCHEMA_PRUEBA, interface, date_part)).take(1)
+                                #En caso de que encontremos datos en la particion en cuestion de la tabla external
+                                count_records_def = (str(count_records[0])).replace("Row(count(insert_date)=","").replace(")","")
+
+
+                                if int(count_records_def) == 0:
+                                    print("INSERT {} {}".format(cont2, date_part) + " FALLIDO")
                                     date_gbr = str(datetime.now())
-                                    resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "OK", "INSERT NO EJECUTADO", "FICHERO ORIGEN VACIO, CON CABECERAS", date_gbr, "*")
+                                    resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "KO", "INSERT EJECUTADO", "SELECT NO DEVUELVE NADA INSERT ERRONEO", date_gbr, "*")
                                     df_resultado_n.append(resultado_n)
 
                                 else:
-                                    #Variable provisional con el insert para luego poder volver a introducir los datos buscados en el insert original, 
-                                    #ya que si no tendrian siempre las variables de la primera fecha/particion 
-                                    insert_prov = inserts[k]
 
-                                    #Insercion de los campos que nos interesan, ya que en el insert vienen por defecto como variables a introducir
-                                    insert_prov = insert_prov.replace("'${Vinsert_DATE}'", "'{}' as insert_date".format(insert_date))
-                                    if latest == 1:
-                                        insert_prov = insert_prov.replace("'${VSNAPSHOT}'", "'LATEST'")
-                                    else:
-                                        insert_prov = insert_prov.replace("'${VSNAPSHOT}'", "'HISTORIC'")
-                                    insert_prov = insert_prov.replace("'${VODATE}'", "{}".format(date_part))
-                                    insert_prov = insert_prov.replace("'${VCOUNTRY}'", "'{}'".format(country))
+                                    print("INSERT {} {}".format(cont2, date_part) + " EXITOSO")
+                                    date_gbr = str(datetime.now())
+                                    resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "OK", "INSERT EJECUTADO", "SELECT DEVUELVE PARTICION CON DATOS", date_gbr,str(int(count_records_def)))
+                                    df_resultado_n.append(resultado_n)
+                                    latest += 1
 
-                                    if "${VODATE_YYYY}" in insert_prov: 
-                                        insert_prov = insert_prov.replace('${VODATE_YYYY}', year)
-                                        insert_prov = insert_prov.replace('${VODATE_MM}', month)
-                                        insert_prov = insert_prov.replace('${VODATE_DD}', day)
-
-                                    #Ejecucion de la querie desde hive, ya que con spark daba problemas el insert
-                                    #El problema era debido al cast que hay que hacer a la hora de hacer el insert y que no tenemos
-                                    #Este cast lo hace hive por defecto y por eso recurrimos a lanzar la querie desde aqui
-                                    os.system('hive -e "{}";'.format(insert_prov))
-                                    count_records = spark.sql("SELECT count(insert_date) from {}.ods_{} where exec_date = {}".format(SCHEMA_PRUEBA, interface, date_part)).take(1)
-                                    #En caso de que encontremos datos en la particion en cuestion de la tabla external
-                                    count_records_def = (str(count_records[0])).replace("Row(count(insert_date)=","").replace(")","")
-
-
-                                    if int(count_records_def) == 0:
-                                        print("INSERT {} {}".format(cont2, date_part) + " FALLIDO")
-                                        date_gbr = str(datetime.now())
-                                        resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "KO", "INSERT EJECUTADO", "SELECT NO DEVUELVE NADA INSERT ERRONEO", date_gbr, "*")
-                                        df_resultado_n.append(resultado_n)
-
-                                    else:
-
-                                        print("INSERT {} {}".format(cont2, date_part) + " EXITOSO")
-                                        date_gbr = str(datetime.now())
-                                        resultado_n = ("ODS", interface, date_part, "INSERT {}".format(cont2), "OK", "INSERT EJECUTADO", "SELECT DEVUELVE PARTICION CON DATOS", date_gbr,str(int(count_records_def)))
-                                        df_resultado_n.append(resultado_n)
-                                        latest += 1
-
-                                    #KILL queued applications that we don´t need
-                                    os.system('''for i in `yarn application -list | grep -w root | grep -E -o application_[0-9,_]*`; do yarn application -kill $i; done''')
+                                #KILL queued applications that we don´t need
+                                os.system('''for i in `yarn application -list | grep -w root | grep -E -o application_[0-9,_]*`; do yarn application -kill $i; done''')
 
                                 # Convert list to RDD
                                 rdd_n = spark.sparkContext.parallelize(df_resultado_n)
@@ -385,7 +386,7 @@ def main(**kwargs):
                                 df_n.coalesce(1).write.option("header", True).mode("overwrite").option("delimiter","|").format("csv").save("s3://{}/validator/report_ODS/report_ODS_{}_latest".format(bucket_queries, insert_date))
                         cont2 += 1
                 except Exception as e:
-                    error = str(e)[1:46]
+                    error = str(e)[:24]
                     print(error)
                     date_gbr = str(datetime.now())
                     resultado_n = ("ODS", interface, "*","INSERT", "KO", "INSERT NO EJECUTADO", error, date_gbr, "*")
